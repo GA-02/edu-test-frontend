@@ -1,0 +1,26 @@
+.page__tests {
+    .site__content {
+        .search__container {
+            svg {
+                position: absolute;
+                padding-top: 18px;
+                padding-left: 15px;
+                width: 18px;
+                fill: gray;
+            }
+            input[type="search"] {
+                font-size: 20px;
+                padding: 15px;
+                padding-left: 40px;
+
+                border-radius: 5px;
+                border: 1px solid rgb(243, 243, 243);
+                width: 100%;
+
+                display: block;
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+    }
+}

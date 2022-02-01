@@ -1,0 +1,62 @@
+header {
+    width: 100%;
+    .site__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid gray;
+    }
+
+    .site__logo {
+        img {
+        }
+    }
+
+    .menu {
+        display: flex;
+        color: #a5a5a5;
+        margin: 5px 0;
+
+        .menu__item {
+            padding: 20px;
+            margin-left: 50px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 15px;
+            cursor: pointer;
+
+
+            &:last-child {
+                background-color: #383d90; //#277bfd
+                color: white;
+
+                &:hover {
+                    color: white;
+                    background-color: #2f37c9;
+                }
+            }
+
+            &:hover {
+                color: black;
+            }
+
+            a {
+                color: #a5a5a5;
+                text-decoration: none;
+                &:hover {
+                    color: black;
+                }
+            }
+        }
+    }
+
+    .link__icon {
+        width: 25px;
+        height: 25px;
+        fill: white;
+
+        &:hover {
+            fill: rgb(248, 146, 146);
+        }
+    }
+}

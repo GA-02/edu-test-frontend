@@ -1,0 +1,46 @@
+.page__lectures .site__content .search__container svg {
+  position: absolute;
+  padding-top: 18px;
+  padding-left: 15px;
+  width: 18px;
+  fill: gray;
+}
+
+.page__lectures .site__content .search__container input[type="search"] {
+  font-size: 20px;
+  padding: 15px;
+  padding-left: 40px;
+  border-radius: 5px;
+  border: 1px solid #f3f3f3;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.page__lectures .site__content .chapter .title {
+  margin-top: 25px;
+  width: 100%;
+  color: darkslategray;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.page__lectures .site__content .chapter .lectures {
+  margin-left: 30px;
+}
+
+.page__lectures .site__content .chapter .lectures a {
+  color: blue;
+  font-size: 20px;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.page__lectures .site__content .chapter .lectures a:hover {
+  color: red;
+}
+
+.page__lectures .site__content .chapter .lectures a .id {
+  color: black;
+}
