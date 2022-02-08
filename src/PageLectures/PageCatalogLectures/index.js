@@ -9,25 +9,25 @@ class PageMain extends React.Component {
             // {'name' : "Тест на знание классов", 'countQuestion': 7, 'timeOnPass': 30}
             {
                 'idChapter': 1, 'nameChapter': 'Основы', 'lecturesInChapter': [
-                    { 'name': 'Структура программы', 'link': '#' },
-                    { 'name': 'Переменные и константы', 'link': '#' },
-                    { 'name': 'Литералы', 'link': '#' },
-                    { 'name': 'Типы данных', 'link': '#' }
+                    { 'name': 'Структура программы', 'idLecture': 1 },
+                    { 'name': 'Переменные и константы', 'idLecture': 1 },
+                    { 'name': 'Литералы', 'idLecture': 1 },
+                    { 'name': 'Типы данных', 'idLecture': 1 }
                 ]
             },
             {
                 'idChapter': 2, 'nameChapter': 'Классы, структуры и пространство имен', 'lecturesInChapter': [
-                    { 'name': 'Классы и объекты', 'link': '#' },
-                    { 'name': 'Конструкторы', 'link': '#' },
-                    { 'name': 'Структуры', 'link': '#' },
-                    { 'name': 'Пространство имен', 'link': '#' }
+                    { 'name': 'Классы и объекты',' idLecture': 1 },
+                    { 'name': 'Конструкторы', 'idLecture': 1 },
+                    { 'name': 'Структуры', 'idLecture': 1 },
+                    { 'name': 'Пространство имен', 'idLecture': 1 }
                 ]
             },
             {
                 'idChapter': 3, 'nameChapter': 'Объектно-ориентированное программирование', 'lecturesInChapter': [
-                    { 'name': 'Наследование', 'link': '#' },
-                    { 'name': 'Преобразование типов', 'link': '#' },
-                    { 'name': 'Виртуальные методы и свойства', 'link': '#' }
+                    { 'name': 'Наследование', 'idLecture': 1 },
+                    { 'name': 'Преобразование типов', 'idLecture': 1 },
+                    { 'name': 'Виртуальные методы и свойства', 'idLecture': 1 }
                 ]
             }
         ]
@@ -45,7 +45,7 @@ class PageMain extends React.Component {
                             <div className="title">{item.idChapter}. {item.nameChapter}</div>
                             {item.lecturesInChapter.map((itemLecture, index) =>
                                 <div className='lectures'>
-                                    <a href={itemLecture.link}>
+                                    <a href={"/lecture/" + String(itemLecture.idLecture)}>
                                         <span className='id'>{item.idChapter}.{index+1}</span> {itemLecture.name}
                                         </a>
                                 </div>)}

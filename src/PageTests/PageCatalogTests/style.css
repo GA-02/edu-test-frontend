@@ -1,4 +1,5 @@
-.page__tests .site__content .search__container svg {
+@charset "UTF-8";
+.page__tests__catalog .site__content .search__container svg {
   position: absolute;
   padding-top: 18px;
   padding-left: 15px;
@@ -6,7 +7,7 @@
   fill: gray;
 }
 
-.page__tests .site__content .search__container input[type="search"] {
+.page__tests__catalog .site__content .search__container input[type="search"] {
   font-size: 20px;
   padding: 15px;
   padding-left: 40px;
@@ -16,4 +17,53 @@
   display: block;
   margin-left: auto;
   margin-right: 0;
+}
+
+.page__tests__catalog .site__content .test {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid;
+  -o-border-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%) 1;
+     border-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%) 1;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 15px 0;
+}
+
+.page__tests__catalog .site__content .test .info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.page__tests__catalog .site__content .test .info .title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #383d90;
+  margin-bottom: 5px;
+}
+
+.page__tests__catalog .site__content .test .info .categories {
+  color: gray;
+}
+
+.page__tests__catalog .site__content .test .info .time {
+  color: #910aff;
+}
+
+.page__tests__catalog .site__content .test .info .time::before {
+  color: darkslategray;
+  content: "время на прохождение: ";
+}
+
+.page__tests__catalog .site__content .test .info .question__count::before {
+  content: 'количество вопросов: ';
+}
+
+.page__tests__catalog .site__content .test button {
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  border: 1px solid gray;
 }

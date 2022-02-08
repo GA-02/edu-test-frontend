@@ -10,6 +10,7 @@ class PageMain extends React.Component {
 
     render() {
 
+        document.title = 'Главная';
         return (
             <div className='page__main'>
                 <div className="site__content">

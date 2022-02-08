@@ -1,4 +1,4 @@
-.page__tests {
+.page__tests__catalog {
     .site__content {
         .search__container {
             svg {
@@ -21,6 +21,45 @@
                 margin-left: auto;
                 margin-right: 0;
             }
+        }
+        .test {
+            display: flex;
+            border: 1px solid ;
+            border-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%) 1;
+            border-radius: 50%;
+            padding: 15px;
+            .info {
+                flex: 1;
+                .title {
+                    font-weight: 700;
+                    font-size: 20px;
+                    color: #383d90;
+                    margin-bottom: 5px;
+                }
+                .categories {
+                    color: gray;
+                }
+                .time {
+                    color: rgb(145, 10, 255);
+                }
+                .time::before {
+                    color: darkslategray;
+                    content: "время на прохождение: ";
+                }
+                .question__count{
+
+                }
+                .question__count::before{
+                    content: 'количество вопросов: ';
+                }
+            }
+            button {
+                width: 300px;
+                height: 80px;
+                border-radius: 5px;
+                border: 1px solid gray;
+            }
+            margin: 15px 0;
         }
     }
 }
