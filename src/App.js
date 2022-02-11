@@ -5,6 +5,7 @@ import PageMain from './PageMain';
 import PageCatalogLectures from './PageLectures/PageCatalogLectures';
 import PageReadLectures from './PageLectures/PageReadLectures';
 import PageAdmin from './PageAdmin';
+import PageAdminUsers from './PageAdmin/PageAdminUsers';
 import PageCatalogTests from './PageTests/PageCatalogTests';
 import PageProfile from './PageProfile';
 import PageError404 from './PageError404';
@@ -21,6 +22,7 @@ function App() {
           <Route  path='/lectures' element={<PageCatalogLectures />} />
           <Route  path='/lecture/:id' element={<PageReadLectures />} />
           <Route  path='/admin' element={<PageAdmin />} />
+          <Route  path='/admin/users' element={<PageAdminUsers />} />
           <Route  path='/tests' element={<PageCatalogTests />} />
           <Route  path='/profile' element={<PageProfile />} />
           <Route path="*" element={<PageError404 />} />

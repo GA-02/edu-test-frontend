@@ -3,6 +3,10 @@ import './style.css';
 
 class PageMain extends React.Component {
 
+    LogOutFromAccount(){
+        localStorage.clear();
+        document.location.href = '/';
+    }
 
     render() {
         document.title='Профиль';
@@ -31,6 +35,7 @@ class PageMain extends React.Component {
                 <div className="account__control">
                     <button>Поменять пароль</button>
                     <button>Поменять почту</button>
+                    <button onClick={this.LogOutFromAccount}>Выйти с аккаунта</button>
 
                     {userData.levelAccess > 10 ? <a href='/admin'><button>Перейти в админ-панель</button></a> : <></>}
 

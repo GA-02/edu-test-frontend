@@ -1,5 +1,28 @@
-.page__tests {
+.page__lecture_read {
     .site__content {
+        .title{
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
 
+        .subsection{
+            margin-left: 15px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .text{
+            text-align: justify;
+            text-indent: 15px;
+        }
+
+        .code{
+            margin: 10px 0px;
+            background-color: #f7f4f3;
+            padding: 15px;
+        }
     }
 }

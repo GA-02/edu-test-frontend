@@ -1,1 +1,24 @@
-/* No CSS */
+.page__lecture_read .site__content .title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.page__lecture_read .site__content .subsection {
+  margin-left: 15px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.page__lecture_read .site__content .text {
+  text-align: justify;
+  text-indent: 15px;
+}
+
+.page__lecture_read .site__content .code {
+  margin: 10px 0px;
+  background-color: #f7f4f3;
+  padding: 15px;
+}

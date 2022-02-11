@@ -32,16 +32,6 @@ header .menu .menu__item {
   cursor: pointer;
 }
 
-header .menu .menu__item:last-child {
-  background-color: #383d90;
-  color: white;
-}
-
-header .menu .menu__item:last-child:hover {
-  color: white;
-  background-color: #2f37c9;
-}
-
 header .menu .menu__item:hover {
   color: black;
 }
@@ -55,6 +45,25 @@ header .menu .menu__item a:hover {
   color: black;
 }
 
+header .menu .menu__item a:hover mark {
+  color: black;
+}
+
+header .menu .menu__item a mark {
+  color: #383d90;
+  background: none;
+}
+
+header .menu .menu__item.menu__item__profile__register {
+  background-color: #383d90;
+  color: white;
+}
+
+header .menu .menu__item.menu__item__profile__register:hover {
+  color: white;
+  background-color: #2f37c9;
+}
+
 header .link__icon {
   width: 25px;
   height: 25px;
@@ -63,4 +72,144 @@ header .link__icon {
 
 header .link__icon:hover {
   fill: #f89292;
+}
+
+.header__pop-up {
+  z-index: 99;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.83);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+.header__pop-up.header__pop-up_active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header__pop-up .window {
+  position: relative;
+  padding: 10px 25px;
+  width: 250px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.header__pop-up .window svg {
+  position: absolute;
+  right: 10px;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.header__pop-up .window svg line {
+  stroke: gray;
+  stroke-width: 1;
+}
+
+.header__pop-up .window svg:hover line {
+  stroke: black;
+}
+
+.header__pop-up .window .title {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  color: #383d90;
+  font-weight: bold;
+}
+
+.header__pop-up .window input[type="email"],
+.header__pop-up .window input[type="password"],
+.header__pop-up .window input[type="text"] {
+  padding: 6px 12px 8px;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 15px;
+  width: calc(100% - 24px);
+  border: 1px solid #dce1e6;
+  outline: none;
+}
+
+.header__pop-up .window input[type="email"]::-webkit-input-placeholder,
+.header__pop-up .window input[type="password"]::-webkit-input-placeholder,
+.header__pop-up .window input[type="text"]::-webkit-input-placeholder {
+  color: #828282;
+}
+
+.header__pop-up .window input[type="email"]:-ms-input-placeholder,
+.header__pop-up .window input[type="password"]:-ms-input-placeholder,
+.header__pop-up .window input[type="text"]:-ms-input-placeholder {
+  color: #828282;
+}
+
+.header__pop-up .window input[type="email"]::-ms-input-placeholder,
+.header__pop-up .window input[type="password"]::-ms-input-placeholder,
+.header__pop-up .window input[type="text"]::-ms-input-placeholder {
+  color: #828282;
+}
+
+.header__pop-up .window input[type="email"]::placeholder,
+.header__pop-up .window input[type="password"]::placeholder,
+.header__pop-up .window input[type="text"]::placeholder {
+  color: #828282;
+}
+
+.header__pop-up .window input[type="email"]:focus::-webkit-input-placeholder,
+.header__pop-up .window input[type="password"]:focus::-webkit-input-placeholder,
+.header__pop-up .window input[type="text"]:focus::-webkit-input-placeholder {
+  color: #b2b2b2;
+}
+
+.header__pop-up .window input[type="email"]:focus:-ms-input-placeholder,
+.header__pop-up .window input[type="password"]:focus:-ms-input-placeholder,
+.header__pop-up .window input[type="text"]:focus:-ms-input-placeholder {
+  color: #b2b2b2;
+}
+
+.header__pop-up .window input[type="email"]:focus::-ms-input-placeholder,
+.header__pop-up .window input[type="password"]:focus::-ms-input-placeholder,
+.header__pop-up .window input[type="text"]:focus::-ms-input-placeholder {
+  color: #b2b2b2;
+}
+
+.header__pop-up .window input[type="email"]:focus::placeholder,
+.header__pop-up .window input[type="password"]:focus::placeholder,
+.header__pop-up .window input[type="text"]:focus::placeholder {
+  color: #b2b2b2;
+}
+
+.header__pop-up .window input[type="submit"] {
+  display: block;
+  margin: 25px auto;
+  margin-top: 25px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  -webkit-box-shadow: 1px 1px 5px #9b9b9b;
+          box-shadow: 1px 1px 5px #9b9b9b;
+  cursor: pointer;
+  color: white;
+  font-weight: 500;
+  padding: 7px 25px;
+  font-size: 16px;
+  background-color: #383d90;
+}
+
+.header__pop-up .window input[type="submit"]:hover {
+  -webkit-box-shadow: 3px 3px 5px #a0a0a0;
+          box-shadow: 3px 3px 5px #a0a0a0;
+  background-color: #2e3386;
 }

@@ -3,34 +3,57 @@ import './style.css';
 
 class PageMain extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {
+            chapters: []
+        }
+    }
+
+    componentDidMount() {
+        fetch('http://edu-testback-end.com/lectures/GetCatalogLectures.php', {
+            method: "GET"
+        })
+            .then(response => response.json())
+            .then(response => {
+                this.setState(() => {
+                    return {
+                        chapters: response
+                    }});
+
+            })
+            .catch(error => console.log(error))
+    }
 
     render() {
-        let lectures = [
-            // {'name' : "Тест на знание классов", 'countQuestion': 7, 'timeOnPass': 30}
-            {
-                'idChapter': 1, 'nameChapter': 'Основы', 'lecturesInChapter': [
-                    { 'name': 'Структура программы', 'idLecture': 1 },
-                    { 'name': 'Переменные и константы', 'idLecture': 1 },
-                    { 'name': 'Литералы', 'idLecture': 1 },
-                    { 'name': 'Типы данных', 'idLecture': 1 }
-                ]
-            },
-            {
-                'idChapter': 2, 'nameChapter': 'Классы, структуры и пространство имен', 'lecturesInChapter': [
-                    { 'name': 'Классы и объекты',' idLecture': 1 },
-                    { 'name': 'Конструкторы', 'idLecture': 1 },
-                    { 'name': 'Структуры', 'idLecture': 1 },
-                    { 'name': 'Пространство имен', 'idLecture': 1 }
-                ]
-            },
-            {
-                'idChapter': 3, 'nameChapter': 'Объектно-ориентированное программирование', 'lecturesInChapter': [
-                    { 'name': 'Наследование', 'idLecture': 1 },
-                    { 'name': 'Преобразование типов', 'idLecture': 1 },
-                    { 'name': 'Виртуальные методы и свойства', 'idLecture': 1 }
-                ]
-            }
-        ]
+        console.log(this.state.chapters);
+        // let lectures = [
+        //     // {'name' : "Тест на знание классов", 'countQuestion': 7, 'timeOnPass': 30}
+        //     {
+        //         'idChapter': 1, 'nameChapter': 'Основы', 'lecturesInChapter': [
+        //             { 'name': 'Структура программы', 'idLecture': 1 },
+        //             { 'name': 'Переменные и константы', 'idLecture': 1 },
+        //             { 'name': 'Литералы', 'idLecture': 1 },
+        //             { 'name': 'Типы данных', 'idLecture': 1 }
+        //         ]
+        //     },
+        //     {
+        //         'idChapter': 2, 'nameChapter': 'Классы, структуры и пространство имен', 'lecturesInChapter': [
+        //             { 'name': 'Классы и объекты',' idLecture': 1 },
+        //             { 'name': 'Конструкторы', 'idLecture': 1 },
+        //             { 'name': 'Структуры', 'idLecture': 1 },
+        //             { 'name': 'Пространство имен', 'idLecture': 1 }
+        //         ]
+        //     },
+        //     {
+        //         'idChapter': 3, 'nameChapter': 'Объектно-ориентированное программирование', 'lecturesInChapter': [
+        //             { 'name': 'Наследование', 'idLecture': 1 },
+        //             { 'name': 'Преобразование типов', 'idLecture': 1 },
+        //             { 'name': 'Виртуальные методы и свойства', 'idLecture': 1 }
+        //         ]
+        //     }
+        // ]
+        document.title="Лекции";
         return (
             <div className='page__lectures'>
                 <div className="site__content">
@@ -40,13 +63,13 @@ class PageMain extends React.Component {
                         </svg>
                         <input type="search" placeholder='Поиск...' />
                     </div>
-                    {lectures.map(item =>
+                    {this.state.chapters.map((itemChapter, indexChapter) =>
                         <div className="chapter">
-                            <div className="title">{item.idChapter}. {item.nameChapter}</div>
-                            {item.lecturesInChapter.map((itemLecture, index) =>
+                            <div className="title">{indexChapter+1}. {itemChapter.nameChapter}</div>
+                            {itemChapter.lectures.map((itemLecture, indexLecture) =>
                                 <div className='lectures'>
                                     <a href={"/lecture/" + String(itemLecture.idLecture)}>
-                                        <span className='id'>{item.idChapter}.{index+1}</span> {itemLecture.name}
+                                        <span className='id'>{indexChapter+1}.{indexLecture+1}</span> {itemLecture.nameLecture}
                                         </a>
                                 </div>)}
                         </div>)}

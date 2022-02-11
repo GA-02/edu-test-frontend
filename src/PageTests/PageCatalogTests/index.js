@@ -3,16 +3,39 @@ import './style.css';
 
 class PageMain extends React.Component {
 
+    constructor() {
+        super();
+        this.state = {
+            tests: []
+        }
+        document.title = 'Тесты';
+    }
+
+    componentDidMount() {
+        fetch('http://edu-testback-end.com/tests/GetCatalogTests.php', {
+            method: "GET"
+        })
+            .then(response => response.json())
+            .then(response => {
+                this.setState(() => {
+                    return {
+                        tests: response
+                    }});
+
+            })
+            .catch(error => console.log(error))
+    }
+
 
     render() {
 
-        let tests = [
-            { 'name': 'Тест на знание основ C#', 'timeOnTest': 600, 'countQuestion': 5, 'category': ['class', 'construction'] },
-            { 'name': 'События', 'timeOnTest': 3600, 'countQuestion': 103, 'category': ['class', 'construction'] },
-            { 'name': 'Тест на знание конструкций', 'timeOnTest': 1, 'countQuestion': 15, 'category': ['class', 'construction'] },
-            { 'name': 'Тест на знание класс', 'timeOnTest': 14440, 'countQuestion': 7, 'category': ['class', 'construction'] }
+        // let tests = [
+        //     { 'name': 'Тест на знание основ C#', 'timeOnTest': 600, 'countQuestion': 5 },
+        //     { 'name': 'События', 'timeOnTest': 3600, 'countQuestion': 103 },
+        //     { 'name': 'Тест на знание конструкций', 'timeOnTest': 1, 'countQuestion': 15 },
+        //     { 'name': 'Тест на знание класс', 'timeOnTest': 14440, 'countQuestion': 7 }
 
-        ]
+        // ]
         return (
             <div className='page__tests__catalog'>
                 <div className="site__content">
@@ -22,22 +45,16 @@ class PageMain extends React.Component {
                         </svg>
                         <input type="search" placeholder='Поиск...' />
                     </div>
-
-                    {tests.map(item =>
-                        <div className='test'>
-                            <div className="info">
-                            <div className="title">{item.name}</div>
-                            <div className="categories">{item.category.join(', ')}</div>
-                            <div className="time"> {new Intl.NumberFormat('ru-RU', {
-                                style: 'unit',
-                                unit: 'second',
-                                unitDisplay: 'long'
-                            }).format(item.timeOnTest)}</div>
-                            <div className="question__count">{item.countQuestion}</div>
-                            </div>
-                            <button>Пройти тестирование</button>
-                        </div>)}
-
+                    <div className="tests__catalog">
+                        {this.state.tests.map(item =>
+                            <div className='test'>
+                                    <div className="title">{item.nameTest}</div>
+                                    <div className='specifications'>
+                                        <div className="complexity"> {item.complexity}</div>
+                                        <div className="question__count">{item.countQuestion}</div>
+                                    </div>
+                            </div>)}
+                    </div>
                 </div>
             </div>
         )

@@ -22,44 +22,49 @@
                 margin-right: 0;
             }
         }
-        .test {
-            display: flex;
-            border: 1px solid ;
-            border-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%) 1;
-            border-radius: 50%;
-            padding: 15px;
-            .info {
-                flex: 1;
+        .tests__catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-gap: 30px;
+            margin-top: 30px;
+            .test {
+                border: 1px solid;
+                border-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%) 1;
+                padding: 15px;
+                cursor: pointer;
+
+                display: flex;
+                flex-direction: column;
+
                 .title {
+                    flex: 1;
                     font-weight: 700;
                     font-size: 20px;
                     color: #383d90;
                     margin-bottom: 5px;
                 }
-                .categories {
+                .complexity {
                     color: gray;
                 }
-                .time {
-                    color: rgb(145, 10, 255);
+                .complexity::before {
+                    color: gray;
+                    content: "Сложность: ";
                 }
-                .time::before {
-                    color: darkslategray;
-                    content: "время на прохождение: ";
+                .question__count {
+                    color: gray;
                 }
-                .question__count{
+                .question__count::before {
+                    color: gray;
+                    content: "Количество вопросов: ";
+                }
 
-                }
-                .question__count::before{
-                    content: 'количество вопросов: ';
+                &:hover {
+                    background: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
+                    .title{
+                        color: white;
+                    }
                 }
             }
-            button {
-                width: 300px;
-                height: 80px;
-                border-radius: 5px;
-                border: 1px solid gray;
-            }
-            margin: 15px 0;
         }
     }
 }

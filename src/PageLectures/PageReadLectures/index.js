@@ -29,7 +29,8 @@ class PageMain extends React.Component {
         return (
             <div className='page__lecture_read'>
                 <div className="site__content">
-                    {lectureElement.map(item => <div>{item.valueElem}</div>)}
+
+                    {lectureElement.map(item =><div className={item.type}>{item.valueElem}</div>)}
                 </div>
             </div>
         )
