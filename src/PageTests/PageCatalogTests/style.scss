@@ -24,10 +24,12 @@
         }
         .tests__catalog {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             grid-gap: 30px;
             margin-top: 30px;
+            
             .test {
+                text-decoration: none;
                 border: 1px solid;
                 border-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%) 1;
                 padding: 15px;
@@ -42,6 +44,9 @@
                     font-size: 20px;
                     color: #383d90;
                     margin-bottom: 5px;
+                }
+                .specifications{
+                    margin-top: 5px;
                 }
                 .complexity {
                     color: gray;

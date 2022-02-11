@@ -20,7 +20,8 @@ class PageMain extends React.Component {
                 this.setState(() => {
                     return {
                         tests: response
-                    }});
+                    }
+                });
 
             })
             .catch(error => console.log(error))
@@ -47,13 +48,14 @@ class PageMain extends React.Component {
                     </div>
                     <div className="tests__catalog">
                         {this.state.tests.map(item =>
-                            <div className='test'>
-                                    <div className="title">{item.nameTest}</div>
-                                    <div className='specifications'>
-                                        <div className="complexity"> {item.complexity}</div>
-                                        <div className="question__count">{item.countQuestion}</div>
-                                    </div>
-                            </div>)}
+                            <a href={'/test/'+item.idTest} className='test'>
+                                <div className="title">{item.nameTest}</div>
+                                <div className='specifications'>
+                                    <div className="complexity"> {item.complexity}</div>
+                                    <div className="question__count">{item.countQuestion}</div>
+                                </div>
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>
