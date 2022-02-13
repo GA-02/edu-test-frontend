@@ -47,11 +47,12 @@ function PageTestPass() {
     const [answers, setAnswers] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     useEffect(() => {
+        document.title = "Прохождение теста";
         GetItems(setQuestions, idTest);
     }, [])
     let question = questions[currentQuestion];
     if (!question) {
-        return (<>Загрузка</>);
+        return (<div className="site__content">Загрузка</div>);
     }
     return (
         <div className='page__test__pass'>

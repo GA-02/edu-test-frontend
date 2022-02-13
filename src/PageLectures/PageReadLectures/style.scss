@@ -1,5 +1,6 @@
 .page__lecture_read {
     .site__content {
+        max-width: 1200px;
         .title{
             font-size: 30px;
             font-weight: bold;
@@ -19,10 +20,9 @@
             text-indent: 15px;
         }
 
-        .code{
-            margin: 10px 0px;
-            background-color: #f7f4f3;
-            padding: 15px;
+        img{
+            display: block;
+            margin: 0 auto;
         }
     }
 }
