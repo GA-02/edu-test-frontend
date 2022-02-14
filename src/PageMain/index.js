@@ -14,12 +14,13 @@ class PageMain extends React.Component {
         return (
             <div className='page__main'>
                 <div className="site__content">
+                    Главная страница
                     {/* <div className="social-media">
                         <div className="social-media__item"><a href="https://vk.com/norimyxxxo"><img src={socialMediaVK} alt="vk" className="icon" /></a></div>
                         <div className="social-media__item"><a href="#"><img src={socialMediaYoutube} alt="youtube" className="icon" /></a></div>
                         <div className="social-media__item"><a href="#"><img src={socialMediaInst} alt="inst" className="icon" /></a></div>
                     </div> */}
-                    <div className="site__about page__main__block">
+                    {/* <div className="site__about page__main__block">
                         <div className="title">О сайте</div>
                         <div className="text">
                             Сайт был разработан в качестве дипломной работы. <br />
@@ -27,18 +28,7 @@ class PageMain extends React.Component {
                             Автор сайта: Гузиков Антон Сергеевич, учащийся группы ПО-42.
                             <img src={siteAuthor} alt="автор" />
                         </div>
-                    </div>
-                    <div className="site__news page__main__block">
-                        <div className="title">Новости</div>
-                        <div className="text">
-                            <ul>
-                                <li>Внесены изменения в тему: Классы</li>
-                                <li>Добавлен новый тест для языка C#</li>
-                                <li>Добавлена новая тема в языке C#: Классы</li>
-                                <li>Добавлен новый язык: С#</li>
-                            </ul>
-                        </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )

@@ -41,6 +41,22 @@ function ToggleItem(item, items) {
     }
     return mas;
 }
+
+function CheckAnswers(answers, idTest) {
+    let dataRequest = new FormData();
+    dataRequest.append('idTest', +idTest);
+    dataRequest.append('idAnswerUser', answers);
+    console.log(answers);
+    fetch('http://edu-testback-end.com/tests/CheckAnswers.php', {
+        method: "POST",
+        body: dataRequest
+    })
+        .then(response => response.json())
+        .then(response => {
+            document.location.href= '/result/' + response;
+        })
+}
+
 function PageTestPass() {
     const idTest = useParams()['id'];
     const [questions, setQuestions] = useState([]);
@@ -99,7 +115,7 @@ function PageTestPass() {
                     }
 
                     {currentQuestion === questions.length - 1 ?
-                        <button className="finish__test navigation__button">Завершить</button>
+                        <button className="finish__test navigation__button" onClick={()=>{CheckAnswers(answers, idTest)}}>Завершить</button>
                         :
                         <button className="next_question navigation__button" onClick={() => { setCurrentQuestion(currentQuestion + 1) }}>
                             Следующий

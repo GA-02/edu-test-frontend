@@ -16,6 +16,7 @@ function GetItems(setItems, idLecture) {
             if (response['error'])
                 throw (response['error']);
             setItems(response);
+            document.title = response[0]['valueElem']
         })
 }
 
