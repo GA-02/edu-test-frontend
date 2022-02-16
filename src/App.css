@@ -1,8 +1,12 @@
-main{
+main {
   flex: 1;
 }
-.site__content{
+.site__content {
   margin: 10px auto;
   max-width: 1600px;
-  
+}
+@media screen and (max-width: 1600px) {
+  .site__content {
+    padding: 10px;
+  }
 }

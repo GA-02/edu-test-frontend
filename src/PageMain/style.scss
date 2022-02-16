@@ -1,64 +1,14 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
 .page__main {
+
+    background: linear-gradient(135deg, #352663 18%, #8e366c 100%);
     .site__content {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-
-        .social-media {
-            flex: 100%;
-            display: flex;
-            justify-content: center;
-
-            .social-media__item {
-                margin-left: 20px;
-            }
-
-            .icon {
-                width: 30px;
-                border-radius: 25%;
+        .site__content__info {
+            i::before {
+                content: "\f001";
+                font-family: FontAwesome;
             }
         }
-
-        .page__main__block {
-            // background-color: #a4508b;
-            // background-image: linear-gradient(326deg, #a4508b 0%, #5f0a87 74%);
-
-
-            // background-color: #f8ceec;
-            // background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
-
-            // background-color: rgba(153, 33, 232, 0.5);
-            // background-image: linear-gradient(315deg, rgba(153, 33, 232, 0.5) 0%, rgba(95, 114, 190, 0.5) 74%);
-
-            padding: 10px;
-            border-radius: 3%;
-            flex: 0 0 45%;
-            box-shadow: 0px 1px 5px rgb(211, 211, 211);
-
-            .title {
-                // text-transform: uppercase;
-
-                color: #383d90;
-                font-size: 35px;
-                font-weight: 500;
-                padding-left: 10px;
-                // text-align: center;
-                // border-bottom: 1px solid gray;
-            }
-            .text {
-                color: black;
-                margin: 10px;
-            }
-        }
-
-
-    }
-
-    img {
-        width: 500px;
-        display: block;
-        margin: 10px auto;
-        border-radius: 50px;
-        
     }
 }

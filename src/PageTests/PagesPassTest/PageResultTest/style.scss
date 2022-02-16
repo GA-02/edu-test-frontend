@@ -1,5 +1,64 @@
 .page__test__result {
     .site__content {
-        
+        background-color: white;
+        .main__info {
+            display: flex;
+            .result__info {
+                color: gray;
+
+                mark {
+                    background: none;
+                    color: #383d90;
+                    font-weight: 500;
+                }
+                .title {
+                    color: black;
+                    text-align: center;
+                    font-weight: 900;
+                    font-size: 1.4rem;
+                    margin-bottom: 10px;
+                }
+
+                .score__value {
+                    color: #383d90;
+                    text-align: center;
+                    font-size: 2rem;
+
+                    mark {
+                        font-size: 5rem;
+                    }
+                }
+            }
+            .users__result {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: right;
+                align-items: center;
+                p {
+                    margin: 0;
+                    min-width: 100%;
+                    text-align: center;
+                    color: gray;
+                }
+            }
+        }
+
+        .recommended__lecture {
+            .title {
+                color: rgb(105, 105, 105);
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+            }
+            a {
+                color: blue;
+                font-weight: 400;
+                text-decoration: none;
+                font-size: 1.05rem;
+
+                &:hover{
+                    color: red;
+                }
+            }
+        }
     }
 }

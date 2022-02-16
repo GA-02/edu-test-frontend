@@ -1,59 +1,9 @@
-.page__main .site__content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+.page__main {
+  background: linear-gradient(135deg, #352663 18%, #8e366c 100%);
 }
 
-.page__main .site__content .social-media {
-  -webkit-box-flex: 100%;
-      -ms-flex: 100%;
-          flex: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.page__main .site__content .social-media .social-media__item {
-  margin-left: 20px;
-}
-
-.page__main .site__content .social-media .icon {
-  width: 30px;
-  border-radius: 25%;
-}
-
-.page__main .site__content .page__main__block {
-  padding: 10px;
-  border-radius: 3%;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 45%;
-          flex: 0 0 45%;
-  -webkit-box-shadow: 0px 1px 5px lightgray;
-          box-shadow: 0px 1px 5px lightgray;
-}
-
-.page__main .site__content .page__main__block .title {
-  color: #383d90;
-  font-size: 35px;
-  font-weight: 500;
-  padding-left: 10px;
-}
-
-.page__main .site__content .page__main__block .text {
-  color: black;
-  margin: 10px;
-}
-
-.page__main img {
-  width: 500px;
-  display: block;
-  margin: 10px auto;
-  border-radius: 50px;
+.page__main .site__content .site__content__info i::before {
+  content: "\f001";
+  font-family: FontAwesome;
 }

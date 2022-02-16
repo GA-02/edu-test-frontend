@@ -1,10 +1,13 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { PieChart, Pie, Tooltip, Cell } from "recharts";
+import UsersResultsChart from './UsersResultsChart';
+
 import './style.css';
 
-function GetResult(setItems, idTest) {
+function GetResult(setItems, idResult) {
     let dataRequest = new FormData();
-    dataRequest.append('idResult', +idTest);
+    dataRequest.append('idResult', +idResult);
     fetch('http://edu-testback-end.com/tests/GetResult.php', {
         method: "POST",
         body: dataRequest
@@ -18,6 +21,7 @@ function GetResult(setItems, idTest) {
 }
 
 
+
 function PageTestResult() {
     const idResult = useParams()['id'];
     const [result, setResult] = useState();
@@ -25,21 +29,50 @@ function PageTestResult() {
         document.title = "Результат";
         GetResult(setResult, idResult);
     }, [])
-    if(!result){
-        return(<div>Загрузка</div>);
+    if (!result) {
+        return (<div>Загрузка</div>);
     }
-        return (
-            <div className='page__test__result'>
-                <div className="site__content">
-                <div className="user">Пользователь: {result.userName}</div>
-                <div className="score">Количество правильных ответов: {result.scoreResult} из {result.scoreMax}</div>
-                <div className="recommended__lecture">Список рекомендованных лекций: </div>
-                <ul>
-                    {result.recommendedLectures.map(item => <li key={item.idLecture}><a href={'/lecture/' + item.idLecture}>{item.nameChapter}: {item.nameLecture}</a></li>)}
-                </ul>
+    return (
+        <div className='page__test__result'>
+            <div className="site__content">
+                <section className="main__info">
+                    <div className="result__info">
+                        <div className="title">Результат</div>
+                        <div className="test">Тест: <mark>{result.testName}</mark></div>
+                        <div className="user">Пользователь: <mark>{result.userName}</mark></div>
+                        <div className="score__title">Количество правильных ответов: </div>
+                        <div className="score__value"><mark>{result.scoreResult}</mark> из {result.scoreMax} ({(+result.scoreResult / +result.scoreMax) * 100}%)</div>
+                        <PieChart width={600} height={400}>
+                            <Pie
+                                dataKey="value"
+                                data={[
+                                    { name: "Правильные ответы", value: +result.scoreResult },
+                                    { name: "Неправильные ответы", value: +result.scoreMax - (+result.scoreResult) }
+                                ]}
+                                cy={150}
+                                innerRadius={40}
+                                outerRadius={80}
+                                fill="black"
+                                label
+                            >
+                                <Cell fill="#00C49F" />
+                                <Cell fill="#FF8042" />
+                            </Pie>
+                            <Tooltip />
+                        </PieChart>
+
+                    </div>
+                    <UsersResultsChart />
+
+                </section>
+                <div className="recommended__lecture"><p className="title">Список рекомендованных лекций:</p>
+                    <ol>
+                        {result.recommendedLectures.map(item => <li key={item.idLecture}><a href={'/lecture/' + item.idLecture}>{item.nameChapter}: {item.nameLecture}</a></li>)}
+                    </ol>
                 </div>
             </div>
-        )
+        </div>
+    )
 }
 
 export default PageTestResult

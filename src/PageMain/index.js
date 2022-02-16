@@ -14,7 +14,16 @@ class PageMain extends React.Component {
         return (
             <div className='page__main'>
                 <div className="site__content">
+                    
                     Главная страница
+                    <i className="good fas fa-camera-retro"></i>
+
+                    <div className="site__content__info">
+                        <i /><p>+150 лекций</p>
+                    </div>
+                    <div className="site__content__info">
+                        <i /><p>+20 тестов</p>
+                    </div>
                     {/* <div className="social-media">
                         <div className="social-media__item"><a href="https://vk.com/norimyxxxo"><img src={socialMediaVK} alt="vk" className="icon" /></a></div>
                         <div className="social-media__item"><a href="#"><img src={socialMediaYoutube} alt="youtube" className="icon" /></a></div>
