@@ -1,14 +1,66 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 .page__main {
-
-    background: linear-gradient(135deg, #352663 18%, #8e366c 100%);
     .site__content {
-        .site__content__info {
-            i::before {
-                content: "\f001";
-                font-family: FontAwesome;
+        .start__section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .inscription {
+                flex: 0 0 507px;
+                .title {
+                    font-weight: 700;
+                    font-size: 3rem;
+                    margin: 0;
+                }
+                .subtitle {
+                    text-align: justify;
+                    font-weight: 450;
+                    font-size: 1.3em;
+                    margin: 0;
+                }
+                .text {
+                    line-height: 170%;
+                }
+                a {
+                    button {
+                        cursor: pointer;
+                        font-size: 1.2rem;
+                        padding: 10px 25px;
+                        border-radius: 3px;
+                        border: none;
+                        background-color: #5c069e;
+                        color: white;
+                        box-shadow: 3px 3px 5px gray;
+
+                        &:hover {
+                            background-color: #2f37c9;
+                            box-shadow: 5px 5px 10px gray;
+                        }
+                    }
+                }
+                .site__content__info {
+                    // i::before {
+                    //     content: "\f001";
+                    //     font-family: FontAwesome;
+                    // }
+                }
+            }
+            .img__container {
+                max-width: 1000px;
+                margin: 100px 0;
+
+                img {
+                    width: 100%;
+                    opacity: 0.8;
+                }
             }
         }
+
     }
+    .comments {
+        background-color: #cdc1ff;
+        background-image: linear-gradient(316deg, #cdc1ff 0%, #e5d9f2 74%);
+    }
+
 }

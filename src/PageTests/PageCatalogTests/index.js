@@ -29,14 +29,6 @@ class PageMain extends React.Component {
 
 
     render() {
-
-        // let tests = [
-        //     { 'name': 'Тест на знание основ C#', 'timeOnTest': 600, 'countQuestion': 5 },
-        //     { 'name': 'События', 'timeOnTest': 3600, 'countQuestion': 103 },
-        //     { 'name': 'Тест на знание конструкций', 'timeOnTest': 1, 'countQuestion': 15 },
-        //     { 'name': 'Тест на знание класс', 'timeOnTest': 14440, 'countQuestion': 7 }
-
-        // ]
         return (
             <div className='page__tests__catalog'>
                 <div className="site__content">

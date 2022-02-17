@@ -1,0 +1,53 @@
+.page__main {
+    .social-media__section {
+        padding: 70px 0;
+        padding-top: 30px;
+        .site__content {
+            .section__title {
+                color: #232323;
+                font-size: 2.25rem;
+                font-weight: 700;
+                margin-bottom: 10px;
+            }
+            .section__description {
+                margin-top: 10px;
+                line-height: 170%;
+                width: 500px;
+                font-weight: 300;
+            }
+            .social-media {
+                display: flex;
+                padding-left: 150px;
+                margin-top: 30px;
+
+                .social-media__item {
+                    margin-right: 50px;
+                    .icon {
+                        display: block;
+                        margin: 0 auto;
+                        width: 50px;
+                        transition: all 0.3s linear;
+                    }
+
+                    .name {
+                        text-align: center;
+                        font-weight: 300;
+                        opacity: 0;
+                        margin: 0;
+                        transition: all 0.3s linear;
+                    }
+                    &:hover {
+                        .icon {
+                            transform: translateY(-10px);
+                            transition: all 0.3s linear;
+                        }
+                        .name {
+                            opacity: 1;
+                            transition: all 0.3s linear;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

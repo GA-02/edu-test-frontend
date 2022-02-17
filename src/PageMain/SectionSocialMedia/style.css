@@ -1,0 +1,60 @@
+.page__main .social-media__section {
+  padding: 70px 0;
+  padding-top: 30px;
+}
+
+.page__main .social-media__section .site__content .section__title {
+  color: #232323;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.page__main .social-media__section .site__content .section__description {
+  margin-top: 10px;
+  line-height: 170%;
+  width: 500px;
+  font-weight: 300;
+}
+
+.page__main .social-media__section .site__content .social-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 150px;
+  margin-top: 30px;
+}
+
+.page__main .social-media__section .site__content .social-media .social-media__item {
+  margin-right: 50px;
+}
+
+.page__main .social-media__section .site__content .social-media .social-media__item .icon {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.page__main .social-media__section .site__content .social-media .social-media__item .name {
+  text-align: center;
+  font-weight: 300;
+  opacity: 0;
+  margin: 0;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.page__main .social-media__section .site__content .social-media .social-media__item:hover .icon {
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.page__main .social-media__section .site__content .social-media .social-media__item:hover .name {
+  opacity: 1;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
