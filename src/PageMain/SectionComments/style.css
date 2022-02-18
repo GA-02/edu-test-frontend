@@ -1,14 +1,23 @@
 .page__main .comments__section {
-  background-color: #cdc1ff;
-  background-image: linear-gradient(316deg, #cdc1ff 0%, #e5d9f2 74%);
+  background: linear-gradient(135deg, #352663 18%, #8e366c 100%);
   padding: 70px 0;
 }
 
 .page__main .comments__section .site__content .section__title {
-  font-weight: 900;
+  font-weight: 400;
   font-size: 2rem;
   text-align: center;
-  color: #5d1a94;
+  margin-bottom: 70px;
+  color: white;
+}
+
+.page__main .comments__section .site__content .section__title mark {
+  background: none;
+  font-weight: 700;
+  color: #ff8800;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
+  padding: 3px;
 }
 
 .page__main .comments__section .site__content .comments {
@@ -30,8 +39,12 @@
   height: -moz-max-content;
   height: max-content;
   border-radius: 3%;
-  color: #141414;
+  color: white;
   margin: 0 5px;
+}
+
+.page__main .comments__section .site__content .comments .comment:last-child {
+  margin-right: 0;
 }
 
 .page__main .comments__section .site__content .comments .comment img {
@@ -45,7 +58,7 @@
 }
 
 .page__main .comments__section .site__content .comments .comment .author__name {
-  font-weight: 900;
+  font-weight: 500;
   font-size: 1.3rem;
   text-align: center;
   margin: 5px;
@@ -59,10 +72,10 @@
 }
 
 .page__main .comments__section .site__content .comments .comment.active {
+  color: black;
   width: 300px;
-  background-color: #a685be;
-  background-image: linear-gradient(316deg, #a685be 0%, #a861dd 74%);
-  min-height: 375px;
+  background-color: rgba(255, 255, 255, 0.4);
+  min-height: 360px;
 }
 
 .page__main .comments__section .site__content .comments .comment.active img {
@@ -73,6 +86,7 @@
 
 .page__main .comments__section .site__content .comments .comment.active .author__name {
   font-size: 1.7rem;
+  font-weight: 700;
 }
 
 .page__main .comments__section .site__content .comments .comment.active .text {
@@ -84,6 +98,5 @@
 
 .page__main .comments__section .site__content .comments .comment:not(.active):hover {
   cursor: pointer;
-  background-color: #af9cfc;
-  background-image: linear-gradient(316deg, #ad9bf8 0%, #d2b2f3 74%);
+  background-color: rgba(255, 255, 255, 0.15);
 }

@@ -1,1 +1,239 @@
-/* No CSS */
+.page__profile .site__content .account__info, .page__profile .site__content .account__control .password__edit, .page__profile .site__content .user__results {
+  background-color: #fafafa;
+  -webkit-box-shadow: 0px 0px 5px #d2d2d2;
+          box-shadow: 0px 0px 5px #d2d2d2;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.page__profile .site__content .account__info .title, .page__profile .site__content .account__control .password__edit .title, .page__profile .site__content .user__results .title {
+  color: purple;
+  font-size: 1.5rem;
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.page__profile .site__content .account__info button, .page__profile .site__content .account__control .password__edit input[type="submit"] {
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 30px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  -webkit-box-shadow: 0px 0px 5px #d2d2d2;
+          box-shadow: 0px 0px 5px #d2d2d2;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.page__profile .site__content .account__info button:hover, .page__profile .site__content .account__control .password__edit input:hover[type="submit"] {
+  -webkit-box-shadow: 2px 2px 7px gray;
+          box-shadow: 2px 2px 7px gray;
+}
+
+.page__profile .site__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.page__profile .site__content .account__info {
+  width: calc(70% - 10px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.page__profile .site__content .account__info .title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.page__profile .site__content .account__info table {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.page__profile .site__content .account__info table th {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
+  max-width: max-content;
+  text-align: left;
+  font-weight: 400;
+  color: #626d7a;
+  padding: 10px;
+  padding-left: 0;
+}
+
+.page__profile .site__content .account__info table td {
+  text-align: left;
+  padding: 5px;
+}
+
+.page__profile .site__content .account__info button {
+  background-color: #ffe3e3;
+}
+
+.page__profile .site__content .account__info button:hover {
+  background-color: #fdaaaa;
+}
+
+.page__profile .site__content .account__control {
+  width: calc(30% - 10px);
+  background-color: white;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"] {
+  padding: 6px 12px 8px;
+  font-size: 16px;
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 100%;
+  border: 1px solid #dce1e6;
+  outline: none;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"]::-webkit-input-placeholder {
+  color: #828282;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"]:-ms-input-placeholder {
+  color: #828282;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"]::-ms-input-placeholder {
+  color: #828282;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"]::placeholder {
+  color: #828282;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"]:focus::-webkit-input-placeholder {
+  color: #b2b2b2;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"]:focus:-ms-input-placeholder {
+  color: #b2b2b2;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"]:focus::-ms-input-placeholder {
+  color: #b2b2b2;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="password"]:focus::placeholder {
+  color: #b2b2b2;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="submit"] {
+  background-color: #e3fde3;
+}
+
+.page__profile .site__content .account__control .password__edit input[type="submit"]:hover {
+  background-color: #aafdaa;
+}
+
+.page__profile .site__content .account__control .control__button {
+  cursor: pointer;
+  text-decoration: none;
+  color: purple;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background-color: #fafafa;
+  -webkit-box-shadow: 0px 0px 5px #d2d2d2;
+          box-shadow: 0px 0px 5px #d2d2d2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.page__profile .site__content .account__control .control__button .arrow {
+  width: 15px;
+  height: 15px;
+  border-top: 2px solid gray;
+  border-right: 2px solid gray;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.page__profile .site__content .account__control .control__button:hover {
+  background-color: #d9d9d9;
+  background-image: linear-gradient(315deg, #e7e5e5 0%, #faf8f8 74%);
+}
+
+.page__profile .site__content .account__control .control__button:hover .arrow {
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.page__profile .site__content .user__results {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.page__profile .site__content .user__results table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.page__profile .site__content .user__results table tr:last-child td {
+  border: none;
+}
+
+.page__profile .site__content .user__results table th {
+  margin: 5px;
+  padding: 5px;
+  font-size: 1.2rem;
+  border-right: 1px solid gray;
+  border-left: 1px solid gray;
+}
+
+.page__profile .site__content .user__results table th:first-child {
+  border-left: none;
+}
+
+.page__profile .site__content .user__results table th:last-child {
+  border-right: none;
+}
+
+.page__profile .site__content .user__results table td {
+  min-width: 125px;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding: 10px;
+}
+
+.page__profile .site__content .user__results table td:first-child {
+  text-align: justify;
+}

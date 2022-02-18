@@ -3,9 +3,9 @@
 
         .admin__forward{
             text-decoration: none;
-            display: block;
             padding: 20px;
-            width: calc(100% - 40px);
+            width: 100%;
+            box-sizing: border-box;
             box-shadow: 0px 0px 1px gray ;
             color: gray;
             font-size: 20px;
@@ -29,10 +29,6 @@
             border-top: 2px solid gray;
             border-right: 2px solid gray;
             transform: rotate(45deg);
-
-            &:hover{
-
-            }
         }
     }
 }
