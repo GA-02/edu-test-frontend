@@ -1,0 +1,52 @@
+.page__admin__tests {
+    .site__content {
+        table {
+            width: 100%;
+            border-spacing: 0;
+            border: 1px solid black;
+
+            tr {
+                &:last-child {
+                    td {
+                        border-bottom: 0;
+                    }
+                }
+            }
+
+            th,
+            td {
+                margin: 0;
+                padding: 0.5rem;
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+                :last-child {
+                    border-right: 0;
+                }
+                .status {
+                    display: flex;
+                    align-items: center;
+                    .circle {
+                        border-radius: 50%;
+                        width: 7px;
+                        height: 7px;
+                        margin-right: 5px;
+                    }
+                    .green{
+                        background-color: green;
+                    }
+                    .red{
+                        background-color: red;
+                    }
+                }
+
+                a {
+                    margin-right: 15px;
+                }
+                svg {
+                    cursor: pointer;
+                    padding: 1px;
+                }
+            }
+        }
+    }
+}

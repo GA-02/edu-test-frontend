@@ -58,9 +58,9 @@ class Header extends React.Component {
                     <div className="site__content">
                         <a href="/"><div className='site__logo'><img src={siteLogo} /></div></a>
                         <ul className='menu' type="none">
-                            <li className="menu__item"><a href='/'>Главная</a></li>
                             <li className="menu__item"><a href='/lectures'>Лекции</a></li>
                             <li className="menu__item"><a href='/tests'>Тесты</a></li>
+                            <li className="menu__item"><a href='/tests'>Лабораторные <br /> работы</a></li>
                             {
                                 this.state.userName ? <>
                                     <li className="menu__item"><a href='/profile'><mark>{this.state.userName}</mark></a></li>

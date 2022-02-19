@@ -54,7 +54,7 @@ class PageMain extends React.Component {
                         {userData.levelAccess > 10 ? <a href='/admin' className='control__button'>Перейти в админ-панель<div className='arrow' /></a> : <></>}
                     </div>
                     <div className="user__results">
-                        <p className="title">Последние результаты</p>
+                        <p className="title">Последние результаты</p> <button>Показать все</button>
                         <table>
                             <tr>
                                 <th>Наименование</th>
@@ -69,7 +69,13 @@ class PageMain extends React.Component {
                                     <td>{item.date.toLocaleDateString()}</td>
                                     <td>{item.date.toLocaleTimeString()}</td>
                                     <td>{item.resultScore} из {item.maxScore}</td>
-                                    <td><button>Перейти</button></td>
+                                    <td>
+                                        <a href={"/result/" + item.idResult} title="Перейти">
+                                            <svg class="arrow__next" viewBox="0 0 100 85">
+                                                <polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0 58.263,0.056" />
+                                            </svg>
+                                        </a>
+                                    </td>
                                 </tr>)}
                         </table>
                     </div>

@@ -61,7 +61,7 @@
                 background-color: rgb(255, 227, 227);
 
                 &:hover {
-                    background-color: rgb(253, 170, 170);
+                    background-color: rgb(253, 200, 200);
                 }
             }
         }
@@ -95,7 +95,7 @@
                     background-color: rgb(227, 253, 227);
 
                     &:hover {
-                        background-color: rgb(170, 253, 170);
+                        background-color: rgb(200, 253, 200);
                     }
                 }
             }
@@ -143,6 +143,20 @@
             width: 100%;
             margin-top: 20px;
             @extend %templateContainer;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+                @extend %templateButton;
+                background-color: rgb(227, 227, 253);
+                padding: 5px 15px;
+                margin-bottom: 15px;
+                &:hover {
+                    background-color: rgb(200, 200, 253);
+                }
+            }
 
             table {
                 width: 100%;
@@ -178,8 +192,17 @@
                     &:first-child {
                         text-align: justify;
                     }
+                    
+                    .arrow__next{
+                        fill: green;
+                        width: 15px;
+                        height: 15px;
+                    }
+
+
                 }
             }
         }
     }
+
 }

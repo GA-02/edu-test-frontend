@@ -14,7 +14,7 @@
   font-weight: 500;
 }
 
-.page__profile .site__content .account__info button, .page__profile .site__content .account__control .password__edit input[type="submit"] {
+.page__profile .site__content .account__info button, .page__profile .site__content .account__control .password__edit input[type="submit"], .page__profile .site__content .user__results button {
   cursor: pointer;
   font-size: 1rem;
   padding: 10px 30px;
@@ -26,7 +26,7 @@
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.page__profile .site__content .account__info button:hover, .page__profile .site__content .account__control .password__edit input:hover[type="submit"] {
+.page__profile .site__content .account__info button:hover, .page__profile .site__content .account__control .password__edit input:hover[type="submit"], .page__profile .site__content .user__results button:hover {
   -webkit-box-shadow: 2px 2px 7px gray;
           box-shadow: 2px 2px 7px gray;
 }
@@ -90,7 +90,7 @@
 }
 
 .page__profile .site__content .account__info button:hover {
-  background-color: #fdaaaa;
+  background-color: #fdc8c8;
 }
 
 .page__profile .site__content .account__control {
@@ -148,7 +148,7 @@
 }
 
 .page__profile .site__content .account__control .password__edit input[type="submit"]:hover {
-  background-color: #aafdaa;
+  background-color: #c8fdc8;
 }
 
 .page__profile .site__content .account__control .control__button {
@@ -200,6 +200,27 @@
 .page__profile .site__content .user__results {
   width: 100%;
   margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page__profile .site__content .user__results button {
+  background-color: #e3e3fd;
+  padding: 5px 15px;
+  margin-bottom: 15px;
+}
+
+.page__profile .site__content .user__results button:hover {
+  background-color: #c8c8fd;
 }
 
 .page__profile .site__content .user__results table {
@@ -236,4 +257,10 @@
 
 .page__profile .site__content .user__results table td:first-child {
   text-align: justify;
+}
+
+.page__profile .site__content .user__results table td .arrow__next {
+  fill: green;
+  width: 15px;
+  height: 15px;
 }
