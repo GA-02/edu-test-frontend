@@ -8,6 +8,10 @@
   border-bottom: 0;
 }
 
+.page__admin__tests .site__content table tr:hover td {
+  background-color: #f0f0f0;
+}
+
 .page__admin__tests .site__content table th,
 .page__admin__tests .site__content table td {
   margin: 0;

@@ -1,5 +1,98 @@
-.page__tests {
+.page__test__edit {
     .site__content {
+        #nameTest {
+            padding: 2px;
+            min-width: 700px;
+        }
+        select {
+            padding: 2px;
+        }
+        .question {
+            margin-bottom: 15px;
+            padding: 15px 10px;
 
+            box-shadow: 0px 0px 3px black;
+            &:hover {
+                box-shadow: 0px 0px 10px black;
+            }
+            .title {
+                font-size: 1.2rem;
+            }
+
+            & > textarea {
+                border: 1px solid #1976d2;
+                border-radius: 5px;
+                padding: 5px;
+                box-sizing: border-box;
+                width: 100%;
+                min-height: 30px;
+                resize: vertical;
+                &:hover {
+                    border: 1px solid #095fb6;
+                }
+            }
+            textarea {
+                &:hover {
+                    transform: scale(1.005);
+                }
+            }
+            .answers__item {
+                margin-left: 15px;
+                display: flex;
+                align-items: center;
+                background-color: rgb(231, 231, 231);
+                border-radius: 5px;
+                margin-bottom: 15px;
+
+                &:hover {
+                    background-color: rgb(201, 201, 201);
+                    transform: scale(1.005);
+                }
+                .answer__value {
+                    padding: 5px;
+                    flex: 1;
+                    box-sizing: border-box;
+                    textarea {
+                        border: 1px solid rgba(0, 0, 0, 0.525);
+                        border-radius: 5px;
+                        padding: 5px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        min-height: 30px;
+                        resize: vertical;
+                    }
+                }
+                svg {
+                    margin: 5px;
+                    cursor: pointer;
+                }
+            }
+
+            .add__answer {
+                display: block;
+                margin: 0 auto;
+                height: 30px;
+                width: 208px;
+                font-size: 1rem;
+                background-color: #f6f6f9;
+                color: #1976d2;
+                border: 1px solid #1976d2;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #e3e3f8;
+                    color: #2485e6;
+                }
+            }
+            &.question__string-answer, &.question__number-answer{
+                .answer{
+                    margin-left: 15px;
+                    input{
+                        padding: 5px;
+                    }
+
+                }
+            }
+        }
     }
 }

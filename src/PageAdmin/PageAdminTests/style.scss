@@ -11,6 +11,11 @@
                         border-bottom: 0;
                     }
                 }
+                &:hover{
+                    td{
+                        background-color: rgb(240, 240, 240);
+                    }
+                }
             }
 
             th,

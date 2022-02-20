@@ -1,1 +1,113 @@
-/* No CSS */
+.page__test__edit .site__content #nameTest {
+  padding: 2px;
+  min-width: 700px;
+}
+
+.page__test__edit .site__content select {
+  padding: 2px;
+}
+
+.page__test__edit .site__content .question {
+  margin-bottom: 15px;
+  padding: 15px 10px;
+  -webkit-box-shadow: 0px 0px 3px black;
+          box-shadow: 0px 0px 3px black;
+}
+
+.page__test__edit .site__content .question:hover {
+  -webkit-box-shadow: 0px 0px 10px black;
+          box-shadow: 0px 0px 10px black;
+}
+
+.page__test__edit .site__content .question .title {
+  font-size: 1.2rem;
+}
+
+.page__test__edit .site__content .question > textarea {
+  border: 1px solid #1976d2;
+  border-radius: 5px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  min-height: 30px;
+  resize: vertical;
+}
+
+.page__test__edit .site__content .question > textarea:hover {
+  border: 1px solid #095fb6;
+}
+
+.page__test__edit .site__content .question textarea:hover {
+  -webkit-transform: scale(1.005);
+          transform: scale(1.005);
+}
+
+.page__test__edit .site__content .question .answers__item {
+  margin-left: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #e7e7e7;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.page__test__edit .site__content .question .answers__item:hover {
+  background-color: #c9c9c9;
+  -webkit-transform: scale(1.005);
+          transform: scale(1.005);
+}
+
+.page__test__edit .site__content .question .answers__item .answer__value {
+  padding: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.page__test__edit .site__content .question .answers__item .answer__value textarea {
+  border: 1px solid rgba(0, 0, 0, 0.525);
+  border-radius: 5px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  min-height: 30px;
+  resize: vertical;
+}
+
+.page__test__edit .site__content .question .answers__item svg {
+  margin: 5px;
+  cursor: pointer;
+}
+
+.page__test__edit .site__content .question .add__answer {
+  display: block;
+  margin: 0 auto;
+  height: 30px;
+  width: 208px;
+  font-size: 1rem;
+  background-color: #f6f6f9;
+  color: #1976d2;
+  border: 1px solid #1976d2;
+  cursor: pointer;
+}
+
+.page__test__edit .site__content .question .add__answer:hover {
+  background-color: #e3e3f8;
+  color: #2485e6;
+}
+
+.page__test__edit .site__content .question.question__string-answer .answer, .page__test__edit .site__content .question.question__number-answer .answer {
+  margin-left: 15px;
+}
+
+.page__test__edit .site__content .question.question__string-answer .answer input, .page__test__edit .site__content .question.question__number-answer .answer input {
+  padding: 5px;
+}
