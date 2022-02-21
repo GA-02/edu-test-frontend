@@ -19,41 +19,30 @@ class PageMain extends React.Component {
                 this.setState(() => {
                     return {
                         chapters: response
-                    }});
+                    }
+                });
 
             })
             .catch(error => console.log(error))
     }
 
+    detectEndingWordLecture(countLectures) {
+        countLectures = +countLectures;
+        switch (true) {
+            case ((countLectures % 10 == 0) || (countLectures % 10 > 4 && countLectures % 10 < 10) || [11, 12, 13, 14].includes(countLectures)):
+                return countLectures + ' лекций';
+            case (countLectures % 10 == 1):
+                return countLectures + ' лекция';
+            case (countLectures % 10 > 1 && countLectures % 10 <= 4):
+                return countLectures + ' лекции';
+            default:
+                return "";
+
+        }
+    }
     render() {
         console.log(this.state.chapters);
-        // let lectures = [
-        //     // {'name' : "Тест на знание классов", 'countQuestion': 7, 'timeOnPass': 30}
-        //     {
-        //         'idChapter': 1, 'nameChapter': 'Основы', 'lecturesInChapter': [
-        //             { 'name': 'Структура программы', 'idLecture': 1 },
-        //             { 'name': 'Переменные и константы', 'idLecture': 1 },
-        //             { 'name': 'Литералы', 'idLecture': 1 },
-        //             { 'name': 'Типы данных', 'idLecture': 1 }
-        //         ]
-        //     },
-        //     {
-        //         'idChapter': 2, 'nameChapter': 'Классы, структуры и пространство имен', 'lecturesInChapter': [
-        //             { 'name': 'Классы и объекты',' idLecture': 1 },
-        //             { 'name': 'Конструкторы', 'idLecture': 1 },
-        //             { 'name': 'Структуры', 'idLecture': 1 },
-        //             { 'name': 'Пространство имен', 'idLecture': 1 }
-        //         ]
-        //     },
-        //     {
-        //         'idChapter': 3, 'nameChapter': 'Объектно-ориентированное программирование', 'lecturesInChapter': [
-        //             { 'name': 'Наследование', 'idLecture': 1 },
-        //             { 'name': 'Преобразование типов', 'idLecture': 1 },
-        //             { 'name': 'Виртуальные методы и свойства', 'idLecture': 1 }
-        //         ]
-        //     }
-        // ]
-        document.title="Лекции";
+        document.title = "Лекции";
         return (
             <div className='page__lectures'>
                 <div className="site__content">
@@ -64,14 +53,33 @@ class PageMain extends React.Component {
                         <input type="search" placeholder='Поиск...' />
                     </div>
                     {this.state.chapters.map((itemChapter, indexChapter) =>
-                        <div className="chapter">
-                            <div className="title">{indexChapter+1}. {itemChapter.nameChapter}</div>
-                            {itemChapter.lectures.map((itemLecture, indexLecture) =>
-                                <div className='lectures'>
-                                    <a href={"/lecture/" + String(itemLecture.idLecture)}>
-                                        <span className='id'>{indexChapter+1}.{indexLecture+1}</span> {itemLecture.nameLecture}
+                        <div className="chapter" key={itemChapter.idChapter}>
+                            <div className="title">{indexChapter + 1}. {itemChapter.nameChapter}</div>
+                            <div className="chapter__info">{(Math.floor(+itemChapter.timeReadChapter / 60) == 0 ? "" : new Intl.NumberFormat('ru-RU', {
+                                style: 'unit',
+                                unit: 'hour',
+                                unitDisplay: "long"
+                            }).format(Math.floor(+itemChapter.timeReadChapter / 60)) + ' ') + (+itemChapter.timeReadChapter % 60 == 0 ? "" : new Intl.NumberFormat('ru-RU', {
+                                style: 'unit',
+                                unit: 'minute',
+                                unitDisplay: "long"
+                            }).format(+itemChapter.timeReadChapter % 60))} • {this.detectEndingWordLecture(itemChapter.lectures.length)}</div>
+                            <p className="description">{itemChapter.description}</p>
+                            <a href={"/lecture/" + String(itemChapter.lectures[0].idLecture)}><button className='chapter__start'>Начать<div className="arrow" /></button></a>
+                            <button className='chapter__content' onClick={event => event.target.classList.toggle('active')}>Общие сведения</button>
+                            <ul className='chapter__lectures' type="none">
+                                {itemChapter.lectures.map((itemLecture, indexLecture) =>
+                                    <li className='chapter__lectures__item' key={itemLecture.idLecture}>
+                                        <a href={"/lecture/" + String(itemLecture.idLecture)}>
+                                            {indexChapter + 1}.{indexLecture + 1} {itemLecture.nameLecture}
                                         </a>
-                                </div>)}
+                                        <p className="time">{new Intl.NumberFormat('ru-RU', {
+                                            style: 'unit',
+                                            unit: 'minute',
+                                            unitDisplay: "long"
+                                        }).format(+itemLecture.timeReadLecture)}</p>
+                                    </li>)}
+                            </ul>
                         </div>)}
 
                 </div>

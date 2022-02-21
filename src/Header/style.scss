@@ -15,7 +15,7 @@ header {
     .menu {
         display: flex;
         color: #a5a5a5;
-        margin:  0;
+        margin: 0;
         align-items: center;
 
         .menu__item {
@@ -29,9 +29,6 @@ header {
             &:hover {
                 color: black;
             }
-            
-
-
 
             text-align: center;
             a {
@@ -40,29 +37,26 @@ header {
 
                 &:hover {
                     color: black;
-                    mark{
+                    mark {
                         color: black;
                     }
                 }
-                mark{
+                mark {
                     color: #383d90;
                     background: none;
-                    
                 }
             }
 
             &.menu__item__profile__register {
                 background-color: #383d90; //#277bfd
                 color: white;
-    
+
                 &:hover {
                     color: white;
                     background-color: #2f37c9;
                 }
             }
-
         }
-        
     }
 
     .link__icon {
@@ -138,13 +132,10 @@ header {
                 color: #828282;
             }
             &:focus {
-
-
                 &::placeholder {
                     color: #b2b2b2;
                 }
             }
-            
         }
 
         input[type="submit"] {
@@ -166,5 +157,6 @@ header {
                 background-color: rgb(46, 51, 134);
             }
         }
+
     }
 }

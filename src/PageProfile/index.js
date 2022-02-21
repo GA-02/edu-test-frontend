@@ -39,6 +39,10 @@ class PageMain extends React.Component {
                                 <th>Почтовый адрес</th>
                                 <td>{userData.mail}</td>
                             </tr>
+                            <tr>
+                                <th>Роль/Права доступа  </th>
+                                <td>{userData.mail}</td>
+                            </tr>
                             <div className="data__title"></div>
                         </table>
                         <button onClick={this.LogOutFromAccount}>Выйти</button>
