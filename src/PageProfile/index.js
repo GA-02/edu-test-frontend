@@ -2,6 +2,33 @@ import React from 'react';
 import './style.css';
 
 class PageMain extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            userData: null
+        }
+        document.title = 'Профиль';
+    }
+
+    componentDidMount() {
+        let dataRequest = new FormData();
+        dataRequest.append('email', localStorage.getItem('email'));
+        dataRequest.append('password', localStorage.getItem('password'));
+        fetch('http://edu-testback-end.com/users/GetUserData.php', {
+            method: "POST",
+            body: dataRequest
+        })
+            .then(response => response.json())
+            .then(response => {
+                this.setState(() => {
+                    return {
+                        userData: response
+                    }
+                });
+
+            })
+            .catch(error => console.log(error))
+    }
 
     LogOutFromAccount() {
         localStorage.clear();
@@ -9,17 +36,19 @@ class PageMain extends React.Component {
     }
 
     render() {
-        document.title = 'Профиль';
-        let userData = {
-            'userName': 'Admin',
-            'mail': 'admin@mail.ru',
-            'levelAccess': 999,
-            'passTests': [
-                { 'idResult': 15, 'name': 'C# переменные, типы данных, структуры, операторы, перечисления, массивы', 'date': new Date('12.12.12'), 'resultScore': 7, 'maxScore': 10 },
-                { 'idResult': 20, 'name': 'Типы данных, классы, структуры, коллекции', 'date': new Date('12.15.12'), 'resultScore': 11, 'maxScore': 16 },
-                { 'idResult': 26, 'name': 'C# переменные, типы данных, операторы, коллекции, исключенияC# переменные, типы данных, операторы, коллекции, исключения', 'date': new Date('01.15.12'), 'resultScore': 3, 'maxScore': 20 }
-            ]
+        // let userData = {
+        //     'userName': 'Admin',
+        //     'mail': 'admin@mail.ru',
+        //     'levelAccess': 999,
+        //     'passTests': [
+        //         { 'idResult': 15, 'name': 'C# переменные, типы данных, структуры, операторы, перечисления, массивы', 'date': new Date('12.12.12'), 'resultScore': 7, 'maxScore': 10 },
+        //         { 'idResult': 20, 'name': 'Типы данных, классы, структуры, коллекции', 'date': new Date('12.15.12'), 'resultScore': 11, 'maxScore': 16 },
+        //         { 'idResult': 26, 'name': 'C# переменные, типы данных, операторы, коллекции, исключенияC# переменные, типы данных, операторы, коллекции, исключения', 'date': new Date('01.15.12'), 'resultScore': 3, 'maxScore': 20 }
+        //     ]
 
+        // }
+        if (!this.state.userData){
+            return <>Загрузка</>
         }
         return (
             <div className='page__profile'>
@@ -29,19 +58,19 @@ class PageMain extends React.Component {
                         <table>
                             <tr>
                                 <th>Номер аккаунта</th>
-                                <td>152</td>
+                                <td>{this.state.userData.idUser}</td>
                             </tr>
                             <tr>
                                 <th>Имя пользователя</th>
-                                <td>{userData.userName}</td>
+                                <td>{this.state.userData.userName}</td>
                             </tr>
                             <tr>
                                 <th>Почтовый адрес</th>
-                                <td>{userData.mail}</td>
+                                <td>{this.state.userData.email}</td>
                             </tr>
                             <tr>
-                                <th>Роль/Права доступа  </th>
-                                <td>{userData.mail}</td>
+                                <th>Права доступа</th>
+                                <td>{this.state.userData.nameRole}</td>
                             </tr>
                             <div className="data__title"></div>
                         </table>
@@ -55,7 +84,7 @@ class PageMain extends React.Component {
                             <input type="password" placeholder='Подтвердите пароль' />
                             <input type="submit" value="Подтвердить" />
                         </form>
-                        {userData.levelAccess > 10 ? <a href='/admin' className='control__button'>Перейти в админ-панель<div className='arrow' /></a> : <></>}
+                        {this.state.userData.idRole == 1 ? <a href='/admin' className='control__button'>Перейти в админ-панель<div className='arrow' /></a> : <></>}
                     </div>
                     <div className="user__results">
                         <p className="title">Последние результаты</p> <button>Показать все</button>
@@ -67,11 +96,11 @@ class PageMain extends React.Component {
                                 <th>Результат</th>
                                 <th>Действия</th>
                             </tr>
-                            {userData.passTests.map((item, index) =>
+                            {this.state.userData.results.map((item, index) =>
                                 <tr className='result' key={index}>
-                                    <td>{item.name}</td>
-                                    <td>{item.date.toLocaleDateString()}</td>
-                                    <td>{item.date.toLocaleTimeString()}</td>
+                                    <td>{item.testName}</td>
+                                    <td>{item.date}</td>
+                                    <td>{item.time}</td>
                                     <td>{item.resultScore} из {item.maxScore}</td>
                                     <td>
                                         <a href={"/result/" + item.idResult} title="Перейти">

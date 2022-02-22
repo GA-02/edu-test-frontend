@@ -55,15 +55,20 @@ class PageMain extends React.Component {
                     {this.state.chapters.map((itemChapter, indexChapter) =>
                         <div className="chapter" key={itemChapter.idChapter}>
                             <div className="title">{indexChapter + 1}. {itemChapter.nameChapter}</div>
-                            <div className="chapter__info">{(Math.floor(+itemChapter.timeReadChapter / 60) == 0 ? "" : new Intl.NumberFormat('ru-RU', {
-                                style: 'unit',
-                                unit: 'hour',
-                                unitDisplay: "long"
-                            }).format(Math.floor(+itemChapter.timeReadChapter / 60)) + ' ') + (+itemChapter.timeReadChapter % 60 == 0 ? "" : new Intl.NumberFormat('ru-RU', {
-                                style: 'unit',
-                                unit: 'minute',
-                                unitDisplay: "long"
-                            }).format(+itemChapter.timeReadChapter % 60))} • {this.detectEndingWordLecture(itemChapter.lectures.length)}</div>
+                            <div className="chapter__info"><span title='Среднее время прочтения главы'>
+                                {(Math.floor(+itemChapter.timeReadChapter / 60) == 0 ? "" : new Intl.NumberFormat('ru-RU', {
+                                    style: 'unit',
+                                    unit: 'hour',
+                                    unitDisplay: "long"
+                                }).format(Math.floor(+itemChapter.timeReadChapter / 60))
+                                    + ' ')
+                                    + (+itemChapter.timeReadChapter % 60 == 0 ? "" : new Intl.NumberFormat('ru-RU', {
+                                        style: 'unit',
+                                        unit: 'minute',
+                                        unitDisplay: "long"
+                                    }).format(+itemChapter.timeReadChapter % 60))}
+                            </span>
+                                • <span title='Количество лекций в главе'>{this.detectEndingWordLecture(itemChapter.lectures.length)}</span></div>
                             <p className="description">{itemChapter.description}</p>
                             <a href={"/lecture/" + String(itemChapter.lectures[0].idLecture)}><button className='chapter__start'>Начать<div className="arrow" /></button></a>
                             <button className='chapter__content' onClick={event => event.target.classList.toggle('active')}>Общие сведения</button>
@@ -73,11 +78,19 @@ class PageMain extends React.Component {
                                         <a href={"/lecture/" + String(itemLecture.idLecture)}>
                                             {indexChapter + 1}.{indexLecture + 1} {itemLecture.nameLecture}
                                         </a>
-                                        <p className="time">{new Intl.NumberFormat('ru-RU', {
-                                            style: 'unit',
-                                            unit: 'minute',
-                                            unitDisplay: "long"
-                                        }).format(+itemLecture.timeReadLecture)}</p>
+                                        <p className="time" title='Среднее время прочтения лекции'>
+                                            {(Math.floor(+itemLecture.timeReadLecture / 60) == 0 ? "" : new Intl.NumberFormat('ru-RU', {
+                                                style: 'unit',
+                                                unit: 'hour',
+                                                unitDisplay: "long"
+                                            }).format(Math.floor(++itemLecture.timeReadLecture / 60))
+                                                + ' ')
+                                                + (+itemLecture.timeReadLecture % 60 == 0 ? "" : new Intl.NumberFormat('ru-RU', {
+                                                    style: 'unit',
+                                                    unit: 'minute',
+                                                    unitDisplay: "long"
+                                                }).format(+itemLecture.timeReadLecture % 60))}
+                                        </p>
                                     </li>)}
                             </ul>
                         </div>)}
