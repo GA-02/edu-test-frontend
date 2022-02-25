@@ -41,7 +41,7 @@ function PageTestResult() {
                         <div className="test">Тест: <mark>{result.testName}</mark></div>
                         <div className="user">Пользователь: <mark>{result.userName}</mark></div>
                         <div className="score__title">Количество правильных ответов: </div>
-                        <div className="score__value"><mark>{result.scoreResult}</mark> из {result.scoreMax} ({(+result.scoreResult / +result.scoreMax) * 100}%)</div>
+                        <div className="score__value"><mark>{result.scoreResult}</mark> из {result.scoreMax} ({((+result.scoreResult / +result.scoreMax) * 100).toFixed(2)}%)</div>
                         <PieChart width={600} height={400}>
                             <Pie
                                 dataKey="value"
