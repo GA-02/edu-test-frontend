@@ -5,6 +5,10 @@ main {
   margin: 10px auto;
   max-width: 1600px;
 }
+img.loading{
+  display: block;
+  margin: 0 auto;
+}
 @media screen and (max-width: 1600px) {
   .site__content {
     padding: 10px;

@@ -30,7 +30,7 @@ function PageTestResult() {
         GetResult(setResult, idResult);
     }, [])
     if (!result) {
-        return (<div>Загрузка</div>);
+        return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />);
     }
     return (
         <div className='page__test__result'>
@@ -65,11 +65,16 @@ function PageTestResult() {
                     <UsersResultsChart />
 
                 </section>
-                <div className="recommended__lecture"><p className="title">Список рекомендованных лекций:</p>
-                    <ol>
-                        {result.recommendedLectures.map(item => <li key={item.idLecture}><a href={'/lecture/' + item.idLecture}>{item.nameChapter}: {item.nameLecture}</a></li>)}
-                    </ol>
-                </div>
+                {
+                    result.recommendedLectures ?
+                        <div className="recommended__lecture"><p className="title">Список рекомендованных лекций:</p>
+                            <ol>
+                                {result.recommendedLectures.map(item => <li key={item.idLecture}><a href={'/lecture/' + item.idLecture}>{item.nameChapter}: {item.nameLecture}</a></li>)}
+                            </ol>
+                        </div>
+                        :
+                        <></>
+                }
             </div>
         </div>
     )

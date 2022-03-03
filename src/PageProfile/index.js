@@ -36,19 +36,8 @@ class PageMain extends React.Component {
     }
 
     render() {
-        // let userData = {
-        //     'userName': 'Admin',
-        //     'mail': 'admin@mail.ru',
-        //     'levelAccess': 999,
-        //     'passTests': [
-        //         { 'idResult': 15, 'name': 'C# переменные, типы данных, структуры, операторы, перечисления, массивы', 'date': new Date('12.12.12'), 'resultScore': 7, 'maxScore': 10 },
-        //         { 'idResult': 20, 'name': 'Типы данных, классы, структуры, коллекции', 'date': new Date('12.15.12'), 'resultScore': 11, 'maxScore': 16 },
-        //         { 'idResult': 26, 'name': 'C# переменные, типы данных, операторы, коллекции, исключенияC# переменные, типы данных, операторы, коллекции, исключения', 'date': new Date('01.15.12'), 'resultScore': 3, 'maxScore': 20 }
-        //     ]
-
-        // }
         if (!this.state.userData){
-            return <>Загрузка</>
+            return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />)
         }
         return (
             <div className='page__profile'>

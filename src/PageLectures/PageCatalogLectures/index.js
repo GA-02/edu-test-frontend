@@ -41,7 +41,6 @@ class PageMain extends React.Component {
         }
     }
     render() {
-        console.log(this.state.chapters);
         document.title = "Лекции";
         return (
             <div className='page__lectures'>

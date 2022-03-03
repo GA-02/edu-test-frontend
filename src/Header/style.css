@@ -110,7 +110,7 @@ header .link__icon:hover {
   border-radius: 5px;
 }
 
-.header__pop-up .window svg {
+.header__pop-up .window .close {
   position: absolute;
   right: 10px;
   width: 15px;
@@ -118,12 +118,12 @@ header .link__icon:hover {
   cursor: pointer;
 }
 
-.header__pop-up .window svg line {
+.header__pop-up .window .close line {
   stroke: gray;
   stroke-width: 1;
 }
 
-.header__pop-up .window svg:hover line {
+.header__pop-up .window .close:hover line {
   stroke: black;
 }
 
@@ -194,6 +194,29 @@ header .link__icon:hover {
 .header__pop-up .window input[type="password"]:focus::placeholder,
 .header__pop-up .window input[type="text"]:focus::placeholder {
   color: #b2b2b2;
+}
+
+.header__pop-up .window .error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #d93025;
+  font-size: 0.85rem;
+}
+
+.header__pop-up .window .error svg {
+  min-width: 20px;
+  max-width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.header__pop-up .window .error p {
+  padding: 0;
+  margin: 0;
 }
 
 .header__pop-up .window input[type="submit"] {

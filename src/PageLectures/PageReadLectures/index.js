@@ -30,7 +30,12 @@ function PageLectureRead() {
     return (
         <div className='page__lecture_read'>
             <div className="site__content">
-
+                <div className="navigation">
+                    <div className="prev" ><div className="arrow" />Предыдущая </div>
+                    <div className="select">Лекция 2 из 3</div>
+                    <div className="next" >Следующая <div className="arrow" /></div>
+                </div>
+                <div className="lecture__content">
                 {lectureElement.map((item, index) => {
                     switch (+item.idType) {
                         case 0:
@@ -42,11 +47,12 @@ function PageLectureRead() {
                         case 3:
                             return (<Highlight className='csharp' key={index}>{item.valueElem}</Highlight>);
                         case 4:
-                            return (<img src={item.valueElem} alt="photo"  key={index}/>);
+                            return (<img src={item.valueElem} alt="photo" key={index} />);
                         default:
-                            return (<div className="unknown__elem"  key={index}>{item.valueElem}</div>);
+                            return (<div className="unknown__elem" key={index}>{item.valueElem}</div>);
                     }
                 })}
+                </div>
             </div>
         </div>
     )

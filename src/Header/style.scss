@@ -91,7 +91,7 @@ header {
         background-color: white;
         border-radius: 5px;
 
-        svg {
+        .close {
             position: absolute;
             right: 10px;
             width: 15px;
@@ -137,7 +137,22 @@ header {
                 }
             }
         }
-
+        .error{
+            display: flex;
+            align-items: center;
+            color: #d93025;
+            font-size: 0.85rem;
+            svg{
+                min-width: 20px;
+                max-width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+            p{
+                padding: 0;
+                margin: 0;
+            }
+        }
         input[type="submit"] {
             display: block;
             margin: 25px auto;

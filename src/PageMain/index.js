@@ -24,14 +24,6 @@ class PageMain extends React.Component {
                             <a href="/lectures"><button>Начать обучение</button></a>
                         </div>
                     </section>
-
-                    <div className="site__content__info">
-                        {/* <i /><p>+150 лекций</p> */}
-                    </div>
-                    <div className="site__content__info">
-                        {/* <i /><p>+20 тестов</p> */}
-                    </div>
-
                 </div>
                 <SectionComments />
                 <SectionSocialMedia />

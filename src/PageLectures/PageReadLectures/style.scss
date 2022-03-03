@@ -1,28 +1,75 @@
 .page__lecture_read {
     .site__content {
         max-width: 1200px;
-        .title{
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-        }
 
-        .subsection{
-            margin-left: 15px;
-            margin-top: 20px;
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 5px;
-            font-size: 18px;
-            font-weight: bold;
+            margin-top: -5px;
+            & > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                font-size: 1rem;
+                border: 1px solid white;
+                &:hover {
+                    color: #0065b3;
+                    cursor: pointer;
+                    border: 1px solid #0065b3;
+                    .arrow {
+                        border-top: 1px solid #0065b3;
+                        border-right: 1px solid #0065b3;
+                    }
+                }
+            }
+            .arrow {
+                width: 10px;
+                height: 10px;
+                border-top: 1px solid black;
+                border-right: 1px solid black;
+                transform: rotate(45deg);
+            }
+            .prev > .arrow {
+                transform: rotate(-135deg);
+            }
+            .select::after{
+                content: "\2771";
+                margin-left: 7px;
+                transform:  rotate(90deg);
+                color: gray;
+            }
         }
+        .lecture__content {
+            background-color: white;
+            box-shadow: 0px 0px 5px rgb(175, 175, 175);
+            padding: 5px 15px;
 
-        .text{
-            text-align: justify;
-            text-indent: 15px;
-        }
+            .title {
+                font-size: 30px;
+                font-weight: bold;
+                text-align: center;
+            }
 
-        img{
-            display: block;
-            margin: 0 auto;
+            .subsection {
+                margin-left: 15px;
+                margin-top: 20px;
+                margin-bottom: 5px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            .text {
+                text-align: justify;
+                text-indent: 15px;
+            }
+
+            img {
+                display: block;
+                margin: 0 auto;
+            }
         }
     }
 }

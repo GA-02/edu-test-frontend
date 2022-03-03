@@ -17,23 +17,9 @@ function GetItems(setItems, idTest) {
         })
 }
 
-function AddUniqueItem(item, items) {
-    let mas = [...items];
-    if (!mas.includes(item)) {
-        mas.push(item);
-    }
-    return mas;
-}
-
-function RemoveItems(itemsForDelete, items) {
-    let mas = [...items];
-    mas = mas.filter(itemMas => !itemsForDelete.includes(itemMas))
-    return mas;
-}
-
 function ToggleItem(item, id, items) {
     let mas = [...items];
-    if(!mas[id]){
+    if (!mas[id]) {
         mas[id] = [];
     }
     if (!mas[id].includes(item)) {
@@ -60,7 +46,7 @@ function CheckAnswers(answers, idTest) {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
-          },
+        },
         body: JSON.stringify({
             'idTest': idTest,
             'userAnswers': answers
@@ -83,7 +69,7 @@ function PageTestPass() {
     }, [])
     let question = questions[currentQuestion];
     if (!question) {
-        return (<div className="site__content">Загрузка</div>);
+        return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />);
     }
     return (
         <div className='page__test__pass'>
@@ -131,12 +117,16 @@ function PageTestPass() {
                                 )
                             case 3:
                                 return (<input type="text"
+                                    className="answer"
+                                    placeholder='Введите ответ'
                                     defaultValue={answers[question.idQuestion] ?? ""}
                                     key={question.idQuestion}
                                     onChange={(event) => { setAnswers(SetItem(event.target.value, question.idQuestion, answers)) }}
                                 />);
                             case 4:
                                 return (<input type="number"
+                                    className="answer"
+                                    placeholder='Введите ответ'
                                     defaultValue={answers[question.idQuestion] ?? ""}
                                     key={question.idQuestion}
                                     onChange={(event) => { setAnswers(SetItem(event.target.value, question.idQuestion, answers)) }}
