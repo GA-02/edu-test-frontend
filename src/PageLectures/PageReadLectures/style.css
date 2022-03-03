@@ -75,6 +75,7 @@
   font-size: 30px;
   font-weight: bold;
   text-align: center;
+  display: block;
 }
 
 .page__lecture_read .site__content .lecture__content .subsection {

@@ -7,6 +7,7 @@ import PageReadLectures from './PageLectures/PageReadLectures';
 import PageAdmin from './PageAdmin';
 import PageAdminUsers from './PageAdmin/PageAdminUsers';
 import PageAdminTests from './PageAdmin/PageAdminTests';
+import PageAdminLectures from './PageAdmin/PageAdminLectures';
 import PageAdminEditTest from './PageAdmin/PageEditTest';
 import PageCatalogTests from './PageTests/PageCatalogTests';
 import PagePassTest from './PageTests/PagesPassTest/PagePassTest';
@@ -28,6 +29,7 @@ function App() {
             <Route path='/admin' element={<PageAdmin />} />
             <Route path='/admin/users' element={<PageAdminUsers />} />
             <Route path='/admin/test/:id' element={<PageAdminEditTest />} />
+            <Route path='/admin/lectures' element={<PageAdminLectures />} />
             <Route path='/admin/tests' element={<PageAdminTests />} />
             <Route path='/tests' element={<PageCatalogTests />} />
             <Route path='/test/:id' element={<PagePassTest />} />

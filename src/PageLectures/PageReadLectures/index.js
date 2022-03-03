@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { renderMatches, useParams } from 'react-router-dom';
 import Highlight from 'react-highlight';
 import './style.css';
 import './vsStyleForCode.css';
@@ -16,17 +16,19 @@ function GetItems(setItems, idLecture) {
             if (response['error'])
                 throw (response['error']);
             setItems(response);
-            document.title = response[0]['valueElem']
+            document.title = response['name']
         })
 }
 
 
 function PageLectureRead() {
     const idLecture = useParams()['id'];
-    const [lectureElement, setLectureElement] = useState([]);
+    const [lecture, setLecture] = useState([]);
     useEffect(() => {
-        GetItems(setLectureElement, idLecture);
+        GetItems(setLecture, idLecture);
     }, [])
+    console.log(lecture['name'])
+    console.log(lecture.name)
     return (
         <div className='page__lecture_read'>
             <div className="site__content">
@@ -36,22 +38,10 @@ function PageLectureRead() {
                     <div className="next" >Следующая <div className="arrow" /></div>
                 </div>
                 <div className="lecture__content">
-                {lectureElement.map((item, index) => {
-                    switch (+item.idType) {
-                        case 0:
-                            return (<p className="title" key={index}>{item.valueElem}</p>);
-                        case 1:
-                            return (<p className="subsection" key={index}>{item.valueElem}</p>);
-                        case 2:
-                            return (<p className="text" key={index}>{item.valueElem}</p>);
-                        case 3:
-                            return (<Highlight className='csharp' key={index}>{item.valueElem}</Highlight>);
-                        case 4:
-                            return (<img src={item.valueElem} alt="photo" key={index} />);
-                        default:
-                            return (<div className="unknown__elem" key={index}>{item.valueElem}</div>);
+                    <div className='title'>{lecture.name}</div>
+                    <div dangerouslySetInnerHTML={{ __html: lecture.content }}></div>
+                    {// return (<Highlight className='csharp' key={index}>{str}</Highlight>);
                     }
-                })}
                 </div>
             </div>
         </div>
