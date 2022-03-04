@@ -50,11 +50,12 @@
             .title {
                 font-size: 30px;
                 font-weight: bold;
+                margin: 30px 0;
                 text-align: center;
                 display: block;
             }
 
-            .subsection {
+            h3 {
                 margin-left: 15px;
                 margin-top: 20px;
                 margin-bottom: 5px;
@@ -62,7 +63,7 @@
                 font-weight: bold;
             }
 
-            .text {
+            p {
                 text-align: justify;
                 text-indent: 15px;
             }
@@ -70,6 +71,9 @@
             img {
                 display: block;
                 margin: 0 auto;
+            }
+            li{
+                margin-bottom: 15px;
             }
         }
     }

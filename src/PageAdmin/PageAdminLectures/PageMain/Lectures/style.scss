@@ -11,13 +11,12 @@
                         border-bottom: 0;
                     }
                 }
-                &:hover{
-                    td{
+                &:hover {
+                    td {
                         background-color: rgb(240, 240, 240);
                     }
                 }
             }
-
             th,
             td {
                 margin: 0;
@@ -36,21 +35,37 @@
                         height: 7px;
                         margin-right: 5px;
                     }
-                    .green{
+                    .green {
                         background-color: green;
                     }
-                    .red{
+                    .red {
                         background-color: red;
                     }
                 }
 
                 a {
                     margin-right: 15px;
+                    svg {
+                        margin-right: 0;
+                    }
                 }
                 svg {
                     cursor: pointer;
                     padding: 1px;
+                    margin-right: 15px;
                 }
+            }
+        }
+        .add {
+            height: 30px;
+            width: 208px;
+            font-size: 1rem;
+            background-color: rgb(151, 255, 151);
+            margin: 15px 0;
+            border: 1px solid gray;
+            cursor: pointer;
+            &:hover {
+                background-color: rgb(195, 255, 195);
             }
         }
     }

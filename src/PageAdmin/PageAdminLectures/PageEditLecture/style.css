@@ -1,0 +1,73 @@
+.page__lecture__edit .site__content #lecture__name {
+  padding: 2px;
+  min-width: 700px;
+}
+
+.page__lecture__edit .site__content select {
+  padding: 2px;
+}
+
+.page__lecture__edit .site__content .insert__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0;
+  margin-top: 30px;
+  margin-bottom: 5px;
+}
+
+.page__lecture__edit .site__content .insert__buttons li {
+  margin-right: 5px;
+  padding: 0;
+}
+
+.page__lecture__edit .site__content .insert__buttons li button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+  background-color: #e6e9f9;
+  color: #505d89;
+  border: 1px solid #6779b5;
+}
+
+.page__lecture__edit .site__content .insert__buttons li button:hover {
+  background-color: #c0c9fa;
+  cursor: pointer;
+}
+
+.page__lecture__edit .site__content textarea {
+  border: 1px solid #1976d2;
+  border-radius: 5px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  min-height: 500px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.page__lecture__edit .site__content textarea:hover {
+  border: 1px solid #095fb6;
+}
+
+.page__lecture__edit .site__content .save {
+  height: 30px;
+  width: 208px;
+  font-size: 1rem;
+  background-color: #97ff97;
+  margin: 15px 0;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+
+.page__lecture__edit .site__content .save:hover {
+  background-color: #c3ffc3;
+}

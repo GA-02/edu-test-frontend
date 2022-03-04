@@ -1,0 +1,52 @@
+.page__labs {
+    .site__content {
+        .search__container {
+            svg {
+                position: absolute;
+                padding-top: 18px;
+                padding-left: 15px;
+                width: 18px;
+                fill: gray;
+            }
+            input[type="search"] {
+                font-size: 20px;
+                padding: 15px;
+                padding-left: 40px;
+
+                border-radius: 5px;
+                border: 1px solid rgb(243, 243, 243);
+                width: 100%;
+
+                display: block;
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+        .labs{
+            padding: 0;
+        }
+        .labs__item {
+            margin-top: 10px;
+            padding: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-left: 3px solid #e6e6e6;
+            width: max-content;
+            max-width: 100%;
+            
+            a {
+                text-decoration: none;
+                color: #3e85bb;
+                line-height: 1.5;
+                &:hover{
+                    text-decoration: underline;
+                    color: rgb(255, 50, 100);
+                }
+            }
+            
+            &:hover {
+                border-left: 3px solid #0078d4;
+            }
+        }
+    }
+}

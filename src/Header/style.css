@@ -102,6 +102,7 @@ header .link__icon:hover {
 .header__pop-up .window {
   position: relative;
   padding: 10px 25px;
+  padding-bottom: 30px;
   width: 250px;
   height: -webkit-max-content;
   height: -moz-max-content;
@@ -196,6 +197,14 @@ header .link__icon:hover {
   color: #b2b2b2;
 }
 
+.header__pop-up .window .recover {
+  text-decoration: none;
+  display: block;
+  font-size: 0.95rem;
+  text-align: center;
+  margin-top: 5px;
+}
+
 .header__pop-up .window .error {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -222,7 +231,7 @@ header .link__icon:hover {
 .header__pop-up .window input[type="submit"] {
   display: block;
   margin: 25px auto;
-  margin-top: 25px;
+  margin-bottom: 0px;
   border: 1px solid gray;
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 5px #9b9b9b;

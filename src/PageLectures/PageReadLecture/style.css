@@ -1,0 +1,102 @@
+.page__lecture_read .site__content {
+  max-width: 1200px;
+}
+
+.page__lecture_read .site__content .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+  margin-top: -5px;
+}
+
+.page__lecture_read .site__content .navigation > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid white;
+}
+
+.page__lecture_read .site__content .navigation > div:hover {
+  color: #0065b3;
+  cursor: pointer;
+  border: 1px solid #0065b3;
+}
+
+.page__lecture_read .site__content .navigation > div:hover .arrow {
+  border-top: 1px solid #0065b3;
+  border-right: 1px solid #0065b3;
+}
+
+.page__lecture_read .site__content .navigation .arrow {
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.page__lecture_read .site__content .navigation .prev > .arrow {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+}
+
+.page__lecture_read .site__content .navigation .select::after {
+  content: "\2771";
+  margin-left: 7px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  color: gray;
+}
+
+.page__lecture_read .site__content .lecture__content {
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 5px #afafaf;
+          box-shadow: 0px 0px 5px #afafaf;
+  padding: 5px 15px;
+}
+
+.page__lecture_read .site__content .lecture__content .title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 30px 0;
+  text-align: center;
+  display: block;
+}
+
+.page__lecture_read .site__content .lecture__content h3 {
+  margin-left: 15px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.page__lecture_read .site__content .lecture__content p {
+  text-align: justify;
+  text-indent: 15px;
+}
+
+.page__lecture_read .site__content .lecture__content img {
+  display: block;
+  margin: 0 auto;
+}
+
+.page__lecture_read .site__content .lecture__content li {
+  margin-bottom: 15px;
+}

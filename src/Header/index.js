@@ -60,7 +60,7 @@
                             <ul className='menu' type="none">
                                 <li className="menu__item"><a href='/lectures'>Лекции</a></li>
                                 <li className="menu__item"><a href='/tests'>Тесты</a></li>
-                                <li className="menu__item"><a href='/tests'>Лабораторные <br /> работы</a></li>
+                                <li className="menu__item"><a href='/labs'>Лабораторные <br /> работы</a></li>
                                 {
                                     this.state.userName ? <>
                                         <li className="menu__item"><a href='/profile'><mark>{this.state.userName}</mark></a></li>
@@ -89,6 +89,7 @@
                                 <p>Пароль неправильный</p>
                             </div>
                             <input type='submit' value='Войти' />
+                            <a href="/ввв" className="recover">Забыли пароль?</a>
                         </form>
                     </div>
                     <div className="header__pop-up" id='header__register__pop-up'>

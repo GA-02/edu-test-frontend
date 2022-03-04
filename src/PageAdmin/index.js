@@ -16,10 +16,15 @@ class PageMain extends React.Component {
                         Перейти к управлению тестами
                         <div className="arrow"></div>
                     </a>
+                    <a href="/admin/labs" className="admin__forward">
+                        Перейти к управлению лабораторными работами
+                        <div className="arrow"></div>
+                    </a>
                     <a href="/admin/users" className="admin__forward">
                         Перейти к управлению пользователями
                         <div className="arrow"></div>
                     </a>
+
                 </div>
             </div>
         )

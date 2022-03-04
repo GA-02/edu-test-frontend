@@ -1,0 +1,50 @@
+.page__labs .site__content .search__container svg {
+  position: absolute;
+  padding-top: 18px;
+  padding-left: 15px;
+  width: 18px;
+  fill: gray;
+}
+
+.page__labs .site__content .search__container input[type="search"] {
+  font-size: 20px;
+  padding: 15px;
+  padding-left: 40px;
+  border-radius: 5px;
+  border: 1px solid #f3f3f3;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.page__labs .site__content .labs {
+  padding: 0;
+}
+
+.page__labs .site__content .labs__item {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-left: 3px solid #e6e6e6;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+}
+
+.page__labs .site__content .labs__item a {
+  text-decoration: none;
+  color: #3e85bb;
+  line-height: 1.5;
+}
+
+.page__labs .site__content .labs__item a:hover {
+  text-decoration: underline;
+  color: #ff3264;
+}
+
+.page__labs .site__content .labs__item:hover {
+  border-left: 3px solid #0078d4;
+}
