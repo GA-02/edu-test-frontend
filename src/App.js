@@ -3,10 +3,12 @@ import './App.css';
 import Header from './Header';
 import PageAdmin from './PageAdmin';
 import PageAdminUsers from './PageAdmin/PageAdminUsers';
-import PageAdminTests from './PageAdmin/PageAdminTests';
 import PageAdminLectures from './PageAdmin/PageAdminLectures/PageMain';
+import PageAdminTests from './PageAdmin/PageAdminTests';
+import PageAdminLabs from './PageAdmin/PageAdminLabs/PageMain';
 import PageAdminEditLecture from './PageAdmin/PageAdminLectures/PageEditLecture';
 import PageAdminEditTest from './PageAdmin/PageEditTest';
+import PageAdminEditLab from './PageAdmin/PageAdminLabs/PageEditLab';
 import PageMain from './PageMain';
 import PageCatalogLectures from './PageLectures/PageCatalogLectures';
 import PageReadLecture from './PageLectures/PageReadLecture';
@@ -29,6 +31,8 @@ function App() {
             <Route path='/' element={<PageMain />} />
             <Route path='/admin' element={<PageAdmin />} />
             <Route path='/admin/users' element={<PageAdminUsers />} />
+            <Route path='/admin/labs' element={<PageAdminLabs />} />
+            <Route path='/admin/lab/:id' element={<PageAdminEditLab />} />
             <Route path='/admin/lecture/:id' element={<PageAdminEditLecture />} />
             <Route path='/admin/lectures' element={<PageAdminLectures />} />
             <Route path='/admin/test/:id' element={<PageAdminEditTest />} />
