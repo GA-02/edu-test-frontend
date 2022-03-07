@@ -23,16 +23,18 @@ function GetItems(setItems, idLab) {
 
 function PageLabRead() {
     const idLab = useParams()['id'];
-    const [lab, setLab] = useState([]);
+    const [lab, setLab] = useState(null);
     useEffect(() => {
         GetItems(setLab, idLab);
     }, [])
+    if (!lab)
+        return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />)
     return (
         <div className='page__lab_read'>
             <div className="site__content">
                 <div className="navigation">
-                    <div className="prev" ><div className="arrow" />Предыдущая </div>
-                    <div className="next" >Следующая <div className="arrow" /></div>
+                    <a href={"/lab/" + lab.idPrevLab}><div className="prev" style={{ opacity: lab.idPrevLab ?? 0 }}><div className="arrow" />Предыдущая </div></a>
+                    <a href={"/lab/" + lab.idNextLab}><div className="next" style={{ opacity: lab.idNextLab ?? 0 }}>Следующая <div className="arrow" /></div></a>
                 </div>
                 <div className="lab__content">
                     <div className='title'>Лабораторная работа № {lab.startNumber == lab.endNumber ? lab.startNumber : `${lab.startNumber} - ${lab.endNumber}`}. {lab.theme}</div>
