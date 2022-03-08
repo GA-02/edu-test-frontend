@@ -101,7 +101,7 @@ function PageAdminTests() {
     return (
         <>
             <Table columns={columns} data={lectures} />
-            <button className='add'>Добавить лекцию</button>
+            <button className='add'>+ Добавить лекцию</button>
         </>
     )
 }

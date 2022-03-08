@@ -75,15 +75,18 @@
             }
         }
         .add {
-            height: 30px;
-            width: 400px;
             font-size: 1rem;
-            background-color: rgb(151, 255, 151);
             margin: 15px 0;
-            border: 1px solid gray;
             cursor: pointer;
+            padding: 1rem;
+            color: #fff;
+            font-weight: 700;
+            background-color: #25b948;
+            border: 1px solid #25b948;
+
             &:hover {
-                background-color: rgb(195, 255, 195);
+                background-color: #1bb13e;
+                border-color: #1bb13e;
             }
         }
     }

@@ -16,7 +16,7 @@ function GetItems(setItems, idLab) {
             if (response['error'])
                 throw (response['error']);
             setItems(response);
-            document.title = "Лабораторная работа №" + response.startNumber
+            document.title = "Лабораторная работа № " + response.startNumber;
         })
 }
 

@@ -59,15 +59,19 @@
 }
 
 .page__lecture__edit .site__content .save {
-  height: 30px;
-  width: 208px;
+  width: 300px;
   font-size: 1rem;
-  background-color: #97ff97;
-  margin: 15px 0;
-  border: 1px solid gray;
+  margin: 15px auto;
   cursor: pointer;
+  padding: 15px;
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  background-color: #25b948;
+  border: 1px solid #25b948;
 }
 
 .page__lecture__edit .site__content .save:hover {
-  background-color: #c3ffc3;
+  background-color: #1bb13e;
+  border-color: #1bb13e;
 }

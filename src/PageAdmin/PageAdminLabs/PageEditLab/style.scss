@@ -15,7 +15,6 @@
 .page__lab__edit {
     .site__content {
         #lab__theme {
-            padding: 2px;
             min-width: 700px;
         }
         select {
@@ -23,7 +22,10 @@
         }
         input:not(:first-child)[type='text'] {
             width: 100%;
+        }
+        input, select{
             padding: 5px;
+            margin-bottom: 5px;
             box-sizing: border-box;
         }
         .insert__buttons {
@@ -65,15 +67,20 @@
         }
 
         .save {
-            height: 30px;
             width: 300px;
             font-size: 1rem;
-            background-color: rgb(151, 255, 151);
-            margin: 15px 0;
-            border: 1px solid gray;
+            margin: 15px auto;
             cursor: pointer;
+            padding: 15px;
+            display: block;
+            color: #fff;
+            font-weight: 700;
+            background-color: #25b948;
+            border: 1px solid #25b948;
+
             &:hover {
-                background-color: rgb(195, 255, 195);
+                background-color: #1bb13e;
+                border-color: #1bb13e;
             }
         }
     }

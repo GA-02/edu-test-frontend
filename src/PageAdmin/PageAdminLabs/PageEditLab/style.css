@@ -1,5 +1,4 @@
 .page__lab__edit .site__content #lab__theme {
-  padding: 2px;
   min-width: 700px;
 }
 
@@ -9,7 +8,11 @@
 
 .page__lab__edit .site__content input:not(:first-child)[type='text'] {
   width: 100%;
+}
+
+.page__lab__edit .site__content input, .page__lab__edit .site__content select {
   padding: 5px;
+  margin-bottom: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -66,15 +69,19 @@
 }
 
 .page__lab__edit .site__content .save {
-  height: 30px;
   width: 300px;
   font-size: 1rem;
-  background-color: #97ff97;
-  margin: 15px 0;
-  border: 1px solid gray;
+  margin: 15px auto;
   cursor: pointer;
+  padding: 15px;
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  background-color: #25b948;
+  border: 1px solid #25b948;
 }
 
 .page__lab__edit .site__content .save:hover {
-  background-color: #c3ffc3;
+  background-color: #1bb13e;
+  border-color: #1bb13e;
 }

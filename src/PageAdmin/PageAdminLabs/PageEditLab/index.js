@@ -17,14 +17,17 @@ function GetItems(setItems, idLab) {
         })
 }
 
-function SaveLecture(idLecture, name, idChapter, idStatus, content) {
+function SaveLecture(idLab, startNumber, endNumber, theme, goal, equipment, content, idStatus) {
     let dataRequest = new FormData();
-    dataRequest.append('idLecture', +idLecture);
-    dataRequest.append('nameLecture', name);
-    dataRequest.append('idChapter', idChapter);
-    dataRequest.append('idStatus', idStatus);
+    dataRequest.append('idLab', +idLab);
+    dataRequest.append('startNumber', startNumber);
+    dataRequest.append('endNumber', endNumber);
+    dataRequest.append('theme', theme);
+    dataRequest.append('goal', goal);
+    dataRequest.append('equipment', equipment);
     dataRequest.append('content', content);
-    fetch('http://edu-testback-end.com/lectures/AdminSaveLecture.php', {
+    dataRequest.append('idStatus', idStatus);
+    fetch('http://edu-testback-end.com/labs/AdminSaveLab.php', {
         method: "POST",
         body: dataRequest
     })
@@ -89,13 +92,13 @@ function PageEditLab() {
                 <p>Статус: &#160;
                     <select name="status" id='lab__status' defaultValue={lab.idStatus}>
                         <option value="1">Черновик</option>
-                        <option value="2">Опубликован</option>
+                        <option value="2">Опубликована</option>
                     </select>
                 </p>
 
                 <ul type="none" className='insert__buttons'>
                     <li title='Заголовок'>
-                        <button onClick={() => { insertText('lab__content', '<h1></р1>', 5) }}>
+                        <button onClick={() => { insertText('lab__content', '<h1></h1>', 5) }}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 16 16">
                                 <path d="M8.637 13V3.669H7.379V7.62H2.758V3.67H1.5V13h1.258V8.728h4.62V13h1.259zm5.329 0V3.669h-1.244L10.5 5.316v1.265l2.16-1.565h.062V13h1.244z" />
                             </svg>
@@ -162,7 +165,7 @@ function PageEditLab() {
                 </ul>
                 <textarea name="lab__content" id="lab__content" defaultValue={lab.content} onKeyDown={(event) => { enableTab(event) }}></textarea>
                 <button className='save' onClick={() => {
-                    // SaveLecture(idLecture, document.querySelector("#lecture__name").value, document.querySelector("#lecture__chapter").options.selectedIndex, document.querySelector("#lecture__status").options.selectedIndex, document.querySelector("#lab__content").value)
+                    SaveLecture(idLab, document.querySelector("#lab__start-number").value, document.querySelector("#lab__end-number").value, document.querySelector("#lab__theme").value, document.querySelector("#lab__goal").value, document.querySelector("#lab__equipment").value, document.querySelector("#lab__content").value, document.querySelector("#lab__status").value)
                 }}>Сохранить лабораторную работу</button>
 
             </div>

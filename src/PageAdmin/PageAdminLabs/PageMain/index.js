@@ -90,7 +90,7 @@ function PageAdminLabs() {
         <div className="page__admin__labs" >
             <div className="site__content">
                 <Table columns={columns} data={labs} />
-                <button className='add'>Добавить лабораторную работу</button>
+                <button className='add'>+ Добавить лабораторную работу</button>
             </div>
         </div>
     )
