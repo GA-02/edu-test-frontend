@@ -1,0 +1,57 @@
+%templateBtn {
+    height: 30px;
+    width: 208px;
+    font-size: 1rem;
+    background-color: #f6f6f9;
+    color: #1976d2;
+    border: 1px solid #1976d2;
+    cursor: pointer;
+    &:hover {
+        background-color: #e3e3f8;
+        color: #2485e6;
+    }
+}
+
+.page__chapter__edit {
+    .site__content {
+        #chapter__name {
+            padding: 2px;
+            min-width: 700px;
+        }
+        select {
+            padding: 2px;
+        }
+
+        textarea {
+            border: 1px solid #1976d2;
+            border-radius: 5px;
+            padding: 5px;
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 100px;
+            font-size: 1rem;
+            resize: vertical;
+            &:hover {
+                border: 1px solid #095fb6;
+            }
+        }
+
+        .save {
+            width: 300px;
+            font-size: 1rem;
+            margin: 15px auto;
+            cursor: pointer;
+            padding: 15px;
+            display: block;
+            color: #fff;
+            font-weight: 700;
+            background-color: #25b948;
+            border: 1px solid #25b948;
+
+            &:hover {
+                background-color: #1bb13e;
+                border-color: #1bb13e;
+            }
+        }
+    }
+}

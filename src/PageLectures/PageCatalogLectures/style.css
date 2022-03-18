@@ -41,6 +41,10 @@
 
 .page__lectures .site__content .chapter a {
   text-decoration: none;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: block;
 }
 
 .page__lectures .site__content .chapter .chapter__start {

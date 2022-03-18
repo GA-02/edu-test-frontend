@@ -1,9 +1,13 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useTable, useSortBy } from 'react-table';
-import './style.css';
 
+function enterSearch(event, setItems) {
+    if (event.charCode == 13)
+        setItems(event.target.value.toLowerCase());
+}
 
 function Table({ columns, data }) {
+    const [filteredData, setFilteredData] = useState('');
     const {
         getTableProps,
         getTableBodyProps,
@@ -18,8 +22,6 @@ function Table({ columns, data }) {
         useSortBy
     )
 
-    const firstPageRows = rows.slice(0, 20)
-
     return (
         <>
             <table {...getTableProps()}>
@@ -27,11 +29,8 @@ function Table({ columns, data }) {
                     {headerGroups.map(headerGroup => (
                         <tr {...headerGroup.getHeaderGroupProps()}>
                             {headerGroup.headers.map(column => (
-                                // Add the sorting props to control sorting. For this example
-                                // we can add them into the header props
                                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                                     {column.render('Header')}
-                                    {/* Add a sort direction indicator */}
                                     <span>
                                         {column.isSorted
                                             ? column.isSortedDesc
@@ -43,16 +42,37 @@ function Table({ columns, data }) {
                             ))}
                         </tr>
                     ))}
+                    <tr>
+                        <th colSpan="100%" style={{
+                            textAlign: 'left',
+                        }}>Поиск:
+                            <input type="search" placeholder='Введите значение'
+                                onKeyPress={(event) => { enterSearch(event, setFilteredData) }}
+                                onInput={(event) => { if (event.target.value == '') setFilteredData('') }}
+                            />
+                        </th>
+                    </tr>
                 </thead>
                 <tbody {...getTableBodyProps()}>
-                    {firstPageRows.map(
+
+                    {rows.filter(item => {
+                        let isMeetTheCondition = false;
+
+                        Object.values(item.original).map(itemValue => {
+                            console.log(itemValue)
+
+                            if ((itemValue??'').toLowerCase().indexOf(filteredData) != -1)
+                                isMeetTheCondition = true;
+                        })
+                        return isMeetTheCondition;
+                    }).map(
                         (row, i) => {
                             prepareRow(row);
                             return (
                                 <tr {...row.getRowProps()}>
-                                    {row.cells.map((cell, index)  => {
-                                        if (index === 0){
-                                            return(<td {...cell.getCellProps()}>{i+1}</td>)
+                                    {row.cells.map((cell, index) => {
+                                        if (index === 0) {
+                                            return (<td {...cell.getCellProps()}>{i + 1}</td>)
                                         }
                                         return (
 

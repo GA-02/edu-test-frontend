@@ -16,7 +16,7 @@ function GetItems(setItems) {
         })
 }
 
-function PageAdminTests() {
+function PageAdminLectures() {
     const [lectures, setLectures] = useState(null);
     useEffect(() => {
         document.title = "Управление лекциями";
@@ -107,4 +107,4 @@ function PageAdminTests() {
 }
 
 
-export default PageAdminTests
+export default PageAdminLectures

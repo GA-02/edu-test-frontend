@@ -18,6 +18,10 @@ function GetItems(setItems, idLab) {
 }
 
 function SaveLecture(idLab, startNumber, endNumber, theme, goal, equipment, content, idStatus) {
+    if(+startNumber > +endNumber) {
+        alert('Начальный номер лабораторной работы не может быть больше конечного');
+        return;
+    }
     let dataRequest = new FormData();
     dataRequest.append('idLab', +idLab);
     dataRequest.append('startNumber', startNumber);

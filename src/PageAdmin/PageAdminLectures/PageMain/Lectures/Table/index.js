@@ -59,7 +59,7 @@ function Table({ columns, data }) {
                     {rows.filter(item => {
                         let isMeetTheCondition = false;
                         Object.values(item.original).map(itemValue =>{
-                            if (itemValue.toLowerCase().indexOf(filteredData) != -1)
+                            if ((itemValue??'').toLowerCase().indexOf(filteredData) != -1)
                                 isMeetTheCondition = true;
                         })
                         return isMeetTheCondition;

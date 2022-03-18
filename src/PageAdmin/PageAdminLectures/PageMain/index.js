@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import LecturePage from './Lectures';
+import LecturesPage from './Lectures';
+import ChaptersPage from './Chapters';
 import './style.css';
 
 function PageAdminTests() {
@@ -16,7 +17,7 @@ function PageAdminTests() {
                     <button className={selectedItem == 0 ? 'active' : ''} onClick={()=>{setSelectedItem(0)}}>Лекции</button>
                     <button className={selectedItem == 1? 'active' : ''} onClick={()=>{setSelectedItem(1)}}>Главы</button>
                 </div>
-                {selectedItem == 0 ? <LecturePage /> : ''}
+                {selectedItem == 0 ? <LecturesPage /> : <ChaptersPage />}
             </div>
         </div>
     )

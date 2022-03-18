@@ -141,7 +141,6 @@ function PageLectureRead() {
                 </ul>
                 <textarea name="lecture__content" id="lecture__content" defaultValue={lecture.content} onKeyDown={(event) => { enableTab(event) }}></textarea>
                 <button className='save' onClick={() => {
-                    console.log(document.querySelector("#lecture__chapter").options.selectedIndex);
                     SaveLecture(idLecture, document.querySelector("#lecture__name").value, document.querySelector("#lecture__chapter").options.selectedIndex, document.querySelector("#lecture__status").options.selectedIndex, document.querySelector("#lecture__content").value)
                 }}>Сохранить лекцию</button>
 

@@ -42,7 +42,6 @@
   height: 15px;
   cursor: pointer;
   fill: red;
-  title: "sdjkfl";
 }
 
 .page__test__edit .site__content .question svg.close:hover {
@@ -122,11 +121,13 @@
   margin: 0 auto;
 }
 
-.page__test__edit .site__content .question.question__string-answer .answer, .page__test__edit .site__content .question.question__number-answer .answer {
+.page__test__edit .site__content .question .answer__string,
+.page__test__edit .site__content .question .answer__number {
   margin-left: 15px;
 }
 
-.page__test__edit .site__content .question.question__string-answer .answer input, .page__test__edit .site__content .question.question__number-answer .answer input {
+.page__test__edit .site__content .question .answer__string input,
+.page__test__edit .site__content .question .answer__number input {
   padding: 5px;
 }
 

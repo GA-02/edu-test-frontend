@@ -7,6 +7,7 @@ import PageAdminLectures from './PageAdmin/PageAdminLectures/PageMain';
 import PageAdminTests from './PageAdmin/PageAdminTests';
 import PageAdminLabs from './PageAdmin/PageAdminLabs/PageMain';
 import PageAdminEditLecture from './PageAdmin/PageAdminLectures/PageEditLecture';
+import PageAdminEditChapter from './PageAdmin/PageAdminLectures/PageEditChapter';
 import PageAdminEditTest from './PageAdmin/PageEditTest';
 import PageAdminEditLab from './PageAdmin/PageAdminLabs/PageEditLab';
 import PageMain from './PageMain';
@@ -35,6 +36,7 @@ function App() {
             <Route path='/admin/lab/:id' element={<PageAdminEditLab />} />
             <Route path='/admin/lecture/:id' element={<PageAdminEditLecture />} />
             <Route path='/admin/lectures' element={<PageAdminLectures />} />
+            <Route path='/admin/chapter/:id' element={<PageAdminEditChapter />} />
             <Route path='/admin/test/:id' element={<PageAdminEditTest />} />
             <Route path='/admin/tests' element={<PageAdminTests />} />
             <Route path='/lectures' element={<PageCatalogLectures />} />

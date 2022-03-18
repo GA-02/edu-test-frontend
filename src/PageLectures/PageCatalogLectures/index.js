@@ -66,8 +66,7 @@ class PageMain extends React.Component {
                                         unit: 'minute',
                                         unitDisplay: "long"
                                     }).format(+itemChapter.timeReadChapter % 60))}
-                            </span>
-                                • <span title='Количество лекций в главе'>{this.detectEndingWordLecture(itemChapter.lectures.length)}</span></div>
+                            </span> • <span title='Количество лекций в главе'>{this.detectEndingWordLecture(itemChapter.lectures.length)}</span></div>
                             <p className="description">{itemChapter.description}</p>
                             <a href={"/lecture/" + String(itemChapter.lectures[0].idLecture)}><button className='chapter__start'>Начать<div className="arrow" /></button></a>
                             <button className='chapter__content' onClick={event => event.target.classList.toggle('active')}>Общие сведения</button>
