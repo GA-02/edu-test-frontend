@@ -143,6 +143,30 @@
   color: #b2b2b2;
 }
 
+.page__profile .site__content .account__control .password__edit .error {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #d93025;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.page__profile .site__content .account__control .password__edit .error svg {
+  min-width: 20px;
+  max-width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.page__profile .site__content .account__control .password__edit .error p {
+  padding: 0;
+  margin: 0;
+}
+
 .page__profile .site__content .account__control .password__edit input[type="submit"] {
   background-color: #e3fde3;
 }
