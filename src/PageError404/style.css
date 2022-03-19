@@ -1,0 +1,10 @@
+.page__error404 .site__content p {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.page__error404 .site__content p mark {
+  font-size: 10rem;
+  background: none;
+}

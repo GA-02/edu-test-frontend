@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Highlight from 'react-highlight';
 import './style.css';
+import './vsStyleForCode.css';
 
 function GetItems(setItems, idTest) {
     let dataRequest = new FormData();
@@ -39,9 +41,6 @@ function SetItem(item, id, items) {
 
 
 function CheckAnswers(answers, idTest) {
-    let dataRequest = new FormData();
-    dataRequest.append('idTest', +idTest);
-    dataRequest.append('userAnswers', answers);
     fetch('http://edu-testback-end.com/tests/CheckAnswers.php', {
         method: "POST",
         headers: {
@@ -49,7 +48,10 @@ function CheckAnswers(answers, idTest) {
         },
         body: JSON.stringify({
             'idTest': idTest,
-            'userAnswers': answers
+            'userAnswers': answers,
+            'email': localStorage.getItem('email'),
+            'password': localStorage.getItem('password')
+            
         })
     })
         .then(response => response.json())
@@ -75,7 +77,8 @@ function PageTestPass() {
         <div className='page__test__pass'>
             <div className="site__content">
                 <div className='question'>
-                    <div className="question__name">Вопрос {currentQuestion + 1}: {question.nameQuestion}</div>
+                    <div className="question__name">Вопрос {currentQuestion + 1}: {question.nameQuestion}
+                    {question.codeQuestion ? <Highlight className='CSharp'>{question.codeQuestion}</Highlight> : <></>}</div>
                     {(() => {
                         switch (+question.idTypeAnswers) {
                             case 1:
@@ -90,7 +93,8 @@ function PageTestPass() {
                                                             setAnswers(SetItem(answer.idAnswer, question.idQuestion, answers));
                                                         }} >
                                                         <div className="indexAnswer">{index + 1}</div>
-                                                        {answer.nameAnswer}
+                                                        {answer.nameAnswer ? answer.nameAnswer : <></>}
+                                                        {answer.codeAnswer ? <Highlight className='CSharp'>{answer.codeAnswer}</Highlight>: <></>}
                                                     </li>
 
                                                 )

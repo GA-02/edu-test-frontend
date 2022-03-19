@@ -52,6 +52,7 @@
 
 .page__test__pass .site__content .question .answer .indexAnswer {
   position: absolute;
+  top: calc(50% - 0.55rem);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

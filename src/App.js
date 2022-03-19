@@ -2,13 +2,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
 import PageAdmin from './PageAdmin';
-import PageAdminUsers from './PageAdmin/PageAdminUsers';
+import PageAdminUsers from './PageAdmin/PageAdminUsers/PageMain';
 import PageAdminLectures from './PageAdmin/PageAdminLectures/PageMain';
-import PageAdminTests from './PageAdmin/PageAdminTests';
+import PageAdminTests from './PageAdmin/PageAdminTests/PageMain';
 import PageAdminLabs from './PageAdmin/PageAdminLabs/PageMain';
+import PageAdminEditUser from './PageAdmin/PageAdminUsers/PageEditUser';
 import PageAdminEditLecture from './PageAdmin/PageAdminLectures/PageEditLecture';
 import PageAdminEditChapter from './PageAdmin/PageAdminLectures/PageEditChapter';
-import PageAdminEditTest from './PageAdmin/PageEditTest';
+import PageAdminEditTest from './PageAdmin/PageAdminTests/PageEditTest';
 import PageAdminEditLab from './PageAdmin/PageAdminLabs/PageEditLab';
 import PageMain from './PageMain';
 import PageCatalogLectures from './PageLectures/PageCatalogLectures';
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route path='/' element={<PageMain />} />
             <Route path='/admin' element={<PageAdmin />} />
+            <Route path='/admin/user/:id' element={<PageAdminEditUser />} />
             <Route path='/admin/users' element={<PageAdminUsers />} />
             <Route path='/admin/labs' element={<PageAdminLabs />} />
             <Route path='/admin/lab/:id' element={<PageAdminEditLab />} />

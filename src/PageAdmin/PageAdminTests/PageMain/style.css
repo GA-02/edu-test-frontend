@@ -1,0 +1,29 @@
+.page__admin__tests .site__content .control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: 15px;
+}
+
+.page__admin__tests .site__content .control button {
+  margin: 0 5px;
+  padding: 15px 100px;
+  font-size: 1rem;
+  background-color: #e6e9f9;
+  color: #505d89;
+  border: 1px solid #6779b5;
+}
+
+.page__admin__tests .site__content .control button.active {
+  background-color: #2b90e1;
+  color: #fff;
+  border-color: #2b90e1;
+}
+
+.page__admin__tests .site__content .control button:hover {
+  cursor: pointer;
+}

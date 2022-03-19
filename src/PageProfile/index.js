@@ -35,6 +35,33 @@ class PageMain extends React.Component {
         document.location.href = '/';
     }
 
+    ChangePassword(event, oldPassword, newPassword, confirmNewPassword) {
+        event.preventDefault();
+
+        if(newPassword != confirmNewPassword){
+            alert('Пароли не совпадают');
+            return;
+        }
+        let dataRequest = new FormData();
+        dataRequest.append('email', localStorage.getItem('email'));
+        dataRequest.append('oldPassword', oldPassword);
+        dataRequest.append('newPassword', newPassword);
+
+        fetch('http://edu-testback-end.com/users/ChangePassword.php', {
+            method: "POST",
+            body: dataRequest
+        })
+            .then(response => response.json())
+            .then(response => {
+                if (response['error']) {
+                    console.log(response['error']);
+                    return;
+                }
+                
+            })
+            .catch(error => console.log(error))
+    }
+
     render() {
         if (!this.state.userData){
             return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />)
@@ -66,11 +93,11 @@ class PageMain extends React.Component {
                         <button onClick={this.LogOutFromAccount}>Выйти</button>
                     </div>
                     <div className="account__control">
-                        <form className="password__edit">
+                        <form className="password__edit" onSubmit={event=>{this.ChangePassword(event)}}>
                             <p className="title">Поменять пароль</p>
-                            <input type="password" placeholder='Старый пароль' />
-                            <input type="password" placeholder='Новый пароль' />
-                            <input type="password" placeholder='Подтвердите пароль' />
+                            <input type="password" required minLength='5' placeholder='Старый пароль' />
+                            <input type="password" required minLength='5' placeholder='Новый пароль' />
+                            <input type="password" required minLength='5' placeholder='Подтвердите пароль' />
                             <input type="submit" value="Подтвердить" />
                         </form>
                         {this.state.userData.idRole == 1 ? <a href='/admin' className='control__button'>Перейти в админ-панель<div className='arrow' /></a> : <></>}

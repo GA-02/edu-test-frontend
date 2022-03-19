@@ -1,0 +1,46 @@
+%templateBtn {
+    height: 30px;
+    width: 208px;
+    font-size: 1rem;
+    background-color: #f6f6f9;
+    color: #1976d2;
+    border: 1px solid #1976d2;
+    cursor: pointer;
+    &:hover {
+        background-color: #e3e3f8;
+        color: #2485e6;
+    }
+}
+
+.page__user__edit {
+    .site__content {
+        input[type='text'] {
+            min-width: 700px;
+        }
+        select {
+            padding: 2px;
+        }
+        input, select{
+            padding: 5px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+        }
+        .save {
+            width: 300px;
+            font-size: 1rem;
+            margin: 15px auto;
+            cursor: pointer;
+            padding: 15px;
+            display: block;
+            color: #fff;
+            font-weight: 700;
+            background-color: #25b948;
+            border: 1px solid #25b948;
+
+            &:hover {
+                background-color: #1bb13e;
+                border-color: #1bb13e;
+            }
+        }
+    }
+}

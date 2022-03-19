@@ -1,17 +1,19 @@
 import React from 'react';
-
+import './style.css';
 
 class PageError404 extends React.Component {
-    constructor(){
+    constructor() {
         super();
-        setTimeout(()=>{
+        setTimeout(() => {
             document.location.href = '/';
         }, 5000)
     }
     render() {
         return (
             <div className='page__error404'>
-                <p>Ошика 404</p>
+                <div className="site__content">
+                    <p><mark>404</mark><br />страница не найдена</p>
+                </div>
             </div>
         )
     }
