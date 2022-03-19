@@ -184,3 +184,66 @@
 .page__lecture_read .site__content .lecture__content li {
   margin-bottom: 15px;
 }
+
+.page__lecture_read .site__content .lecture__content .next__name {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 32px;
+  line-height: 1.3;
+  font-weight: 500;
+  text-indent: 0;
+}
+
+.page__lecture_read .site__content .lecture__content .next__start {
+  text-decoration: none;
+}
+
+.page__lecture_read .site__content .lecture__content .next__start button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  background-color: #0078d4;
+  border: 1px solid #0078d4;
+  padding: 5px 12px;
+  border-radius: 1px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.page__lecture_read .site__content .lecture__content .next__start button .arrow {
+  border-right: 1px solid white;
+  border-top: 1px solid white;
+  width: 10px;
+  height: 10px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin-left: 5px;
+}
+
+.page__lecture_read .site__content .lecture__content .next__start button:hover {
+  background-color: #1486dd;
+}
+
+.page__lecture_read .site__content .lecture__content .next__chapter {
+  color: #0065b3;
+  text-decoration: none;
+  line-height: 160%;
+  display: block;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.page__lecture_read .site__content .lecture__content .next__chapter:hover {
+  text-decoration: underline;
+}
+
+.page__lecture_read .site__content .lecture__content .next__chapter:last-child {
+  margin-bottom: 30px;
+}

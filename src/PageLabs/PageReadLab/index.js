@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { renderMatches, useParams } from 'react-router-dom';
 import Highlight from 'react-highlight';
 import './style.css';
@@ -15,6 +16,12 @@ function GetItems(setItems, idLab) {
         .then(response => {
             if (response['error'])
                 throw (response['error']);
+            response.content = response.content.replace(/<code[\S\s]*?>[\S\s]*?<\/code>/gi, (replacedString) => {
+                const span = document.createElement('span');
+                replacedString = replacedString.replace(/(<code[\S\s]*?>[\n\r]*)|(<\/code>)/gi, '');
+                ReactDOM.render(<Highlight className='CSharp'>{replacedString}</Highlight>, span);
+                return span.innerHTML
+            })
             setItems(response);
             document.title = "Лабораторная работа № " + response.startNumber;
         })

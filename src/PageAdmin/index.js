@@ -5,6 +5,7 @@ class PageMain extends React.Component {
 
 
     render() {
+        document.title = "Панель администратора"
         return (
             <div className='page__admin'>
                 <div className="site__content">

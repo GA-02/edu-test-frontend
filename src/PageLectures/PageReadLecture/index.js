@@ -16,16 +16,12 @@ function GetItems(setItems, idLecture) {
         .then(response => {
             if (response['error'])
                 throw (response['error']);
-            setTimeout(() => {
-                let responseWithCorrectHTML = JSON.parse(JSON.stringify(response));
-                responseWithCorrectHTML.content = responseWithCorrectHTML.content.replace(/<code[\S\s]*?>[\S\s]*?<\/code>/gi, (replacedString) => {
-                    const span = document.createElement('span');
-                    replacedString = replacedString.replace(/(<code[\S\s]*?>[\n\r]*)|(<\/code>)/gi, '');
-                    ReactDOM.render(<Highlight>{replacedString}</Highlight>, span);
-                    return span.innerHTML
-                })
-                setItems(responseWithCorrectHTML);
-            }, 100);
+            response.content = response.content.replace(/<code[\S\s]*?>[\S\s]*?<\/code>/gi, (replacedString) => {
+                const span = document.createElement('span');
+                replacedString = replacedString.replace(/(<code[\S\s]*?>[\n\r]*)|(<\/code>)/gi, '');
+                ReactDOM.render(<Highlight className='CSharp'>{replacedString}</Highlight>, span);
+                return span.innerHTML
+            })
             setItems(response);
             document.title = response['name']
         })
@@ -46,7 +42,7 @@ function PageLectureRead() {
     let prevLectureInChapter = lecture.lecturesInChapter[indexCurrentLectureInChapter - 1];
     let nextLectureInChapter = lecture.lecturesInChapter[indexCurrentLectureInChapter + 1];
     return (
-        <div key={Date()}  className='page__lecture_read'>
+        <div key={Date()} className='page__lecture_read'>
             <div className="site__content">
                 <div className="navigation">
                     {!prevLectureInChapter ?
@@ -81,7 +77,21 @@ function PageLectureRead() {
                 <div className="lecture__content">
                     <div className='title'>{lecture.name}</div>
                     <div key={idLecture} dangerouslySetInnerHTML={{ __html: lecture.content }} />
+                    <hr />
+                    {nextLectureInChapter ?
+                        <>
+                            <p className="next__name">Следующая лекция: {nextLectureInChapter.name}</p>
+                            <a className='next__start' href={"/lecture/" + String(nextLectureInChapter.idLecture)}><button>Продолжить<div className="arrow" /></button></a>
+                        </>
+                        :
+                        <>
+                            <p className="next__name">Ознакомьтесь с другими главами:</p>
+                            {lecture.moveChapter.map((item, index) => <a className='next__chapter' href={'/lecture/' + item.idStart} key={index}>{item.nameChapter}<br /></a>)}
+                        </>
+
+                    }
                 </div>
+
             </div>
         </div>
     )
