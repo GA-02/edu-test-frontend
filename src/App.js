@@ -20,6 +20,7 @@ import PageCatalogTests from './PageTests/PageCatalogTests';
 import PagePassTest from './PageTests/PagesPassTest/PagePassTest';
 import PageResultTest from './PageTests/PagesPassTest/PageResultTest';
 import PageProfile from './PageProfile';
+import PageProfileAllResults from './PageProfile/PageAllResults';
 import PageError404 from './PageError404';
 import Footer from './Footer';
 
@@ -49,6 +50,7 @@ function App() {
             <Route path='/test/:id' element={<PagePassTest />} />
             <Route path='/result/:id' element={<PageResultTest />} />
             <Route path='/profile' element={<PageProfile />} />
+            <Route path='/profile/results' element={<PageProfileAllResults />} />
             <Route path="*" element={<PageError404 />} />
 
           </Routes>

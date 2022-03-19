@@ -31,9 +31,13 @@
                 .then(response => response.json())
                 .then(response => {
                     if (response['error']) {
-                        console.log(response['error']);
+                        document.querySelector('#header__sign-in__pop-up .error').style.display = 'flex';
+                        document.querySelector('#header__sign-in__pop-up .error>p').innerText = response['error'];
                         return;
                     }
+                    localStorage.clear();
+                    document.location.href = '/';
+
                     localStorage.setItem('userName', response['name']);
                     localStorage.setItem('email', response['email']);
                     localStorage.setItem('password', document.querySelector("#header__sign-in__pop-up__password").value);
@@ -82,11 +86,11 @@
                             <div className="title">Вход в аккаунт</div>
                             <input type='email' id='header__sign-in__pop-up__email' required className="data__input" placeholder='Почтовый адрес' />
                             <input type='password' id='header__sign-in__pop-up__password' required minLength='5' maxLength='25' className="data__input" placeholder='Пароль' />
-                            <div className="error">
+                            <div className="error" style={{display: 'none'}}>
                                 <svg fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
                                 </svg>
-                                <p>Пароль неправильный</p>
+                                <p>Ошибка</p>
                             </div>
                             <input type='submit' value='Войти' />
                             <a href="/ввв" className="recover">Забыли пароль?</a>

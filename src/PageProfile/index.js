@@ -118,7 +118,7 @@ class PageMain extends React.Component {
                         {this.state.userData.idRole == 1 ? <a href='/admin' className='control__button'>Перейти в админ-панель<div className='arrow' /></a> : <></>}
                     </div>
                     <div className="user__results">
-                        <p className="title">Последние результаты</p> <button>Показать все</button>
+                        <p className="title">Последние результаты</p> <button onClick={()=>{document.location.href='/profile/results'}}>Показать все</button>
                         <table>
                             <thead>
                                 <tr>
