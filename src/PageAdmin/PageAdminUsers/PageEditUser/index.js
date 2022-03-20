@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import config from '../../../Config.json';
 import './style.css';
 
 function GetItems(setItems, idUser) {
     let dataRequest = new FormData();
     dataRequest.append('idUser', +idUser);
-    fetch('http://edu-testback-end.com/users/AdminDataUser.php', {
+    fetch(config.backHost + 'users/AdminDataUser.php', {
         method: "POST",
         body: dataRequest
     })
@@ -23,7 +24,7 @@ function SaveLecture(idUser, userName, email, idRole) {
     dataRequest.append('name', userName);
     dataRequest.append('email', email);
     dataRequest.append('idRole', idRole);
-    fetch('http://edu-testback-end.com/users/AdminSaveUser.php', {
+    fetch(config.backHost + 'users/AdminSaveUser.php', {
         method: "POST",
         body: dataRequest
     })

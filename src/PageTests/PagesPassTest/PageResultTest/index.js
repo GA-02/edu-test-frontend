@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 import UsersResultsChart from './UsersResultsChart';
-
+import config from '../../../Config.json';
 import './style.css';
 
 function GetResult(setItems, idResult) {
     let dataRequest = new FormData();
     dataRequest.append('idResult', +idResult);
-    fetch('http://edu-testback-end.com/tests/GetResult.php', {
+    fetch(config.backHost + 'tests/GetResult.php', {
         method: "POST",
         body: dataRequest
     })
@@ -70,7 +70,7 @@ function PageTestResult() {
                     result.recommendedLectures ?
                         <div className="recommended__lecture"><p className="title">Список рекомендованных лекций:</p>
                             <ol>
-                                {result.recommendedLectures.map(item => <li key={item.idLecture}><a href={'/lecture/' + item.idLecture}>{item.nameChapter}: {item.nameLecture}</a></li>)}
+                                {result.recommendedLectures.map(item => <li key={item.idLecture}><a href={config.frontHost + "lecture/" + item.idLecture}>{item.nameChapter}: {item.nameLecture}</a></li>)}
                             </ol>
                         </div>
                         :

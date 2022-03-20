@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Tooltip, AreaChart, Area, XAxis, YAxis, CartesianGrid } from "recharts";
 import { useParams } from 'react-router-dom';
+import config from '../../../../Config.json';
 
 function GetUsersResults(setItems, idResult) {
     let dataRequest = new FormData();
     dataRequest.append('idResult', idResult);
-    fetch('http://edu-testback-end.com/tests/GetUsersResults.php', {
+    fetch(config.backHost + 'tests/GetUsersResults.php', {
         method: "POST",
         body: dataRequest
     })

@@ -1,11 +1,13 @@
 import React from 'react';
 import './style.css';
+import config from '../Config.json';
+
 
 class PageError404 extends React.Component {
     constructor() {
         super();
         setTimeout(() => {
-            document.location.href = '/';
+            document.location.href = config.frontHost;
         }, 5000)
     }
     render() {

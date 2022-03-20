@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Table from './Table';
+import config from '../../Config.json';
 import './style.css';
 
 
@@ -7,7 +8,7 @@ function GetItems(setItems) {
     let dataRequest = new FormData();
     dataRequest.append('email', localStorage.getItem('email'));
     dataRequest.append('password', localStorage.getItem('password'));
-    fetch('http://edu-testback-end.com/users/GetUserResuls.php', {
+    fetch(config.backHost + 'users/GetUserResults.php', {
         method: "POST",
         body: dataRequest
     })
@@ -15,7 +16,7 @@ function GetItems(setItems) {
         .then(response => {
             if (response['error']) {
                 localStorage.clear();
-                document.location.href = '/';
+                document.location.href = config.frontHost;
             }
             setItems(response);
         })
@@ -47,6 +48,7 @@ function PageProfileResults() {
             {
                 Header: 'Время',
                 accessor: 'time',
+                disableSortBy: true
             },
             {
                 Header: 'Результат',
@@ -59,7 +61,7 @@ function PageProfileResults() {
                 Cell: ({ row }) => {
                     return (<>
 
-                        <a href={"/result/" + row.original.idResult} title="Перейти">
+                        <a href={config.frontHost + "result/" + row.original.idResult} title="Перейти">
                             <svg className="arrow__next" viewBox="0 0 100 85">
                                 <polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0 58.263,0.056" />
                             </svg>
@@ -73,7 +75,6 @@ function PageProfileResults() {
         ],
         []
     )
-    console.log(results);
     if (!results) {
         return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />);
     }

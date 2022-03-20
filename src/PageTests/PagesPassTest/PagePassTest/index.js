@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Highlight from 'react-highlight';
+import config from '../../../Config.json';
 import './style.css';
 import './vsStyleForCode.css';
 
 function GetItems(setItems, idTest) {
     let dataRequest = new FormData();
     dataRequest.append('idTest', +idTest);
-    fetch('http://edu-testback-end.com/tests/GetQuestionsTest.php', {
+    fetch(config.backHost + 'tests/GetQuestionsTest.php', {
         method: "POST",
         body: dataRequest
     })
@@ -41,7 +42,7 @@ function SetItem(item, id, items) {
 
 
 function CheckAnswers(answers, idTest) {
-    fetch('http://edu-testback-end.com/tests/CheckAnswers.php', {
+    fetch(config.backHost + 'tests/CheckAnswers.php', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -56,7 +57,7 @@ function CheckAnswers(answers, idTest) {
     })
         .then(response => response.json())
         .then(response => {
-            document.location.href = '/result/' + response;
+            document.location.href = config.frontHost + "result/" + response;
         })
 }
 

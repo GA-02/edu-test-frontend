@@ -1,4 +1,5 @@
 import React from 'react';
+import config from '../Config.json';
 import './style.css';
 
 class PageMain extends React.Component {
@@ -14,7 +15,7 @@ class PageMain extends React.Component {
         let dataRequest = new FormData();
         dataRequest.append('email', localStorage.getItem('email'));
         dataRequest.append('password', localStorage.getItem('password'));
-        fetch('http://edu-testback-end.com/users/GetUserData.php', {
+        fetch(config.backHost + 'users/GetUserData.php', {
             method: "POST",
             body: dataRequest
         })
@@ -22,7 +23,7 @@ class PageMain extends React.Component {
             .then(response => {
                 if (response['error']) {
                     localStorage.clear();
-                    document.location.href = '/';
+                    document.location.href = config.frontHost;
                 }
                 this.setState(() => {
                     return {
@@ -35,7 +36,7 @@ class PageMain extends React.Component {
 
     LogOutFromAccount() {
         localStorage.clear();
-        document.location.href = '/';
+        document.location.href = config.frontHost;
     }
 
     ChangePassword(event, oldPassword, newPassword, confirmNewPassword) {
@@ -50,7 +51,7 @@ class PageMain extends React.Component {
         dataRequest.append('oldPassword', oldPassword);
         dataRequest.append('newPassword', newPassword);
 
-        fetch('http://edu-testback-end.com/users/ChangePassword.php', {
+        fetch(config.backHost + 'users/ChangePassword.php', {
             method: "POST",
             body: dataRequest
         })
@@ -62,13 +63,12 @@ class PageMain extends React.Component {
                     return;
                 }
                 localStorage.clear();
-                document.location.href = '/';
+                document.location.href = config.frontHost;
             })
             .catch(error => console.log(error))
     }
 
     render() {
-        console.log(this.state.userData);
         if (!this.state.userData) {
             return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />)
         }
@@ -115,10 +115,10 @@ class PageMain extends React.Component {
                             </div>
                             <input type="submit" value="Подтвердить" />
                         </form>
-                        {this.state.userData.idRole == 1 ? <a href='/admin' className='control__button'>Перейти в админ-панель<div className='arrow' /></a> : <></>}
+                        {this.state.userData.idRole == 1 ? <a href={config.frontHost + "admin"} className='control__button'>Перейти в админ-панель<div className='arrow' /></a> : <></>}
                     </div>
                     <div className="user__results">
-                        <p className="title">Последние результаты</p> <button onClick={()=>{document.location.href='/profile/results'}}>Показать все</button>
+                        <p className="title">Последние результаты</p> <button onClick={()=>{document.location.href=config.frontHost + "profile/results"}}>Показать все</button>
                         <table>
                             <thead>
                                 <tr>
@@ -137,7 +137,7 @@ class PageMain extends React.Component {
                                         <td>{item.time}</td>
                                         <td>{item.resultScore} из {item.maxScore}</td>
                                         <td>
-                                            <a href={"/result/" + item.idResult} title="Перейти">
+                                            <a href={config.frontHost + "result/" + item.idResult} title="Перейти">
                                                 <svg className="arrow__next" viewBox="0 0 100 85">
                                                     <polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0 58.263,0.056" />
                                                 </svg>

@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { useParams } from 'react-router-dom';
 import Highlight from 'react-highlight';
+import config from '../../Config.json';
 import './style.css';
 import './vsStyleForCode.css';
 
 function GetItems(setItems, idLecture) {
     let dataRequest = new FormData();
     dataRequest.append('idLecture', +idLecture);
-    fetch('http://edu-testback-end.com/lectures/GetContentLecture.php', {
+    fetch(config.backHost + 'lectures/GetContentLecture.php', {
         method: "POST",
         body: dataRequest
     })
@@ -48,7 +49,7 @@ function PageLectureRead() {
                     {!prevLectureInChapter ?
                         <a className='navigation__item'><div className="prev" style={{ opacity: 0 }}><div className="arrow" />Предыдущая </div></a>
                         :
-                        <a className='navigation__item' href={"/lecture/" + prevLectureInChapter.idLecture}><div className="prev"><div className="arrow" />Предыдущая </div></a>}
+                        <a className='navigation__item' href={config.frontHost + "lecture/" + prevLectureInChapter.idLecture}><div className="prev"><div className="arrow" />Предыдущая </div></a>}
 
                     <span className='navigation__item'><div className="select" onClick={() => {
                         document.querySelector('.navigation .select').classList.toggle('active');
@@ -60,7 +61,7 @@ function PageLectureRead() {
                             <p className="chapter__name">{lecture.nameChapter}</p>
                             {lecture.lecturesInChapter.map((item, index) => {
                                 return (<li key={item.idLecture}>
-                                    <a href={"/lecture/" + item.idLecture} className={index == indexCurrentLectureInChapter ? 'selected' : ''}>
+                                    <a href={config.frontHost + "lecture/" + item.idLecture} className={index == indexCurrentLectureInChapter ? 'selected' : ''}>
                                         <p className="lecture__name">{item.name}</p>
                                         <p className="lecture__time">{item.timeReading} мин</p>
                                     </a>
@@ -72,7 +73,7 @@ function PageLectureRead() {
                     {!nextLectureInChapter ?
                         <a className='navigation__item'><div className="next" style={{ opacity: 0 }}>Следующая <div className="arrow" /></div></a>
                         :
-                        <a className='navigation__item' href={"/lecture/" + nextLectureInChapter.idLecture}><div className="next">Следующая <div className="arrow" /></div></a>}
+                        <a className='navigation__item' href={config.frontHost + "lecture/" + nextLectureInChapter.idLecture}><div className="next">Следующая <div className="arrow" /></div></a>}
                 </div>
                 <div className="lecture__content">
                     <div className='title'>{lecture.name}</div>
@@ -81,12 +82,12 @@ function PageLectureRead() {
                     {nextLectureInChapter ?
                         <>
                             <p className="next__name">Следующая лекция: {nextLectureInChapter.name}</p>
-                            <a className='next__start' href={"/lecture/" + String(nextLectureInChapter.idLecture)}><button>Продолжить<div className="arrow" /></button></a>
+                            <a className='next__start' href={config.frontHost + "lecture/" + String(nextLectureInChapter.idLecture)}><button>Продолжить<div className="arrow" /></button></a>
                         </>
                         :
                         <>
                             <p className="next__name">Ознакомьтесь с другими главами:</p>
-                            {lecture.moveChapter.map((item, index) => <a className='next__chapter' href={'/lecture/' + item.idStart} key={index}>{item.nameChapter}<br /></a>)}
+                            {lecture.moveChapter.map((item, index) => <a className='next__chapter' href={config.frontHost + "lecture/" + item.idStart} key={index}>{item.nameChapter}<br /></a>)}
                         </>
 
                     }

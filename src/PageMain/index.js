@@ -2,6 +2,8 @@ import React from 'react';
 import CSharpLogo from './image/c_sharp.png'
 import SectionComments from './SectionComments'
 import SectionSocialMedia from './SectionSocialMedia'
+import config from '../Config.json';
+
 
 import './style.css';
 class PageMain extends React.Component {
@@ -21,7 +23,7 @@ class PageMain extends React.Component {
                             <p className="subtitle">по дисциплине "Конструирование программ и языки программирования"</p>
                             <p className="text">
                                 Создано для обучения программированию. Ознакомляйтесь с лекциями, проходите тестирование, выполняйте лабораторные работы и становитесь настоящими программистами.</p>
-                            <a href="/lectures"><button>Начать обучение</button></a>
+                            <a href={config.frontHost + "lectures"}><button>Начать обучение</button></a>
                         </div>
                     </section>
                 </div>

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import config from '../../../Config.json';
 import './style.css';
 
 function GetItems(setItems, idTest) {
     let dataRequest = new FormData();
     dataRequest.append('idTest', +idTest);
-    fetch('http://edu-testback-end.com/tests/AdminDataTest.php', {
+    fetch(config.backHost + 'tests/AdminDataTest.php', {
         method: "POST",
         body: dataRequest
     })

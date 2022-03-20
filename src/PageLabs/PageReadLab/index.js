@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import { renderMatches, useParams } from 'react-router-dom';
 import Highlight from 'react-highlight';
+import config from '../../Config.json';
 import './style.css';
 import './vsStyleForCode.css';
 
 function GetItems(setItems, idLab) {
     let dataRequest = new FormData();
     dataRequest.append('idLab', +idLab);
-    fetch('http://edu-testback-end.com/labs/GetContentLab.php', {
+    fetch(config.backHost + 'labs/GetContentLab.php', {
         method: "POST",
         body: dataRequest
     })
@@ -23,7 +24,7 @@ function GetItems(setItems, idLab) {
                 return span.innerHTML
             })
             setItems(response);
-            document.title = "Лабораторная работа № " + response.startNumber;
+            document.title = "Лабораторная работа № " + (response.startNumber == response.endNumber ? response.startNumber : `${response.startNumber} - ${response.endNumber}`);
         })
 }
 
@@ -40,8 +41,8 @@ function PageLabRead() {
         <div className='page__lab_read'>
             <div className="site__content">
                 <div className="navigation">
-                    <a href={"/lab/" + lab.idPrevLab}><div className="prev" style={{ opacity: lab.idPrevLab ?? 0 }}><div className="arrow" />Предыдущая </div></a>
-                    <a href={"/lab/" + lab.idNextLab}><div className="next" style={{ opacity: lab.idNextLab ?? 0 }}>Следующая <div className="arrow" /></div></a>
+                    <a href={config.frontHost + "lab/" + lab.idPrevLab}><div className="prev" style={{ opacity: lab.idPrevLab ?? 0 }}><div className="arrow" />Предыдущая </div></a>
+                    <a href={config.frontHost + "lab/" + lab.idNextLab}><div className="next" style={{ opacity: lab.idNextLab ?? 0 }}>Следующая <div className="arrow" /></div></a>
                 </div>
                 <div className="lab__content">
                     <div className='title'>Лабораторная работа № {lab.startNumber == lab.endNumber ? lab.startNumber : `${lab.startNumber} - ${lab.endNumber}`}. {lab.theme}</div>
@@ -57,8 +58,6 @@ function PageLabRead() {
                         </p>
                     </div>
                     <div dangerouslySetInnerHTML={{ __html: lab.content }}></div>
-                    {// return (<Highlight className='csharp' key={index}>{str}</Highlight>);
-                    }
                 </div>
             </div>
         </div>

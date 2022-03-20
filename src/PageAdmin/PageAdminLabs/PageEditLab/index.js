@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import './style.css';
+import config from '../../../Config.json';
 
 function GetItems(setItems, idLab) {
     let dataRequest = new FormData();
     dataRequest.append('idLab', +idLab);
-    fetch('http://edu-testback-end.com/labs/AdminDataLab.php', {
+    fetch(config.backHost + 'labs/AdminDataLab.php', {
         method: "POST",
         body: dataRequest
     })
@@ -31,7 +32,7 @@ function SaveLecture(idLab, startNumber, endNumber, theme, goal, equipment, cont
     dataRequest.append('equipment', equipment);
     dataRequest.append('content', content);
     dataRequest.append('idStatus', idStatus);
-    fetch('http://edu-testback-end.com/labs/AdminSaveLab.php', {
+    fetch(config.backHost + 'labs/AdminSaveLab.php', {
         method: "POST",
         body: dataRequest
     })
@@ -74,13 +75,6 @@ function PageEditLab() {
                 <p>Тема лабораторной работы: &#160;
                     <input type="text" name="lab__theme" id='lab__theme' defaultValue={lab.theme} />
                 </p>
-                {/* <p>Глава: &#160;
-                    <select name="chapter" id='lecture__chapter' defaultValue={lecture.idChapter} >
-                        <option value="1">Введение в C#</option>
-                        <option value="2">Средний</option>
-                        <option value="3" >Сложный</option>
-                    </select>
-                </p> */}
                 <p>Номер лабораторной работы:&#160;
                     <input type="number" id='lab__start-number' defaultValue={lab.startNumber} />
                     &#160;-&#160;

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
+import config from './Config.json';
 import Header from './Header';
 import PageAdmin from './PageAdmin';
 import PageAdminUsers from './PageAdmin/PageAdminUsers/PageMain';
@@ -31,26 +32,26 @@ function App() {
       <main>
         <Router >
           <Routes>
-            <Route path='/' element={<PageMain />} />
-            <Route path='/admin' element={<PageAdmin />} />
-            <Route path='/admin/user/:id' element={<PageAdminEditUser />} />
-            <Route path='/admin/users' element={<PageAdminUsers />} />
-            <Route path='/admin/labs' element={<PageAdminLabs />} />
-            <Route path='/admin/lab/:id' element={<PageAdminEditLab />} />
-            <Route path='/admin/lecture/:id' element={<PageAdminEditLecture />} />
-            <Route path='/admin/lectures' element={<PageAdminLectures />} />
-            <Route path='/admin/chapter/:id' element={<PageAdminEditChapter />} />
-            <Route path='/admin/test/:id' element={<PageAdminEditTest />} />
-            <Route path='/admin/tests' element={<PageAdminTests />} />
-            <Route path='/lectures' element={<PageCatalogLectures />} />
-            <Route path='/lecture/:id' element={<PageReadLecture />} />
-            <Route path='/labs' element={<PageCatalogLabs />} />
-            <Route path='/lab/:id' element={<PageReadLab />} />
-            <Route path='/tests' element={<PageCatalogTests />} />
-            <Route path='/test/:id' element={<PagePassTest />} />
-            <Route path='/result/:id' element={<PageResultTest />} />
-            <Route path='/profile' element={<PageProfile />} />
-            <Route path='/profile/results' element={<PageProfileAllResults />} />
+            <Route path={config.frontHost + ''} element={<PageMain />} />
+            <Route path={config.frontHost + 'admin'} element={<PageAdmin />} />
+            <Route path={config.frontHost + 'admin/user/:id'} element={<PageAdminEditUser />} />
+            <Route path={config.frontHost + 'admin/users'} element={<PageAdminUsers />} />
+            <Route path={config.frontHost + 'admin/labs'} element={<PageAdminLabs />} />
+            <Route path={config.frontHost + 'admin/lab/:id'} element={<PageAdminEditLab />} />
+            <Route path={config.frontHost + 'admin/lecture/:id'} element={<PageAdminEditLecture />} />
+            <Route path={config.frontHost + 'admin/lectures'} element={<PageAdminLectures />} />
+            <Route path={config.frontHost + 'admin/chapter/:id'} element={<PageAdminEditChapter />} />
+            <Route path={config.frontHost + 'admin/test/:id'} element={<PageAdminEditTest />} />
+            <Route path={config.frontHost + 'admin/tests'} element={<PageAdminTests />} />
+            <Route path={config.frontHost + 'lectures'} element={<PageCatalogLectures />} />
+            <Route path={config.frontHost + 'lecture/:id'} element={<PageReadLecture />} />
+            <Route path={config.frontHost + 'labs'} element={<PageCatalogLabs />} />
+            <Route path={config.frontHost + 'lab/:id'} element={<PageReadLab />} />
+            <Route path={config.frontHost + 'tests'} element={<PageCatalogTests />} />
+            <Route path={config.frontHost + 'test/:id'} element={<PagePassTest />} />
+            <Route path={config.frontHost + 'result/:id'} element={<PageResultTest />} />
+            <Route path={config.frontHost + 'profile'} element={<PageProfile />} />
+            <Route path={config.frontHost + 'profile/results'} element={<PageProfileAllResults />} />
             <Route path="*" element={<PageError404 />} />
 
           </Routes>
