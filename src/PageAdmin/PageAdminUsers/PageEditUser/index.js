@@ -55,7 +55,8 @@ function PageEditLab() {
                     <select id='user__role' defaultValue={user.idRole} >
                         <option value="1">Администратор</option>
                         <option value="2">Пользователь</option>
-                        <option value="3" >Заблокирован</option>
+                        <option value="3">Заблокирован</option>
+                        <option value="4">Неподтверждённый</option>
                     </select>
                 </p>
                 <button className='save' onClick={() => {

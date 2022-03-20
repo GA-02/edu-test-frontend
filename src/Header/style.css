@@ -219,6 +219,24 @@ header .link__icon:hover {
   font-size: 0.95rem;
   text-align: center;
   margin-top: 5px;
+  color: #383d90;
+}
+
+.header__pop-up .window .recover:hover {
+  text-decoration: underline;
+}
+
+.header__pop-up .window .success {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.header__pop-up .window .success mark {
+  font-size: 1.2rem;
+  background: none;
+  font-weight: 700;
+  line-height: 2;
 }
 
 .header__pop-up .window .error {

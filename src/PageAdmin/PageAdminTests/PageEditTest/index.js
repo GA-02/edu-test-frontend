@@ -114,8 +114,8 @@ function PageEditTest() {
                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                             <p className="title">Вопрос №<strong>{index + 1}</strong>:</p>
-                            <textarea placeholder='Введите вопрос' defaultValue={question.nameQuestion} />
-                            <textarea placeholder='Введите код вопроса' />
+                            <textarea placeholder='Введите вопрос' id={'question__name__' + question.idQuestion} defaultValue={question.nameQuestion} />
+                            <textarea placeholder='Введите код вопроса' id={'question__code__' + question.idQuestion} defaultValue={question.codeQuestion} />
                             {(() => {
                                 switch (+question.idType) {
                                     case 1:
@@ -125,9 +125,8 @@ function PageEditTest() {
                                                     <div className='answers__item' key={answer.idAnswer}>
                                                         <input type="radio" name={'question' + index} defaultChecked={answer.isTrue == 1} />
                                                         <div className="answer__value">
-                                                            <textarea name="text" placeholder='Введите текст ответа' defaultValue={answer.nameAnswer}
-                                                                onChange={(event) => { setTest(ChangeQuestionName(test, index, i, event.target.value)) }} />
-                                                            <textarea name="code" placeholder='Введите код ответа' />
+                                                            <textarea name="text" placeholder='Введите текст ответа' id={'answer__name__' + question.idQuestion + '__' + answer.idAnswer} defaultValue={answer.nameAnswer} />
+                                                            <textarea name="code" placeholder='Введите код ответа' id={'answer__code__' + question.idQuestion + '__' + answer.idAnswer} defaultValue={answer.codeAnswer} />
                                                         </div>
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={() => { DeleteAnswer(test, setTest, index, i) }} viewBox="0 0 16 16">
                                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -141,14 +140,14 @@ function PageEditTest() {
                                     case 2:
                                         return (
                                             <div className="answers">
-                                                {question.answers.map((item, i) =>
-                                                    <div className='answers__item' key={i}>
-                                                        <input type="checkbox" name={'question' + index} defaultChecked={item.isTrue == 1} />
+                                                {question.answers.map((answer, i) =>
+                                                    <div className='answers__item' key={answer.idAnswer}>
+                                                        <input type="checkbox" name={'question' + index} defaultChecked={answer.isTrue == 1} />
                                                         <div className="answer__value">
-                                                            <textarea name="text" placeholder='Введите текст ответа' defaultValue={item.nameAnswer} />
-                                                            <textarea name="code" placeholder='Введите код ответа' />
+                                                            <textarea name="text" placeholder='Введите текст ответа' id={'answer__name__' + question.idQuestion + '__' + answer.idAnswer} defaultValue={answer.nameAnswer} />
+                                                            <textarea name="code" placeholder='Введите код ответа' id={'answer__code__' + question.idQuestion + '__' + answer.idAnswer} defaultValue={answer.codeAnswer} />
                                                         </div>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={() => { alert('1') }} viewBox="0 0 16 16">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={() => { DeleteAnswer(test, setTest, index, i) }} viewBox="0 0 16 16">
                                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
                                                             <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                                                         </svg>
@@ -161,7 +160,7 @@ function PageEditTest() {
                                         return (
                                             <div className="answer answer__string">
                                                 <p>Ответ: &#160;
-                                                    <input type="text" name={'question' + index} placeholder="Ответ" defaultValue={question.answers[0].nameAnswer} />
+                                                    <input type="text" name={'question' + index} placeholder="Ответ" id={'answer__name__' + question.idQuestion + '__' + question.answers[0].idAnswer} defaultValue={question.answers[0].nameAnswer} />
                                                 </p>
                                             </div>
                                         );
@@ -169,7 +168,7 @@ function PageEditTest() {
                                         return (
                                             <div className="answer answer__number">
                                                 <p>Ответ: &#160;
-                                                    <input type="number" name={'question' + index} placeholder="Ответ" defaultValue={question.answers[0].nameAnswer} />
+                                                    <input type="number" name={'question' + index} placeholder="Ответ" id={'answer__name__' + question.idQuestion + '__' + question.answers[0].idAnswer} defaultValue={question.answers[0].nameAnswer} />
                                                 </p>
                                             </div>
                                         );

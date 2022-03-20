@@ -154,6 +154,22 @@ header {
             font-size: 0.95rem;
             text-align: center;
             margin-top: 5px;
+            color: #383d90;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        .success{
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1rem;
+            mark{
+                font-size: 1.2rem;
+                background: none;
+                font-weight: 700;
+                line-height: 2;
+            } 
         }
         .error {
             display: flex;

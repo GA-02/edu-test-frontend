@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import siteLogo from './image/logo.png';
 import config from '../Config.json';
 import './style.css';
@@ -9,6 +10,7 @@ class Header extends React.Component {
     };
     OpenSignInPopUp() {
         document.querySelector('#header__sign-in__pop-up').style.display = 'flex';
+        document.querySelector('body').style.overflow = 'hidden';
         setTimeout(() => {
             document.querySelector('#header__sign-in__pop-up').classList.add('header__pop-up_active');
         }, 0);
@@ -17,11 +19,13 @@ class Header extends React.Component {
         document.querySelector('#header__sign-in__pop-up').classList.remove('header__pop-up_active');
         setTimeout(() => {
             document.querySelector('#header__sign-in__pop-up').style.display = 'none';
+            document.querySelector('body').style.overflow = 'auto';
         }, 400);
 
     }
     OpenRegisterPopUp() {
         document.querySelector('#header__register__pop-up').style.display = 'flex';
+        document.querySelector('body').style.overflow = 'hidden';
         setTimeout(() => {
             document.querySelector('#header__register__pop-up').classList.add('header__pop-up_active');
         }, 0);
@@ -31,6 +35,7 @@ class Header extends React.Component {
         document.querySelector('#header__register__pop-up').classList.remove('header__pop-up_active');
         setTimeout(() => {
             document.querySelector('#header__register__pop-up').style.display = 'none';
+            document.querySelector('body').style.overflow = 'auto';
         }, 400);
 
     }
@@ -62,12 +67,55 @@ class Header extends React.Component {
                 });
             })
             .catch(error => console.log(error))
-
-
-
     }
-    SubmitRegister() {
 
+    SubmitRegister(event) {
+        event.preventDefault();
+        ReactDOM.render(<>
+            <svg class='close' onClick={() => {
+                document.querySelector('#header__register__pop-up').classList.remove('header__pop-up_active');
+                setTimeout(() => {
+                    document.querySelector('#header__register__pop-up').style.display = 'none';
+                }, 400);
+            }}>
+                <line x1="0" y1="10" x2="10" y2="0" />
+                <line x1="0" y1="0" x2="10" y2="10" />
+            </svg>
+            <div class="success"><mark>Аккаунт успешно создан</mark><br /> Для завершения регистрации на указанный почтовый адрес было отправлено письмо с подтверждением</div>
+        </>, document.querySelector('#header__register__pop-up>form'));
+        // document.querySelector('#header__register__pop-up>form').innerHTML = `
+        // <svg class='close' onClick={this.CloseRegisterPopUp}>
+        //     <line x1="0" y1="10" x2="10" y2="0" />
+        //     <line x1="0" y1="0" x2="10" y2="10" />
+        // </svg>
+        // <div class="title">Аккаунт успешно создан. Для завершения регистрации на указанный почтовый адрес было отправлено письмо.</div>`;
+        return;
+        let dataMethod = new FormData();
+        dataMethod.append('email', document.querySelector("#header__sign-in__pop-up__email").value);
+        dataMethod.append('password', document.querySelector("#header__sign-in__pop-up__password").value);
+        fetch(config.backHost + 'users/SignInUser.php', {
+            method: "POST",
+            body: dataMethod
+        })
+            .then(response => response.json())
+            .then(response => {
+                if (response['error']) {
+                    document.querySelector('#header__sign-in__pop-up .error').style.display = 'flex';
+                    document.querySelector('#header__sign-in__pop-up .error>p').innerText = response['error'];
+                    return;
+                }
+                localStorage.clear();
+                document.location.reload();
+
+                localStorage.setItem('userName', response['name']);
+                localStorage.setItem('email', response['email']);
+                localStorage.setItem('password', document.querySelector("#header__sign-in__pop-up__password").value);
+                document.querySelector('#header__sign-in__pop-up').classList.remove('header__pop-up_active');
+                this.setState({
+                    userName: response['name']
+                });
+            })
+            .catch(error => console.log(error))
     }
 
     render() {
@@ -75,7 +123,7 @@ class Header extends React.Component {
             <>
                 <header>
                     <div className="site__content">
-                        <a href={config.frontHost+''}><div className='site__logo'><img src={siteLogo} /></div></a>
+                        <a href={config.frontHost + ''}><div className='site__logo'><img src={siteLogo} /></div></a>
                         <ul className='menu' type="none">
                             <li className="menu__item"><a href={config.frontHost + 'lectures'}>Лекции</a></li>
                             <li className="menu__item"><a href={config.frontHost + 'tests'}>Тесты</a></li>
@@ -108,11 +156,11 @@ class Header extends React.Component {
                             <p>Ошибка</p>
                         </div>
                         <input type='submit' value='Войти' />
-                        <a href="/ввв" className="recover">Забыли пароль?</a>
+                        <a href="/recover" className="recover">Забыли пароль?</a>
                     </form>
                 </div>
                 <div className="header__pop-up" id='header__register__pop-up' style={{ display: 'none' }}>
-                    <form className="window">
+                    <form className="window" onSubmit={this.SubmitRegister}>
                         <svg className='close' onClick={this.CloseRegisterPopUp}>
                             <line x1="0" y1="10" x2="10" y2="0" />
                             <line x1="0" y1="0" x2="10" y2="10" />
@@ -122,7 +170,7 @@ class Header extends React.Component {
                         <input type='email' required className="data__input" placeholder='Почтовый адрес' />
                         <input type='password' required minLength='5' maxLength='25' className="data__input" placeholder='Пароль' />
                         <input type='password' required minLength='5' maxLength='25' className="data__input" placeholder='Подтвердите пароль' />
-                        <div className="error">
+                        <div className="error" style={{ display: 'none' }}>
                             <svg fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
                             </svg>
