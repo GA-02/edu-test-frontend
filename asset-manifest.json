@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/edu-test-frontend/static/css/main.aef66d86.css",
-    "main.js": "/edu-test-frontend/static/js/main.204797f4.js",
+    "main.js": "/edu-test-frontend/static/js/main.786b498b.js",
     "static/js/787.b1989fe0.chunk.js": "/edu-test-frontend/static/js/787.b1989fe0.chunk.js",
     "static/media/c_sharp.png": "/edu-test-frontend/static/media/c_sharp.3d35ed97ec8f4555a7ae.png",
     "static/media/github.svg": "/edu-test-frontend/static/media/github.a2eafb2af9a1dcc15adc5435778e9625.svg",
@@ -11,11 +11,11 @@
     "static/media/telegram.svg": "/edu-test-frontend/static/media/telegram.8d2eb9eec37642dd37df1c597b57645a.svg",
     "static/media/youtube.svg": "/edu-test-frontend/static/media/youtube.2b2b4e3fb3baf30170f9b9202332d403.svg",
     "main.aef66d86.css.map": "/edu-test-frontend/static/css/main.aef66d86.css.map",
-    "main.204797f4.js.map": "/edu-test-frontend/static/js/main.204797f4.js.map",
+    "main.786b498b.js.map": "/edu-test-frontend/static/js/main.786b498b.js.map",
     "787.b1989fe0.chunk.js.map": "/edu-test-frontend/static/js/787.b1989fe0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.aef66d86.css",
-    "static/js/main.204797f4.js"
+    "static/js/main.786b498b.js"
   ]
 }
