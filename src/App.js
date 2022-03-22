@@ -20,6 +20,7 @@ import PageReadLab from './PageLabs/PageReadLab';
 import PageCatalogTests from './PageTests/PageCatalogTests';
 import PagePassTest from './PageTests/PagesPassTest/PagePassTest';
 import PageResultTest from './PageTests/PagesPassTest/PageResultTest';
+import PageConfirmRegister from './PageProfile/PageConfirmRegister';
 import PageProfile from './PageProfile';
 import PageProfileAllResults from './PageProfile/PageAllResults';
 import PageError404 from './PageError404';
@@ -50,8 +51,9 @@ function App() {
             <Route path={config.frontHost + 'tests'} element={<PageCatalogTests />} />
             <Route path={config.frontHost + 'test/:id'} element={<PagePassTest />} />
             <Route path={config.frontHost + 'result/:id'} element={<PageResultTest />} />
-            <Route path={config.frontHost + 'profile'} element={<PageProfile />} />
             <Route path={config.frontHost + 'profile/results'} element={<PageProfileAllResults />} />
+            <Route path={config.frontHost + 'profile/confirm'} element={<PageConfirmRegister />} />
+            <Route path={config.frontHost + 'profile'} element={<PageProfile />} />
             <Route path="*" element={<PageError404 />} />
 
           </Routes>

@@ -70,9 +70,40 @@ function DeleteAnswer(test, setItem, idQuestion, idAnswer) {
     newTest.questions[idQuestion].answers.splice(idAnswer, 1);
     setItem(newTest);
 }
-function ChangeQuestionName(test, idQuestion, idAnswer, newName) {
+
+function SaveTest(idTest, test) {
     let newTest = JSON.parse(JSON.stringify(test));
-    newTest.questions[idQuestion].answers[idAnswer].nameAnswer = newName;
+    console.log(newTest);
+    newTest.nameTest = document.querySelector('#nameTest').value;
+    newTest.idComplexity = document.querySelector('#idComplexityTest').value;
+    newTest.idStatus = document.querySelector('#idStatusTest').value;
+    newTest.questions.map(question => {
+        question.nameQuestion = document.querySelector('#question__name__' + question.idQuestion).value;
+        question.codeQuestion = document.querySelector('#question__code__' + question.idQuestion).value;
+        question.answers.map(answer => {
+            answer.nameAnswer = document.querySelector('#answer__name__' + question.idQuestion + '__' + answer.idAnswer).value;
+            if (!document.querySelector('#answer__code__' + question.idQuestion + '__' + answer.idAnswer)){
+                answer.codeAnswer = ''; 
+            }
+            else{
+                answer.codeAnswer = (document.querySelector('#answer__code__' + question.idQuestion + '__' + answer.idAnswer) ?? '').value;
+            }
+        })
+    })
+    fetch(config.backHost + 'tests/AdminSaveTest.php', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'idTest': idTest,
+            'test': newTest,
+        })
+    })
+        .then(response => response.text())
+        .then(response => {
+            alert(response);
+        })
     console.log(newTest);
     return newTest;
 }
@@ -94,14 +125,14 @@ function PageEditTest() {
                     <input type="text" name="nameTest" id='nameTest' defaultValue={test.nameTest} />
                 </p>
                 <p>Уровень сложности: &#160;
-                    <select name="complexity" defaultValue={test.idComplexity} >
+                    <select name="complexity" id='idComplexityTest' defaultValue={test.idComplexity} >
                         <option value="1">Легкий</option>
                         <option value="2">Средний</option>
                         <option value="3" >Сложный</option>
                     </select>
                 </p>
                 <p>Статус: &#160;
-                    <select name="status" defaultValue={test.idStatus}>
+                    <select name="status" id='idStatusTest' defaultValue={test.idStatus}>
                         <option value="1">Черновик</option>
                         <option value="2">Опубликован</option>
                     </select>
@@ -194,7 +225,7 @@ function PageEditTest() {
                         AddQuestion(test, setTest, +document.querySelector('#selectTypeQuestionForAdd').options.selectedIndex + 1);
                     }}>Добавить вопрос</button>
                 </div>
-                <button className='test__save'>Сохранить тест</button>
+                <button className='test__save' onClick={() => { SaveTest(idTest, test) }}>Сохранить тест</button>
 
             </div>
         </div >

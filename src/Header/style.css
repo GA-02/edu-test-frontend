@@ -233,6 +233,7 @@ header .link__icon:hover {
 }
 
 .header__pop-up .window .success mark {
+  color: #383d90;
   font-size: 1.2rem;
   background: none;
   font-weight: 700;
