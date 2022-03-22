@@ -68,9 +68,7 @@ function PageLectureRead() {
                 </p>
                 <p>Глава: &#160;
                     <select name="chapter" id='lecture__chapter' defaultValue={lecture.idChapter} >
-                        <option value="1">Введение в C#</option>
-                        <option value="2">Средний</option>
-                        <option value="3" >Сложный</option>
+                        {lecture.chapters.map(item=><option key={item.idChapter} value={item.idChapter}>{item.nameChapter}</option>)}
                     </select>
                 </p>
                 <p>Статус: &#160;
@@ -142,7 +140,7 @@ function PageLectureRead() {
                 </ul>
                 <textarea name="lecture__content" id="lecture__content" defaultValue={lecture.content} onKeyDown={(event) => { enableTab(event) }}></textarea>
                 <button className='save' onClick={() => {
-                    SaveLecture(idLecture, document.querySelector("#lecture__name").value, document.querySelector("#lecture__chapter").options.selectedIndex, document.querySelector("#lecture__status").options.selectedIndex, document.querySelector("#lecture__content").value)
+                    SaveLecture(idLecture, document.querySelector("#lecture__name").value, document.querySelector("#lecture__chapter").value, document.querySelector("#lecture__status").value, document.querySelector("#lecture__content").value)
                 }}>Сохранить лекцию</button>
 
             </div>

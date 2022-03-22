@@ -17,6 +17,18 @@ function GetItems(setItems) {
         })
 }
 
+function AddItem() {
+    fetch(config.backHost + 'lectures/AdminAddLecture.php', {
+        method: "GET",
+    })
+        .then(response => response.text())
+        .then(response => {
+            if (response['error'])
+                throw (response['error']);
+            document.location.href = config.frontHost + 'admin/lecture/' + response;
+        })
+}
+
 function DeleteItem(idItem, setItems) {
     let dataRequest = new FormData();
     dataRequest.append('idLecture', +idItem);
@@ -144,7 +156,7 @@ function PageAdminLectures() {
     return (
         <>
             <Table columns={columns} data={lectures} />
-            <button className='add'>+ Добавить лекцию</button>
+            <button className='add' onClick={() => { AddItem()}}>+ Добавить лекцию</button>
         </>
     )
 }
