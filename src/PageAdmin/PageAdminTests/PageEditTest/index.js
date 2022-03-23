@@ -71,9 +71,36 @@ function DeleteAnswer(test, setItem, idQuestion, idAnswer) {
     setItem(newTest);
 }
 
+
+function AddLecture(test, setItem, idQuestion) {
+    let newTest = JSON.parse(JSON.stringify(test));
+    let lectures = [...newTest.questions[idQuestion].lectures];
+    let maxID = 0;
+    lectures.forEach(item => {
+        if (maxID < +item.idString) {
+            maxID = +item.idString;
+        }
+    })
+    newTest.questions[idQuestion].lectures.push({ idString: String(maxID + 1), idLecture: test.allChapters[0].lectures[0].idLecture, idChapter: test.allChapters[0].idChapter });
+    setItem(newTest);
+}
+
+function DeleteLecture(test, setItem, idQuestion, idLecture) {
+    let newTest = JSON.parse(JSON.stringify(test));
+    newTest.questions[idQuestion].lectures.splice(idLecture, 1);
+    setItem(newTest);
+}
+
+function ChangeChapter(event, test, setItem, idQuestion, idLecture) {
+    let newTest = JSON.parse(JSON.stringify(test));
+    newTest.questions[idQuestion].lectures[idLecture].idChapter = test.allChapters[event.target.selectedIndex].idChapter;
+    newTest.questions[idQuestion].lectures[idLecture].idLecture = test.allChapters[event.target.selectedIndex].lectures[0].idLecture;
+    setItem(newTest);
+}
+
+
 function SaveTest(idTest, test) {
     let newTest = JSON.parse(JSON.stringify(test));
-    console.log(newTest);
     newTest.nameTest = document.querySelector('#nameTest').value;
     newTest.idComplexity = document.querySelector('#idComplexityTest').value;
     newTest.idStatus = document.querySelector('#idStatusTest').value;
@@ -82,12 +109,15 @@ function SaveTest(idTest, test) {
         question.codeQuestion = document.querySelector('#question__code__' + question.idQuestion).value;
         question.answers.map(answer => {
             answer.nameAnswer = document.querySelector('#answer__name__' + question.idQuestion + '__' + answer.idAnswer).value;
-            if (!document.querySelector('#answer__code__' + question.idQuestion + '__' + answer.idAnswer)){
-                answer.codeAnswer = ''; 
+            if (!document.querySelector('#answer__code__' + question.idQuestion + '__' + answer.idAnswer)) {
+                answer.codeAnswer = '';
             }
-            else{
+            else {
                 answer.codeAnswer = (document.querySelector('#answer__code__' + question.idQuestion + '__' + answer.idAnswer) ?? '').value;
             }
+        })
+        question.lectures.map(lecture => {
+            lecture.idLecture = document.querySelector('#question__lecture__' + question.idQuestion + '__' + lecture.idLecture).value;
         })
     })
     fetch(config.backHost + 'tests/AdminSaveTest.php', {
@@ -209,7 +239,29 @@ function PageEditTest() {
                             })()}
                             <hr />
                             <p className="title">Рекомендованные лекции:</p>
-                            <button className='add__lecture' onClick={() => { }}>Добавить лекцию</button>
+                            <ul className="question__lectures">
+
+                                {question.lectures.map((lecture, i) =>
+                                    <li key={lecture.idString}>
+                                        <div className="content">
+                                            <select defaultValue={lecture.idChapter} onChange={event => { ChangeChapter(event, test, setTest, index, i) }}>
+                                                {test.allChapters.map(chapter => <option value={chapter.idChapter} key={chapter.idChapter}>{chapter.nameChapter}</option>)}
+                                            </select>
+                                            <select id={'question__lecture__' + question.idQuestion + '__' + lecture.idLecture} defaultValue={lecture.idLecture}>
+                                                {test.allChapters.filter(chapter => chapter.idChapter == lecture.idChapter)[0].lectures.map(lectureChapter =>
+                                                    <option value={lectureChapter.idLecture} key={lectureChapter.idLecture}>{lectureChapter.nameLecture}</option>)
+                                                }
+                                            </select>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={() => { DeleteLecture(test, setTest, index, i) }} viewBox="0 0 16 16">
+                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                            </svg>
+                                        </div>
+                                    </li>
+                                )}
+                            </ul>
+
+                            <button className='add__lecture' onClick={() => { AddLecture(test, setTest, index) }}>Добавить лекцию</button>
 
 
                         </div>

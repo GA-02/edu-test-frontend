@@ -133,7 +133,7 @@ class PageMain extends React.Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {this.state.userData.results.map((item, index) =>
+                                    {(this.state.userData.results??[]).map((item, index) =>
                                         <tr className='result' key={index}>
                                             <td>{item.testName}</td>
                                             <td>{item.date}</td>

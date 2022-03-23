@@ -13,7 +13,7 @@
 .page__main .social-media__section .site__content .section__description {
   margin-top: 10px;
   line-height: 170%;
-  width: 500px;
+  max-width: 500px;
   font-weight: 300;
 }
 
@@ -23,10 +23,24 @@
   display: flex;
   padding-left: 150px;
   margin-top: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1200px) {
+  .page__main .social-media__section .site__content .social-media {
+    padding-left: 0;
+  }
 }
 
 .page__main .social-media__section .site__content .social-media .social-media__item {
   margin-right: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .page__main .social-media__section .site__content .social-media .social-media__item {
+    margin-right: 30px;
+  }
 }
 
 .page__main .social-media__section .site__content .social-media .social-media__item .icon {

@@ -111,18 +111,45 @@
                 @extend %templateBtn;
                 margin-left: 5px;
             }
+
+            .question__lectures{
+                li{
+                    margin-bottom: 15px;
+                }
+                .content{
+                    display: flex;
+                    align-items: center;
+                }
+
+                select{
+                    margin-right: 5px;
+                }
+                svg{
+                    cursor: pointer;
+                }
+            }
+            .add__lecture{
+                display: block;
+                margin: 0 auto;
+                @extend %templateBtn;
+            }
         }
 
         .test__save {
-            height: 30px;
-            width: 208px;
+            width: 300px;
             font-size: 1rem;
-            background-color: rgb(151, 255, 151);
-            margin: 15px 0;
-            border: 1px solid gray;
+            margin: 15px auto;
             cursor: pointer;
+            padding: 15px;
+            display: block;
+            color: #fff;
+            font-weight: 700;
+            background-color: #25b948;
+            border: 1px solid #25b948;
+
             &:hover {
-                background-color: rgb(195, 255, 195);
+                background-color: #1bb13e;
+                border-color: #1bb13e;
             }
         }
     }

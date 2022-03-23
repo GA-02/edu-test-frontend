@@ -5,7 +5,7 @@
             align-items: center;
             justify-content: space-between;
             .inscription {
-                flex: 0 0 507px;
+                flex: 0 1 507px;
                 .title {
                     font-weight: 700;
                     font-size: 3rem;
@@ -42,6 +42,9 @@
                 max-width: 1000px;
                 margin: 100px 0;
 
+        @media screen and (max-width: 1200px) {
+        display: none;
+        }
                 img {
                     width: 100%;
                     opacity: 0.8;

@@ -12,8 +12,8 @@
 
 .page__main .site__content .start__section .inscription {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 507px;
-          flex: 0 0 507px;
+      -ms-flex: 0 1 507px;
+          flex: 0 1 507px;
 }
 
 .page__main .site__content .start__section .inscription .title {
@@ -54,6 +54,12 @@
 .page__main .site__content .start__section .img__container {
   max-width: 1000px;
   margin: 100px 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .page__main .site__content .start__section .img__container {
+    display: none;
+  }
 }
 
 .page__main .site__content .start__section .img__container img {

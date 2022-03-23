@@ -32,6 +32,13 @@
           align-items: center;
 }
 
+@media screen and (max-width: 1200px) {
+  .page__main .comments__section .site__content .comments {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .page__main .comments__section .site__content .comments .comment {
   padding: 50px 5px;
   width: 200px;

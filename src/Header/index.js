@@ -155,7 +155,7 @@ class Header extends React.Component {
                             <p>Ошибка</p>
                         </div>
                         <input type='submit' value='Войти' />
-                        <a href="/recover" className="recover">Забыли пароль?</a>
+                        <a href={config.frontHost + "profile/recover"} className="recover">Забыли пароль?</a>
                     </form>
                 </div>
                 <div className="header__pop-up" id='header__register__pop-up' style={{ display: 'none' }}>

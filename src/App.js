@@ -23,6 +23,7 @@ import PageResultTest from './PageTests/PagesPassTest/PageResultTest';
 import PageConfirmRegister from './PageProfile/PageConfirmRegister';
 import PageProfile from './PageProfile';
 import PageProfileAllResults from './PageProfile/PageAllResults';
+import PageRecoverPassword from './PageProfile/PageRecoverPassword';
 import PageError404 from './PageError404';
 import Footer from './Footer';
 
@@ -53,6 +54,7 @@ function App() {
             <Route path={config.frontHost + 'result/:id'} element={<PageResultTest />} />
             <Route path={config.frontHost + 'profile/results'} element={<PageProfileAllResults />} />
             <Route path={config.frontHost + 'profile/confirm'} element={<PageConfirmRegister />} />
+            <Route path={config.frontHost + 'profile/recover'} element={<PageRecoverPassword />} />
             <Route path={config.frontHost + 'profile'} element={<PageProfile />} />
             <Route path="*" element={<PageError404 />} />
 

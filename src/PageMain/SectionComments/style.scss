@@ -3,13 +3,13 @@
         background: linear-gradient(135deg, #352663 18%, #8e366c 100%);
         padding: 70px 0;
         .site__content {
-            .section__title{
+            .section__title {
                 font-weight: 400;
                 font-size: 2rem;
                 text-align: center;
                 margin-bottom: 70px;
                 color: white;
-                mark{
+                mark {
                     background: none;
                     font-weight: 700;
                     color: rgb(255, 136, 0);
@@ -22,7 +22,9 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
+                @media screen and (max-width: 1200px) {
+                    flex-wrap: wrap;
+                }
                 .comment {
                     padding: 50px 5px;
                     width: 200px;
@@ -31,7 +33,7 @@
                     color: hsl(0, 0%, 100%);
                     margin: 0 5px;
 
-                    &:last-child{
+                    &:last-child {
                         margin-right: 0;
                     }
                     img {
@@ -68,7 +70,6 @@
                         .author__name {
                             font-size: 1.7rem;
                             font-weight: 700;
-
                         }
                         .text {
                             display: block;
@@ -80,7 +81,7 @@
 
                     &:not(.active):hover {
                         cursor: pointer;
-                        
+
                         background-color: rgba(255, 255, 255, 0.15);
                     }
                 }
