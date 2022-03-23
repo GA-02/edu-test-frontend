@@ -29,11 +29,23 @@
         justify-content: space-between;
         box-sizing: border-box;
         flex-wrap: wrap;
+
+        
+        .container-for-table{
+            width: 100%;
+            overflow: auto;
+        }
+        
         .account__info {
             width: calc(70% - 10px);
             display: flex;
             flex-direction: column;
             @extend %templateContainer;
+
+            @media screen and (max-width: 1200px) {
+                width: 100%;
+                margin-bottom: 15px;
+            }
             .title {
                 font-size: 2rem;
                 font-weight: 700;
@@ -68,6 +80,9 @@
         .account__control {
             width: calc(30% - 10px);
             background-color: white;
+            @media screen and (max-width: 1200px) {
+                width: 100%;
+            }
             .password__edit {
                 @extend %templateContainer;
 

@@ -44,6 +44,11 @@
       flex-wrap: wrap;
 }
 
+.page__profile .site__content .container-for-table {
+  width: 100%;
+  overflow: auto;
+}
+
 .page__profile .site__content .account__info {
   width: calc(70% - 10px);
   display: -webkit-box;
@@ -53,6 +58,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media screen and (max-width: 1200px) {
+  .page__profile .site__content .account__info {
+    width: 100%;
+    margin-bottom: 15px;
+  }
 }
 
 .page__profile .site__content .account__info .title {
@@ -96,6 +108,12 @@
 .page__profile .site__content .account__control {
   width: calc(30% - 10px);
   background-color: white;
+}
+
+@media screen and (max-width: 1200px) {
+  .page__profile .site__content .account__control {
+    width: 100%;
+  }
 }
 
 .page__profile .site__content .account__control .password__edit input[type="password"] {

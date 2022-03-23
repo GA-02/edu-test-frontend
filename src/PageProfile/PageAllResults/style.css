@@ -57,6 +57,11 @@
   background-color: #c8c8fd;
 }
 
+.page__profile__results .site__content .container-for-table {
+  max-width: 100%;
+  overflow: auto;
+}
+
 .page__profile__results .site__content table {
   width: 100%;
   border-collapse: collapse;

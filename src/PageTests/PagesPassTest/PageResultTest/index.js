@@ -25,9 +25,11 @@ function GetResult(setItems, idResult) {
 function PageTestResult() {
     const idResult = useParams()['id'];
     const [result, setResult] = useState();
+    const [windowWidth, setWindowWidth] = useState((window.innerWidth > 600) ? 600 : window.innerWidth);
     useEffect(() => {
         document.title = "Результат";
         GetResult(setResult, idResult);
+        window.addEventListener('resize', () => { setWindowWidth((window.innerWidth > 600) ? 600 : window.innerWidth) })
     }, [])
     if (!result) {
         return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />);
@@ -43,7 +45,7 @@ function PageTestResult() {
                         <div className="user">Дата завершения теста: <mark>{result.date}</mark></div>
                         <div className="score__title">Количество правильных ответов: </div>
                         <div className="score__value"><mark>{result.scoreResult}</mark> из {result.scoreMax} ({((+result.scoreResult / +result.scoreMax) * 100).toFixed(2)}%)</div>
-                        <PieChart width={600} height={400}>
+                        <PieChart width={windowWidth - 20} height={400}>
                             <Pie
                                 dataKey="value"
                                 data={[

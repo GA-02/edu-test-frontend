@@ -34,14 +34,16 @@ function GetUsersResults(setItems, idResult) {
 function UsersResultsChart() {
     const idResult = useParams()['id'];
     const [data, setData] = useState([]);
+    const [windowWidth, setWindowWidth] = useState((window.innerWidth > 600) ? 600 : window.innerWidth);
     useEffect(() => {
         GetUsersResults(setData, idResult);
+        window.addEventListener('resize', ()=>{setWindowWidth((window.innerWidth > 600) ? 600 : window.innerWidth)})
     }, [])
     return (
         <div className="users__result">
             <p>Результаты других пользователей:</p>
             <AreaChart
-                width={600}
+                width={windowWidth-20}
                 height={500}
                 data={data}
                 margin={{

@@ -3,9 +3,18 @@
         background-color: white;
         .main__info {
             display: flex;
+            
+            @media screen and (max-width: 1200px) {
+                width: 100%;
+                margin-bottom: 15px;
+                flex-wrap: wrap;
+            }
+            
             .result__info {
                 color: gray;
-
+                @media screen and (max-width: 1200px) {
+                    line-height: 1.7;
+                }
                 mark {
                     background: none;
                     color: #383d90;
@@ -34,6 +43,7 @@
                 flex-wrap: wrap;
                 justify-content: right;
                 align-items: center;
+                
                 p {
                     margin: 0;
                     min-width: 100%;

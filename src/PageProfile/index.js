@@ -77,28 +77,30 @@ class PageMain extends React.Component {
                 <div className="site__content">
                     <div className="account__info">
                         <p className="title">Профиль</p>
-                        <table>
-                            <tbody>
+                        <div className="container-for-table">
+                            <table>
+                                <tbody>
 
-                                <tr>
-                                    <th>Номер аккаунта</th>
-                                    <td>{this.state.userData.idUser}</td>
-                                </tr>
-                                <tr>
-                                    <th>Имя пользователя</th>
-                                    <td>{this.state.userData.userName}</td>
-                                </tr>
-                                <tr>
-                                    <th>Почтовый адрес</th>
-                                    <td>{this.state.userData.email}</td>
-                                </tr>
-                                <tr>
-                                    <th>Права доступа</th>
-                                    <td>{this.state.userData.nameRole}</td>
-                                </tr>
-                            </tbody>
+                                    <tr>
+                                        <th>Номер аккаунта</th>
+                                        <td>{this.state.userData.idUser}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Имя пользователя</th>
+                                        <td>{this.state.userData.userName}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Почтовый адрес</th>
+                                        <td>{this.state.userData.email}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Права доступа</th>
+                                        <td>{this.state.userData.nameRole}</td>
+                                    </tr>
+                                </tbody>
 
-                        </table>
+                            </table>
+                        </div>
                         <button onClick={this.LogOutFromAccount}>Выйти</button>
                     </div>
                     <div className="account__control">
@@ -118,34 +120,36 @@ class PageMain extends React.Component {
                         {this.state.userData.idRole == 1 ? <a href={config.frontHost + "admin"} className='control__button'>Перейти в админ-панель<div className='arrow' /></a> : <></>}
                     </div>
                     <div className="user__results">
-                        <p className="title">Последние результаты</p> <button onClick={()=>{document.location.href=config.frontHost + "profile/results"}}>Показать все</button>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Наименование</th>
-                                    <th>Дата</th>
-                                    <th>Время</th>
-                                    <th>Результат</th>
-                                    <th>Действия</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.state.userData.results.map((item, index) =>
-                                    <tr className='result' key={index}>
-                                        <td>{item.testName}</td>
-                                        <td>{item.date}</td>
-                                        <td>{item.time}</td>
-                                        <td>{item.resultScore} из {item.maxScore}</td>
-                                        <td>
-                                            <a href={config.frontHost + "result/" + item.idResult} title="Перейти">
-                                                <svg className="arrow__next" viewBox="0 0 100 85">
-                                                    <polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0 58.263,0.056" />
-                                                </svg>
-                                            </a>
-                                        </td>
-                                    </tr>)}
-                            </tbody>
-                        </table>
+                        <p className="title">Последние результаты</p> <button onClick={() => { document.location.href = config.frontHost + "profile/results" }}>Показать все</button>
+                        <div className="container-for-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Наименование</th>
+                                        <th>Дата</th>
+                                        <th>Время</th>
+                                        <th>Результат</th>
+                                        <th>Действия</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {this.state.userData.results.map((item, index) =>
+                                        <tr className='result' key={index}>
+                                            <td>{item.testName}</td>
+                                            <td>{item.date}</td>
+                                            <td>{item.time}</td>
+                                            <td>{item.resultScore} из {item.maxScore}</td>
+                                            <td>
+                                                <a href={config.frontHost + "result/" + item.idResult} title="Перейти">
+                                                    <svg className="arrow__next" viewBox="0 0 100 85">
+                                                        <polygon points="58.263,0.056 100,41.85 58.263,83.641 30.662,83.641 62.438,51.866 0,51.866 0,31.611 62.213,31.611 30.605,0 58.263,0.056" />
+                                                    </svg>
+                                                </a>
+                                            </td>
+                                        </tr>)}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div >

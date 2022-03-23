@@ -8,8 +8,23 @@
   display: flex;
 }
 
+@media screen and (max-width: 1200px) {
+  .page__test__result .site__content .main__info {
+    width: 100%;
+    margin-bottom: 15px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .page__test__result .site__content .main__info .result__info {
   color: gray;
+}
+
+@media screen and (max-width: 1200px) {
+  .page__test__result .site__content .main__info .result__info {
+    line-height: 1.7;
+  }
 }
 
 .page__test__result .site__content .main__info .result__info mark {

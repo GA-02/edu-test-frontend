@@ -23,6 +23,10 @@ function GetItems(setItems, idLab) {
                 ReactDOM.render(<Highlight className='CSharp'>{replacedString}</Highlight>, span);
                 return span.innerHTML
             })
+            response.content = response.content.replace(/<table[\S\s]*?>[\S\s]*?<\/table>/gi, (replacedString) => {
+                replacedString = '<div class="container-for-table">' + replacedString + '</div>';
+                return replacedString
+            })
             setItems(response);
             document.title = "Лабораторная работа № " + (response.startNumber == response.endNumber ? response.startNumber : `${response.startNumber} - ${response.endNumber}`);
         })

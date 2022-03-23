@@ -207,6 +207,11 @@ function PageEditTest() {
                                         return (<div className="unknown__question" key={index}>Ошибка</div>);
                                 }
                             })()}
+                            <hr />
+                            <p className="title">Рекомендованные лекции:</p>
+                            <button className='add__lecture' onClick={() => { }}>Добавить лекцию</button>
+
+
                         </div>
 
                     );

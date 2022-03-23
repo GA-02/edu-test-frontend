@@ -16,9 +16,45 @@
   margin-top: -5px;
 }
 
+@media screen and (max-width: 1200px) {
+  .page__lecture_read .site__content .navigation {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .page__lecture_read .site__content .navigation span.navigation__item {
+    -webkit-box-flex: 100% !important;
+        -ms-flex: 100% !important;
+            flex: 100% !important;
+  }
+}
+
 .page__lecture_read .site__content .navigation > .navigation__item {
   color: black;
   text-decoration: none;
+}
+
+.page__lecture_read .site__content .navigation > .navigation__item.for-mobile {
+  display: none !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .page__lecture_read .site__content .navigation > .navigation__item.for-mobile {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+}
+
+.page__lecture_read .site__content .navigation > .navigation__item.for-desktop {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+@media screen and (max-width: 1200px) {
+  .page__lecture_read .site__content .navigation > .navigation__item.for-desktop {
+    display: none !important;
+  }
 }
 
 .page__lecture_read .site__content .navigation > .navigation__item > div {
@@ -127,6 +163,15 @@
 .page__lecture_read .site__content .navigation > .navigation__item .select__drop-menu a .lecture__time {
   text-align: right;
   min-width: 75px;
+}
+
+.page__lecture_read .site__content .navigation > .navigation__item .select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .page__lecture_read .site__content .navigation > .navigation__item .select::after {

@@ -81,7 +81,9 @@ function PageProfileResults() {
     return (
         <div className='page__profile__results'>
             <div className="site__content">
+                <div className="container-for-table">
                 <Table columns={columns} data={results} />
+                </div>
             </div>
         </div>
     )

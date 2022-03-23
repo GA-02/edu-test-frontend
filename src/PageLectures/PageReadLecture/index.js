@@ -50,7 +50,10 @@ function PageLectureRead() {
                         <a className='navigation__item'><div className="prev" style={{ opacity: 0 }}><div className="arrow" />Предыдущая </div></a>
                         :
                         <a className='navigation__item' href={config.frontHost + "lecture/" + prevLectureInChapter.idLecture}><div className="prev"><div className="arrow" />Предыдущая </div></a>}
-
+                    {!nextLectureInChapter ?
+                        <a className='navigation__item for-mobile'><div className="next" style={{ opacity: 0 }}>Следующая <div className="arrow" /></div></a>
+                        :
+                        <a className='navigation__item for-mobile' href={config.frontHost + "lecture/" + nextLectureInChapter.idLecture}><div className="next">Следующая <div className="arrow" /></div></a>}
                     <span className='navigation__item'><div className="select" onClick={() => {
                         document.querySelector('.navigation .select').classList.toggle('active');
                         document.querySelector('.navigation .select__drop-menu').classList.toggle('active');
@@ -71,9 +74,9 @@ function PageLectureRead() {
                     </span>
 
                     {!nextLectureInChapter ?
-                        <a className='navigation__item'><div className="next" style={{ opacity: 0 }}>Следующая <div className="arrow" /></div></a>
+                        <a className='navigation__item for-desktop'><div className="next" style={{ opacity: 0 }}>Следующая <div className="arrow" /></div></a>
                         :
-                        <a className='navigation__item' href={config.frontHost + "lecture/" + nextLectureInChapter.idLecture}><div className="next">Следующая <div className="arrow" /></div></a>}
+                        <a className='navigation__item for-desktop' href={config.frontHost + "lecture/" + nextLectureInChapter.idLecture}><div className="next">Следующая <div className="arrow" /></div></a>}
                 </div>
                 <div className="lecture__content">
                     <div className='title'>{lecture.name}</div>

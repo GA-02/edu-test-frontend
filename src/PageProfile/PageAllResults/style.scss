@@ -43,6 +43,10 @@
             }
         }
 
+        .container-for-table{
+            max-width: 100%;
+            overflow: auto;
+        }
         table {
             width: 100%;
             border-collapse: collapse;

@@ -77,7 +77,7 @@
 }
 
 .page__lab_read .site__content .lab__content .title {
-  font-size: 30px;
+  font-size: 1.9rem;
   margin: 30px 0;
   font-weight: bold;
   text-align: center;
@@ -94,7 +94,7 @@
   margin-top: 20px;
   margin-bottom: 5px;
   text-align: center;
-  font-size: 20px;
+  font-size: 1.3rem;
   font-weight: bold;
 }
 
@@ -102,7 +102,7 @@
   margin-left: 15px;
   margin-top: 20px;
   margin-bottom: 5px;
-  font-size: 18px;
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
@@ -114,6 +114,12 @@
 .page__lab_read .site__content .lab__content img {
   display: block;
   margin: 0 auto;
+  max-width: 100%;
+}
+
+.page__lab_read .site__content .lab__content .container-for-table {
+  max-width: 100%;
+  overflow: auto;
 }
 
 .page__lab_read .site__content .lab__content table {

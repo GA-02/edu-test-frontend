@@ -3,42 +3,37 @@ import config from '../../Config.json';
 import './style.css';
 
 
-function ChangePassword(event, oldPassword, newPassword, confirmNewPassword) {
-    event.preventDefault();
-
-    if (newPassword != confirmNewPassword) {
-        alert('Пароли не совпадают');
-        return;
-    }
+function ConfirmEmail(idUser, key) {
     let dataRequest = new FormData();
-    dataRequest.append('email', localStorage.getItem('email'));
-    dataRequest.append('oldPassword', oldPassword);
-    dataRequest.append('newPassword', newPassword);
+    dataRequest.append('idUser', idUser);
+    dataRequest.append('key', key);
 
-    fetch(config.backHost + 'users/ChangePassword.php', {
+    fetch(config.backHost + 'users/ConfirmRegister.php', {
         method: "POST",
         body: dataRequest
     })
         .then(response => response.json())
         .then(response => {
             if (response['error']) {
-                document.querySelector('.password__edit>.error').style.display = 'flex';
-                document.querySelector('.password__edit>.error>p').innerText = response['error'];
+                if (document.querySelector('.page__profile .result').innerText == '')
+                    document.querySelector('.page__profile .result').innerText = 'При подтверждении почты возникла ошибка. Попробуйте выполнить подтверждение еще раз или обратитесь к администрации сайта.';
                 return;
             }
-            localStorage.clear();
-            document.location.href = config.frontHost;
+            document.querySelector('.page__profile .result').innerText = response['result'];
+            setTimeout(() => {
+                document.location.href = config.frontHost;
+            }, 5000);
         })
         .catch(error => console.log(error))
 }
 function PageConfirmRegister() {
     document.title = 'Профиль';
+    ConfirmEmail((new URLSearchParams(window.location.search)).get('id'), (new URLSearchParams(window.location.search)).get('key'));
     return (
         <div className='page__profile'>
             <div className="site__content">
-            <p className="title">Регистрация завершена</p>
-            {(new URLSearchParams(window.location.search)).get('id')}
-            {(new URLSearchParams(window.location.search)).get('key')}
+                <p className="result"></p>
+
             </div>
         </div >
     )
