@@ -30,7 +30,7 @@ function PageConfirmRegister() {
     document.title = 'Профиль';
     ConfirmEmail((new URLSearchParams(window.location.search)).get('id'), (new URLSearchParams(window.location.search)).get('key'));
     return (
-        <div className='page__profile'>
+        <div className='page__confirm-email'>
             <div className="site__content">
                 <p className="result"></p>
 

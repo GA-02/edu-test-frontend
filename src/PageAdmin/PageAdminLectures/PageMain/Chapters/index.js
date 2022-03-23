@@ -5,8 +5,12 @@ import config from '../../../../Config.json';
 
 
 function GetItems(setItems) {
+    let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'chapter/AdminGetAllChapters.php', {
-        method: "GET",
+        method: "POST",
+        body: dataRequest
     })
         .then(response => response.json())
         .then(response => {
@@ -17,8 +21,12 @@ function GetItems(setItems) {
 }
 
 function AddItem() {
+    let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'chapter/AdminAddChapter.php', {
-        method: "GET",
+        method: "POST",
+        body: dataRequest
     })
         .then(response => response.text())
         .then(response => {
@@ -29,8 +37,14 @@ function AddItem() {
 }
 
 function DeleteItem(idItem, setItems) {
+    let isConfirm = window.confirm("Вы уверены, что хотите удалить данную главу (id = " + idItem + ")");
+    if (!isConfirm){
+        return;
+    }
     let dataRequest = new FormData();
     dataRequest.append('idChapter', +idItem);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'chapter/AdminDeleteChapter.php', {
         method: "POST",
         body: dataRequest
@@ -45,6 +59,8 @@ function DeleteItem(idItem, setItems) {
 function MoveUpItem(idItem, setItems) {
     let dataRequest = new FormData();
     dataRequest.append('idChapter', +idItem);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'chapter/AdminMoveUpChapter.php', {
         method: "POST",
         body: dataRequest
@@ -59,6 +75,8 @@ function MoveUpItem(idItem, setItems) {
 function MoveDownItem(idItem, setItems) {
     let dataRequest = new FormData();
     dataRequest.append('idChapter', +idItem);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'chapter/AdminMoveDownChapter.php', {
         method: "POST",
         body: dataRequest

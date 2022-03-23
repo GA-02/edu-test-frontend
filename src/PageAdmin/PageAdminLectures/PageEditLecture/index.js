@@ -6,6 +6,8 @@ import './style.css';
 function GetItems(setItems, idLecture) {
     let dataRequest = new FormData();
     dataRequest.append('idLecture', +idLecture);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'lectures/AdminDataLecture.php', {
         method: "POST",
         body: dataRequest
@@ -25,6 +27,8 @@ function SaveLecture(idLecture, name, idChapter, idStatus, content) {
     dataRequest.append('idChapter', idChapter);
     dataRequest.append('idStatus', idStatus);
     dataRequest.append('content', content);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'lectures/AdminSaveLecture.php', {
         method: "POST",
         body: dataRequest

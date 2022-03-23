@@ -53,5 +53,20 @@
                 }
             }
         }
+        .add {
+            font-size: 1rem;
+            margin: 15px 0;
+            cursor: pointer;
+            padding: 1rem;
+            color: #fff;
+            font-weight: 700;
+            background-color: #25b948;
+            border: 1px solid #25b948;
+
+            &:hover {
+                background-color: #1bb13e;
+                border-color: #1bb13e;
+            }
+        }
     }
 }

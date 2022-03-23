@@ -5,8 +5,12 @@ import config from '../../../Config.json';
 
 
 function GetItems(setItems) {
+    let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'labs/AdminGetAllLabs.php', {
-        method: "GET",
+        method: "POST",
+        body: dataRequest
     })
         .then(response => response.json())
         .then(response => {
@@ -17,8 +21,12 @@ function GetItems(setItems) {
 }
 
 function AddItem() {
+    let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'labs/AdminAddLab.php', {
-        method: "GET",
+        method: "POST",
+        body: dataRequest
     })
         .then(response => response.text())
         .then(response => {
@@ -35,6 +43,8 @@ function DeleteItems(idItem, setItems) {
     }
     let dataRequest = new FormData();
     dataRequest.append('idLab', +idItem);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'labs/AdminDeleteLab.php', {
         method: "POST",
         body: dataRequest

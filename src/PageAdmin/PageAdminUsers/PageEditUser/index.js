@@ -5,6 +5,8 @@ import './style.css';
 
 function GetItems(setItems, idUser) {
     let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     dataRequest.append('idUser', +idUser);
     fetch(config.backHost + 'users/AdminDataUser.php', {
         method: "POST",
@@ -24,6 +26,8 @@ function SaveLecture(idUser, userName, email, idRole) {
     dataRequest.append('name', userName);
     dataRequest.append('email', email);
     dataRequest.append('idRole', idRole);
+    dataRequest.append('emailAdmin', localStorage.getItem('email'));
+    dataRequest.append('passwordAdmin', localStorage.getItem('password'));
     fetch(config.backHost + 'users/AdminSaveUser.php', {
         method: "POST",
         body: dataRequest

@@ -4,8 +4,12 @@ import config from '../../../../Config.json';
 import './style.css';
 
 function GetItems(setItems) {
+    let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'tests/AdminGetAllResults.php', {
-        method: "GET",
+        method: "POST",
+        body: dataRequest
     })
         .then(response => response.json())
         .then(response => {

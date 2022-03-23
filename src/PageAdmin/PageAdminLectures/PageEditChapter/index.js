@@ -7,6 +7,8 @@ import './style.css';
 function GetItems(setItems, idChapter) {
     let dataRequest = new FormData();
     dataRequest.append('idChapter', +idChapter);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'chapter/AdminDataLecture.php', {
         method: "POST",
         body: dataRequest
@@ -19,12 +21,14 @@ function GetItems(setItems, idChapter) {
         })
 }
 
-function SaveLecture(idChapter, name, description) {
+function SaveChapter(idChapter, name, description) {
     let dataRequest = new FormData();
     dataRequest.append('idChapter', +idChapter);
     dataRequest.append('nameChapter', name);
     dataRequest.append('descriptionChapter', description);
-    fetch(config.backHost + 'chapter/AdminSaveLecture.php', {
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
+    fetch(config.backHost + 'chapter/AdminSaveChapter.php', {
         method: "POST",
         body: dataRequest
     })
@@ -52,7 +56,7 @@ function PageEditChapter() {
                     <textarea name="chapter__description" id="chapter__description" defaultValue={chapter.description} />
                 </p>
                 <button className='save' onClick={() => {
-                    SaveLecture(idChapter, document.querySelector("#chapter__name").value, document.querySelector("#chapter__description").value,)
+                    SaveChapter(idChapter, document.querySelector("#chapter__name").value, document.querySelector("#chapter__description").value,)
                 }}>Сохранить главу</button>
 
             </div>

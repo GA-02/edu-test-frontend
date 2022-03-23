@@ -5,6 +5,8 @@ import './style.css';
 
 function GetItems(setItems, idTest) {
     let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     dataRequest.append('idTest', +idTest);
     fetch(config.backHost + 'tests/AdminDataTest.php', {
         method: "POST",
@@ -104,9 +106,21 @@ function SaveTest(idTest, test) {
     newTest.nameTest = document.querySelector('#nameTest').value;
     newTest.idComplexity = document.querySelector('#idComplexityTest').value;
     newTest.idStatus = document.querySelector('#idStatusTest').value;
+    if (newTest.questions.length == 0) {
+        alert('Тест должен содержать хоть 1 вопрос');
+        return;
+    }
+    let testCorrect = true;
     newTest.questions.map(question => {
         question.nameQuestion = document.querySelector('#question__name__' + question.idQuestion).value;
         question.codeQuestion = document.querySelector('#question__code__' + question.idQuestion).value;
+
+        if (question.answers.length == 0) {
+            alert('Каждый вопрос должен содержать хоть 1 ответ');
+            testCorrect = false;
+            return;
+        }
+        let questionHasCorrectAnswer = false;
         question.answers.map(answer => {
             answer.nameAnswer = document.querySelector('#answer__name__' + question.idQuestion + '__' + answer.idAnswer).value;
             if (!document.querySelector('#answer__code__' + question.idQuestion + '__' + answer.idAnswer)) {
@@ -115,11 +129,25 @@ function SaveTest(idTest, test) {
             else {
                 answer.codeAnswer = (document.querySelector('#answer__code__' + question.idQuestion + '__' + answer.idAnswer) ?? '').value;
             }
+            if ((question.idType == 1) || (question.idType == 2)) {
+                answer.isTrue = ((document.querySelector('#answer__' + question.idQuestion + '__' + answer.idAnswer)).checked ? '1':'0');
+            }
+            if (answer.isTrue == '1') {
+                questionHasCorrectAnswer = true;
+            }
+
         })
+        if (!questionHasCorrectAnswer) {
+            alert('Каждый вопрос должен содержать хоть 1 правильный ответ');
+            testCorrect = false;
+        }
         question.lectures.map(lecture => {
             lecture.idLecture = document.querySelector('#question__lecture__' + question.idQuestion + '__' + lecture.idLecture).value;
         })
     })
+    if (!testCorrect) {
+        return;
+    }
     fetch(config.backHost + 'tests/AdminSaveTest.php', {
         method: "POST",
         headers: {
@@ -128,13 +156,14 @@ function SaveTest(idTest, test) {
         body: JSON.stringify({
             'idTest': idTest,
             'test': newTest,
+            'email': localStorage.getItem('email'),
+            'password': localStorage.getItem('password')
         })
     })
         .then(response => response.text())
         .then(response => {
             alert(response);
         })
-    console.log(newTest);
     return newTest;
 }
 function PageEditTest() {
@@ -147,7 +176,6 @@ function PageEditTest() {
     if (!test) {
         return (<img className='loading' width="50px" height="50px" src="https://c.tenor.com/XK37GfbV0g8AAAAi/loading-cargando.gif" alt="loading" />)
     }
-    console.log(test);
     return (
         <div className='page__test__edit'>
             <div className="site__content">
@@ -181,10 +209,10 @@ function PageEditTest() {
                                 switch (+question.idType) {
                                     case 1:
                                         return (
-                                            <div className="answers">
+                                            <div className="answers" >
                                                 {question.answers.map((answer, i) =>
                                                     <div className='answers__item' key={answer.idAnswer}>
-                                                        <input type="radio" name={'question' + index} defaultChecked={answer.isTrue == 1} />
+                                                        <input type="radio" name={'question' + index} id={'answer__' + question.idQuestion + '__' + answer.idAnswer} defaultChecked={answer.isTrue == 1} />
                                                         <div className="answer__value">
                                                             <textarea name="text" placeholder='Введите текст ответа' id={'answer__name__' + question.idQuestion + '__' + answer.idAnswer} defaultValue={answer.nameAnswer} />
                                                             <textarea name="code" placeholder='Введите код ответа' id={'answer__code__' + question.idQuestion + '__' + answer.idAnswer} defaultValue={answer.codeAnswer} />
@@ -203,7 +231,7 @@ function PageEditTest() {
                                             <div className="answers">
                                                 {question.answers.map((answer, i) =>
                                                     <div className='answers__item' key={answer.idAnswer}>
-                                                        <input type="checkbox" name={'question' + index} defaultChecked={answer.isTrue == 1} />
+                                                        <input type="checkbox" name={'question' + index} id={'answer__' + question.idQuestion + '__' + answer.idAnswer} defaultChecked={answer.isTrue == 1} />
                                                         <div className="answer__value">
                                                             <textarea name="text" placeholder='Введите текст ответа' id={'answer__name__' + question.idQuestion + '__' + answer.idAnswer} defaultValue={answer.nameAnswer} />
                                                             <textarea name="code" placeholder='Введите код ответа' id={'answer__code__' + question.idQuestion + '__' + answer.idAnswer} defaultValue={answer.codeAnswer} />

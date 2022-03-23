@@ -5,6 +5,8 @@ import './style.css';
 
 function GetItems(setItems) {
     let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'lectures/AdminGetAllLectures.php', {
         method: "POST",
         body: dataRequest
@@ -18,8 +20,12 @@ function GetItems(setItems) {
 }
 
 function AddItem() {
+    let dataRequest = new FormData();
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'lectures/AdminAddLecture.php', {
-        method: "GET",
+        method: "POST",
+        body: dataRequest
     })
         .then(response => response.text())
         .then(response => {
@@ -30,8 +36,14 @@ function AddItem() {
 }
 
 function DeleteItem(idItem, setItems) {
+    let isConfirm = window.confirm("Вы уверены, что хотите удалить данную лекцию (id = " + idItem + ")");
+    if (!isConfirm){
+        return;
+    }
     let dataRequest = new FormData();
     dataRequest.append('idLecture', +idItem);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'lectures/AdminDeleteLecture.php', {
         method: "POST",
         body: dataRequest
@@ -46,6 +58,8 @@ function DeleteItem(idItem, setItems) {
 function MoveUpItem(idItem, setItems) {
     let dataRequest = new FormData();
     dataRequest.append('idLecture', +idItem);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'lectures/AdminMoveUpLecture.php', {
         method: "POST",
         body: dataRequest
@@ -60,6 +74,8 @@ function MoveUpItem(idItem, setItems) {
 function MoveDownItem(idItem, setItems) {
     let dataRequest = new FormData();
     dataRequest.append('idLecture', +idItem);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'lectures/AdminMoveDownLecture.php', {
         method: "POST",
         body: dataRequest

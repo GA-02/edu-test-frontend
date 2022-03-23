@@ -6,6 +6,8 @@ import config from '../../../Config.json';
 function GetItems(setItems, idLab) {
     let dataRequest = new FormData();
     dataRequest.append('idLab', +idLab);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'labs/AdminDataLab.php', {
         method: "POST",
         body: dataRequest
@@ -32,6 +34,8 @@ function SaveLecture(idLab, startNumber, endNumber, theme, goal, equipment, cont
     dataRequest.append('equipment', equipment);
     dataRequest.append('content', content);
     dataRequest.append('idStatus', idStatus);
+    dataRequest.append('email', localStorage.getItem('email'));
+    dataRequest.append('password', localStorage.getItem('password'));
     fetch(config.backHost + 'labs/AdminSaveLab.php', {
         method: "POST",
         body: dataRequest
