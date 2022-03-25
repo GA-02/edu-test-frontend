@@ -114,7 +114,8 @@ function PageTestPass() {
                                                         setAnswers(ToggleItem(answer.idAnswer, question.idQuestion, answers));
                                                     }}>
                                                     <div className="indexAnswer">{index + 1}</div>
-                                                    {answer.nameAnswer}
+                                                    {answer.nameAnswer ? answer.nameAnswer : <></>}
+                                                    {answer.codeAnswer ? <Highlight className='CSharp'>{answer.codeAnswer}</Highlight>: <></>}
                                                 </li>
                                             );
                                         })}

@@ -32,6 +32,7 @@ function SaveLecture(idLab, startNumber, endNumber, theme, goal, equipment, cont
     dataRequest.append('theme', theme);
     dataRequest.append('goal', goal);
     dataRequest.append('equipment', equipment);
+    content = content.replace('\\', '\\\\');
     dataRequest.append('content', content);
     dataRequest.append('idStatus', idStatus);
     dataRequest.append('email', localStorage.getItem('email'));
@@ -80,9 +81,9 @@ function PageEditLab() {
                     <input type="text" name="lab__theme" id='lab__theme' defaultValue={lab.theme} />
                 </p>
                 <p>Номер лабораторной работы:&#160;
-                    <input type="number" id='lab__start-number' defaultValue={lab.startNumber} />
+                    <input type="number" min="1" id='lab__start-number' defaultValue={lab.startNumber} />
                     &#160;-&#160;
-                    <input type="number" id='lab__end-number' defaultValue={lab.endNumber} />
+                    <input type="number" min="1" id='lab__end-number' defaultValue={lab.endNumber} />
 
                 </p>
                 <p>Цель: <br />

@@ -97,7 +97,7 @@
                     transition: all ease-out 350ms;
                 }
                 &.active + .chapter__lectures > .chapter__lectures__item {
-                    height: 3.5rem;
+                    height: 3.55rem;
                     transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
                     margin-bottom: 10px;
                 }
@@ -113,7 +113,8 @@
                     border-left: 3px solid #e6e6e6;
                     padding-left: 10px;
                     margin-bottom: 0px;
-                    overflow: auto;
+                    overflow-x: auto;
+                    overflow-y: hidden;
                     a {
                         color: #0065b3;
                         font-size: 1rem;

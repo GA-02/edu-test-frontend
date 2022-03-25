@@ -146,8 +146,8 @@ function PageAdminTests() {
 
         <div className="page__admin__tests" >
             <div className="site__content">
-                <Table columns={columns} data={tests} />
                 <button onClick={AddItem} className='add'>+ Добавить тест</button>
+                <Table columns={columns} data={tests} />
             </div>
         </div>
     )

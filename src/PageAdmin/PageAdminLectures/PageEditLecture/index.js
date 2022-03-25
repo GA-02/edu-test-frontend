@@ -26,6 +26,7 @@ function SaveLecture(idLecture, name, idChapter, idStatus, content) {
     dataRequest.append('nameLecture', name);
     dataRequest.append('idChapter', idChapter);
     dataRequest.append('idStatus', idStatus);
+    content = content.replace('\\', '\\\\');
     dataRequest.append('content', content);
     dataRequest.append('email', localStorage.getItem('email'));
     dataRequest.append('password', localStorage.getItem('password'));
@@ -45,6 +46,7 @@ function insertText(id, text, countCharsBack) {
     txtarea.value = finText;
     txtarea.focus();
     txtarea.selectionEnd = ((start == end) ? (end + text.length) : (start + text.length)) - countCharsBack;
+    txtarea.scrollTo(0, txtarea.value.substring(0, start).split('\n').length * 18.5);
 }
 
 function enableTab(event) {

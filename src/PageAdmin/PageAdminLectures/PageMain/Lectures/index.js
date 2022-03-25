@@ -171,8 +171,8 @@ function PageAdminLectures() {
     }
     return (
         <>
-            <Table columns={columns} data={lectures} />
             <button className='add' onClick={() => { AddItem()}}>+ Добавить лекцию</button>
+            <Table columns={columns} data={lectures} />
         </>
     )
 }

@@ -55,7 +55,7 @@ function UsersResultsChart() {
             >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" label={{ value: 'Результат', position: 'bottom', offset: 0 }} />
-                <YAxis label={{ value: `Количество пользователей`, angle: -90, position: 'center' }} />
+                <YAxis label={{ value: `Количество пользователей`, angle: -90, position: 'center', viewBox: {x: -20, y: 225, height: 0, width: 50}}} />
                 <Tooltip />
                 <Area type="monotone" dataKey="Количество пользователей" stroke="#8884d8" fill="#8884d8" />
             </AreaChart>

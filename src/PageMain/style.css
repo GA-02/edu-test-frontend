@@ -52,8 +52,14 @@
 }
 
 .page__main .site__content .start__section .img__container {
-  max-width: 1000px;
+  max-width: 900px;
   margin: 100px 0;
+}
+
+@media screen and (max-width: 1400px) {
+  .page__main .site__content .start__section .img__container {
+    max-width: 600px;
+  }
 }
 
 @media screen and (max-width: 1200px) {

@@ -131,8 +131,8 @@ function PageAdminLabs() {
     return (
         <div className="page__admin__labs" >
             <div className="site__content">
-                <Table columns={columns} data={labs} />
                 <button onClick={AddItem} className='add'>+ Добавить лабораторную работу</button>
+                <Table columns={columns} data={labs} />
             </div>
         </div>
     )
